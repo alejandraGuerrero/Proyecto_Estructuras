@@ -308,18 +308,17 @@ public class Controlador {
         }
     }
 
-    public Usuario validarUsuario(String tel, String contr) {
-
-        for (Usuario usuario1 : listausuarios) {
-            if (usuario.getTelefono().equals(usuario1.getTelefono()) && usuario.getPassword().equals(usuario1.getPassword())) {
-                return usuario1;
-            } else {
-
-                return null;
-            }
-        }
-        return null;
-    }
+   public boolean validarUsuario(String login, String passwd)
+    {
+        for(Usuario usu:listausuarios)
+        {
+            if(usu.getTelefono().equals(login) && usu.getPassword().equals(passwd))
+            {
+                return true;
+            }    
+        }    
+        return false;
+    }    
 
     public void limpiarUsuario() {
         usuario.setTelefono("");
