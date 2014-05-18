@@ -69,6 +69,7 @@ public class MDIAinicio extends javax.swing.JFrame {
         exitMenuItem = new javax.swing.JMenuItem();
         optmenu_inscribete = new javax.swing.JMenuItem();
         optmenu_ingresousuregistrado = new javax.swing.JMenuItem();
+        optmenu_ciudadano = new javax.swing.JMenuItem();
         optmenu_incidente = new javax.swing.JMenu();
         optmenu_ingresar_incidente = new javax.swing.JMenuItem();
         optmenu_actualizar_incidente = new javax.swing.JMenuItem();
@@ -171,7 +172,7 @@ public class MDIAinicio extends javax.swing.JFrame {
                     .addComponent(txt_contraseña, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addComponent(btn_ingresar)
-                .addContainerGap(51, Short.MAX_VALUE))
+                .addContainerGap(67, Short.MAX_VALUE))
         );
 
         titulo1.setFont(new java.awt.Font("Comic Sans MS", 0, 18)); // NOI18N
@@ -200,7 +201,7 @@ public class MDIAinicio extends javax.swing.JFrame {
             .addGroup(fondoLayout.createSequentialGroup()
                 .addGap(55, 55, 55)
                 .addComponent(panel_login, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 126, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 110, Short.MAX_VALUE)
                 .addComponent(titulo1, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(40, 40, 40))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, fondoLayout.createSequentialGroup()
@@ -241,6 +242,14 @@ public class MDIAinicio extends javax.swing.JFrame {
             }
         });
         optmenu_salir.add(optmenu_ingresousuregistrado);
+
+        optmenu_ciudadano.setText("Ingreso Ciudadano");
+        optmenu_ciudadano.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                optmenu_ciudadanoActionPerformed(evt);
+            }
+        });
+        optmenu_salir.add(optmenu_ciudadano);
 
         optmenu_incidente.setMnemonic('f');
         optmenu_incidente.setText("Gestionar Incidentes");
@@ -371,6 +380,15 @@ public class MDIAinicio extends javax.swing.JFrame {
         fin.show();
     }//GEN-LAST:event_optmenu_ingresousuregistradoActionPerformed
 
+    private void optmenu_ciudadanoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_optmenu_ciudadanoActionPerformed
+
+        optmenu_incidente.setEnabled(true);
+        panel_login.dispose();
+        optmenu_ingresousuregistrado.setEnabled(false);
+        optmenu_inscribete.setEnabled(false);
+// TODO add your handling code here:
+    }//GEN-LAST:event_optmenu_ciudadanoActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -427,6 +445,7 @@ public class MDIAinicio extends javax.swing.JFrame {
     private javax.swing.JTextPane jTextPane1;
     private javax.swing.JMenuBar menuBar;
     private javax.swing.JMenuItem optmenu_actualizar_incidente;
+    private javax.swing.JMenuItem optmenu_ciudadano;
     private javax.swing.JMenu optmenu_incidente;
     private javax.swing.JMenuItem optmenu_ingresar_incidente;
     private javax.swing.JMenuItem optmenu_ingresousuregistrado;

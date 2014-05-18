@@ -272,6 +272,7 @@ public class Controlador {
         incidente.setUsuario(this.usuario);
         getListaIncidentes().add(incidente);
         incidente = new Incidente();
+        
 
         for (Incidente inci : listaIncidentes) {
 

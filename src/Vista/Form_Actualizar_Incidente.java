@@ -47,6 +47,7 @@ public class Form_Actualizar_Incidente extends javax.swing.JInternalFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         tableListaIncidente = new javax.swing.JTable();
         jLabel1 = new javax.swing.JLabel();
+        btnlistainci = new javax.swing.JButton();
 
         setClosable(true);
         setIconifiable(true);
@@ -84,22 +85,36 @@ public class Form_Actualizar_Incidente extends javax.swing.JInternalFrame {
         jLabel1.setForeground(new java.awt.Color(153, 0, 153));
         jLabel1.setText("LISTA COMPLETA DE INCIDENTES");
 
+        btnlistainci.setText("jButton1");
+        btnlistainci.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnlistainciActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(256, 256, 256)
-                .addComponent(jLabel1)
-                .addContainerGap(329, Short.MAX_VALUE))
             .addComponent(jScrollPane1)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(256, 256, 256)
+                        .addComponent(jLabel1))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(361, 361, 361)
+                        .addComponent(btnlistainci)))
+                .addContainerGap(329, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addGap(26, 26, 26)
                 .addComponent(jLabel1)
-                .addGap(73, 73, 73)
+                .addGap(18, 18, 18)
+                .addComponent(btnlistainci)
+                .addGap(32, 32, 32)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 231, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(136, Short.MAX_VALUE))
         );
@@ -120,6 +135,28 @@ public class Form_Actualizar_Incidente extends javax.swing.JInternalFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void btnlistainciActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnlistainciActionPerformed
+
+        // TODO add your handling code here:
+        if (!getControlador().getListaIncidentes().isEmpty()) {
+            JOptionPane.showMessageDialog(null, "Se tienen " + getControlador().getListaIncidentes().size() + " Incidentes Registrados");
+            tableListaIncidente.removeAll();
+
+            DefaultTableModel lstIncidente = (DefaultTableModel) tableListaIncidente.getModel();
+
+            int rowCount = lstIncidente.getRowCount();
+            for (int i = 0; i < rowCount; i++) {
+                lstIncidente.removeRow(i);
+            }
+            for (int i = 0; i < getControlador().getListaIncidentes().size(); i++) {
+                lstIncidente.addRow(new Object[]{getControlador().getListaIncidentes().get(i).getInc_codigoIncidente(), getControlador().getListaIncidentes().get(i).getInc_descripcionIncidente(), getControlador().getListaIncidentes().get(i).getInc_fechaIncidente(), getControlador().getListaIncidentes().get(i).getUsuario().getTelefono(), getControlador().getListaIncidentes().get(i).getTipo_incidente().getTipinc_descripcion(), getControlador().getListaIncidentes().get(i).getBarrio().getBar_nombre()});
+            }
+        } else {
+            JOptionPane.showMessageDialog(null, "No tiene Se Tienen Incidentes");
+        }
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnlistainciActionPerformed
+
     public void cargarTabla() {
         tableListaIncidente.removeAll();
 
@@ -135,6 +172,7 @@ public class Form_Actualizar_Incidente extends javax.swing.JInternalFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnlistainci;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
