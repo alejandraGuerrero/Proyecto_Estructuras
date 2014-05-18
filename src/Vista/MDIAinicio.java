@@ -3,7 +3,6 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package Vista;
 
 import Controlador.Controlador;
@@ -25,15 +24,14 @@ public class MDIAinicio extends javax.swing.JFrame {
     public void setControlador(Controlador controlador) {
         this.controlador = controlador;
     }
-    
-    
+
     /**
      * Creates new form MDIAinicio
      */
     public MDIAinicio() {
-       initComponents();
-       controlador = new Controlador();
-       
+        initComponents();
+        controlador = new Controlador();
+
     }
 
     /**
@@ -48,6 +46,9 @@ public class MDIAinicio extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
+        jMenuBar1 = new javax.swing.JMenuBar();
+        jMenu1 = new javax.swing.JMenu();
+        jMenu2 = new javax.swing.JMenu();
         desktopPane = new javax.swing.JDesktopPane();
         fondo = new javax.swing.JPanel();
         panel_login = new javax.swing.JInternalFrame();
@@ -58,15 +59,24 @@ public class MDIAinicio extends javax.swing.JFrame {
         btn_ingresar = new javax.swing.JButton();
         menuBar = new javax.swing.JMenuBar();
         optmenu_salir = new javax.swing.JMenu();
-        optmenu_incidente = new javax.swing.JMenuItem();
         exitMenuItem = new javax.swing.JMenuItem();
         optmenu_inscribete = new javax.swing.JMenuItem();
+        optmenu_incidente = new javax.swing.JMenu();
+        optmenu_ingresar_incidente = new javax.swing.JMenuItem();
+        optmenu_actualizar_incidente = new javax.swing.JMenuItem();
+        optmenu_reportes = new javax.swing.JMenuItem();
 
         jLabel1.setText("jLabel1");
 
         jButton1.setText("jButton1");
 
         jButton2.setText("jButton2");
+
+        jMenu1.setText("File");
+        jMenuBar1.add(jMenu1);
+
+        jMenu2.setText("Edit");
+        jMenuBar1.add(jMenu2);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -121,7 +131,7 @@ public class MDIAinicio extends javax.swing.JFrame {
                     .addComponent(txt_contraseña, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addComponent(btn_ingresar)
-                .addContainerGap(74, Short.MAX_VALUE))
+                .addContainerGap(29, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout fondoLayout = new javax.swing.GroupLayout(fondo);
@@ -129,16 +139,16 @@ public class MDIAinicio extends javax.swing.JFrame {
         fondoLayout.setHorizontalGroup(
             fondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(fondoLayout.createSequentialGroup()
-                .addGap(43, 43, 43)
+                .addGap(52, 52, 52)
                 .addComponent(panel_login, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(271, Short.MAX_VALUE))
+                .addContainerGap(262, Short.MAX_VALUE))
         );
         fondoLayout.setVerticalGroup(
             fondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(fondoLayout.createSequentialGroup()
-                .addGap(42, 42, 42)
+                .addGap(41, 41, 41)
                 .addComponent(panel_login, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(198, Short.MAX_VALUE))
+                .addContainerGap(244, Short.MAX_VALUE))
         );
 
         desktopPane.add(fondo);
@@ -146,11 +156,6 @@ public class MDIAinicio extends javax.swing.JFrame {
 
         optmenu_salir.setMnemonic('f');
         optmenu_salir.setText("Inicio");
-
-        optmenu_incidente.setMnemonic('o');
-        optmenu_incidente.setText("Incidente");
-        optmenu_incidente.setEnabled(false);
-        optmenu_salir.add(optmenu_incidente);
 
         exitMenuItem.setMnemonic('x');
         exitMenuItem.setText("Salir");
@@ -169,6 +174,33 @@ public class MDIAinicio extends javax.swing.JFrame {
             }
         });
         optmenu_salir.add(optmenu_inscribete);
+
+        optmenu_incidente.setMnemonic('f');
+        optmenu_incidente.setText("Gestionar Incidentes");
+        optmenu_incidente.setEnabled(false);
+
+        optmenu_ingresar_incidente.setMnemonic('o');
+        optmenu_ingresar_incidente.setText("Ingresar Incidente");
+        optmenu_incidente.add(optmenu_ingresar_incidente);
+
+        optmenu_actualizar_incidente.setMnemonic('o');
+        optmenu_actualizar_incidente.setText("Actualizar Incidente");
+        optmenu_actualizar_incidente.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                optmenu_actualizar_incidenteActionPerformed(evt);
+            }
+        });
+        optmenu_incidente.add(optmenu_actualizar_incidente);
+
+        optmenu_reportes.setText("Reportes");
+        optmenu_reportes.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                optmenu_reportesActionPerformed(evt);
+            }
+        });
+        optmenu_incidente.add(optmenu_reportes);
+
+        optmenu_salir.add(optmenu_incidente);
 
         menuBar.add(optmenu_salir);
 
@@ -199,28 +231,38 @@ public class MDIAinicio extends javax.swing.JFrame {
     private void btn_ingresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_ingresarActionPerformed
 
         // TODO add your handling code here:
-         if(getControlador().validarUsuario(txt_usuario.getText(), txt_contraseña.getText()))
-        {
-//            panel_login.dispose();
+        if (getControlador().validarUsuario(txt_usuario.getText(), txt_contraseña.getText())) {
+
+            panel_login.dispose();
             optmenu_incidente.setEnabled(true);
             JOptionPane.showMessageDialog(this, "Bienvenido");
-            
+
+        } else {
+            if (txt_usuario.getText().equals("") || txt_contraseña.getText().equals("")) {
+                JOptionPane.showMessageDialog(this, "Debe diligencias todos los campos");
+            } else {
+                JOptionPane.showMessageDialog(this, "El usuario ingresado no existe");
+            }
         }
-        else
-        {
-            JOptionPane.showMessageDialog(this, "El usuario ingresado no existe");
-        }    
-        
+
     }//GEN-LAST:event_btn_ingresarActionPerformed
 
     private void optmenu_inscribeteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_optmenu_inscribeteActionPerformed
 
         panel_login.dispose();
-        Form_Principal prin = new Form_Principal();
+        Form_Inscribirse prin = new Form_Inscribirse();
         fondo.add(prin);
         prin.show();
-       // TODO add your handling code here:
+        // TODO add your handling code here:
     }//GEN-LAST:event_optmenu_inscribeteActionPerformed
+
+    private void optmenu_actualizar_incidenteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_optmenu_actualizar_incidenteActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_optmenu_actualizar_incidenteActionPerformed
+
+    private void optmenu_reportesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_optmenu_reportesActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_optmenu_reportesActionPerformed
 
     /**
      * @param args the command line arguments
@@ -267,9 +309,15 @@ public class MDIAinicio extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JMenu jMenu1;
+    private javax.swing.JMenu jMenu2;
+    private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuBar menuBar;
-    private javax.swing.JMenuItem optmenu_incidente;
+    private javax.swing.JMenuItem optmenu_actualizar_incidente;
+    private javax.swing.JMenu optmenu_incidente;
+    private javax.swing.JMenuItem optmenu_ingresar_incidente;
     private javax.swing.JMenuItem optmenu_inscribete;
+    private javax.swing.JMenuItem optmenu_reportes;
     private javax.swing.JMenu optmenu_salir;
     private javax.swing.JInternalFrame panel_login;
     private javax.swing.JPasswordField txt_contraseña;

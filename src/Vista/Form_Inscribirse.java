@@ -13,12 +13,12 @@ import javax.swing.table.DefaultTableModel;
  *
  * @author Lenovo
  */
-public class Form_Principal extends javax.swing.JInternalFrame {
+public class Form_Inscribirse extends javax.swing.JInternalFrame {
 
     /**
      * Creates new form JIPrincipal
      */
-    public Form_Principal() {
+    public Form_Inscribirse() {
         initComponents();
     }
     private Controlador controlador = new Controlador();
@@ -185,6 +185,8 @@ public class Form_Principal extends javax.swing.JInternalFrame {
             } else {
                 JOptionPane.showMessageDialog(this, "El usuario ha sido registrado");
                 this.dispose();
+                MDIAinicio mm = new MDIAinicio();
+              
             }
 
         } else {
