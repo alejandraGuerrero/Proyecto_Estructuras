@@ -30,9 +30,9 @@ public class MDIAinicio extends javax.swing.JFrame {
      * Creates new form MDIAinicio
      */
     public MDIAinicio() {
-        initComponents();
+       initComponents();
        controlador = new Controlador();
-        
+       
     }
 
     /**
@@ -46,7 +46,9 @@ public class MDIAinicio extends javax.swing.JFrame {
 
         jLabel1 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
+        jButton2 = new javax.swing.JButton();
         desktopPane = new javax.swing.JDesktopPane();
+        fondo = new javax.swing.JPanel();
         panel_login = new javax.swing.JInternalFrame();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
@@ -62,6 +64,8 @@ public class MDIAinicio extends javax.swing.JFrame {
         jLabel1.setText("jLabel1");
 
         jButton1.setText("jButton1");
+
+        jButton2.setText("jButton2");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -89,20 +93,19 @@ public class MDIAinicio extends javax.swing.JFrame {
         panel_loginLayout.setHorizontalGroup(
             panel_loginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panel_loginLayout.createSequentialGroup()
+                .addGap(27, 27, 27)
                 .addGroup(panel_loginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(panel_loginLayout.createSequentialGroup()
-                        .addGap(27, 27, 27)
-                        .addGroup(panel_loginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel2)
-                            .addComponent(jLabel3))
-                        .addGap(21, 21, 21)
-                        .addGroup(panel_loginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(txt_usuario, javax.swing.GroupLayout.DEFAULT_SIZE, 127, Short.MAX_VALUE)
-                            .addComponent(txt_contraseña)))
-                    .addGroup(panel_loginLayout.createSequentialGroup()
-                        .addGap(93, 93, 93)
-                        .addComponent(btn_ingresar)))
-                .addContainerGap(26, Short.MAX_VALUE))
+                    .addComponent(jLabel2)
+                    .addComponent(jLabel3))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(panel_loginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(txt_usuario, javax.swing.GroupLayout.DEFAULT_SIZE, 121, Short.MAX_VALUE)
+                    .addComponent(txt_contraseña))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(panel_loginLayout.createSequentialGroup()
+                .addGap(93, 93, 93)
+                .addComponent(btn_ingresar)
+                .addContainerGap(94, Short.MAX_VALUE))
         );
         panel_loginLayout.setVerticalGroup(
             panel_loginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -117,11 +120,28 @@ public class MDIAinicio extends javax.swing.JFrame {
                     .addComponent(txt_contraseña, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addComponent(btn_ingresar)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(74, Short.MAX_VALUE))
         );
 
-        desktopPane.add(panel_login);
-        panel_login.setBounds(50, 40, 280, 180);
+        javax.swing.GroupLayout fondoLayout = new javax.swing.GroupLayout(fondo);
+        fondo.setLayout(fondoLayout);
+        fondoLayout.setHorizontalGroup(
+            fondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(fondoLayout.createSequentialGroup()
+                .addGap(43, 43, 43)
+                .addComponent(panel_login, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(271, Short.MAX_VALUE))
+        );
+        fondoLayout.setVerticalGroup(
+            fondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(fondoLayout.createSequentialGroup()
+                .addGap(42, 42, 42)
+                .addComponent(panel_login, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(198, Short.MAX_VALUE))
+        );
+
+        desktopPane.add(fondo);
+        fondo.setBounds(0, 0, 590, 460);
 
         optmenu_salir.setMnemonic('f');
         optmenu_salir.setText("Inicio");
@@ -157,11 +177,11 @@ public class MDIAinicio extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(desktopPane, javax.swing.GroupLayout.DEFAULT_SIZE, 400, Short.MAX_VALUE)
+            .addComponent(desktopPane, javax.swing.GroupLayout.DEFAULT_SIZE, 588, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(desktopPane, javax.swing.GroupLayout.DEFAULT_SIZE, 279, Short.MAX_VALUE)
+            .addComponent(desktopPane, javax.swing.GroupLayout.DEFAULT_SIZE, 456, Short.MAX_VALUE)
         );
 
         pack();
@@ -180,7 +200,7 @@ public class MDIAinicio extends javax.swing.JFrame {
         // TODO add your handling code here:
          if(getControlador().validarUsuario(txt_usuario.getText(), txt_contraseña.getText()))
         {
-            panel_login.dispose();
+//            panel_login.dispose();
             optmenu_incidente.setEnabled(true);
             JOptionPane.showMessageDialog(this, "Bienvenido");
             
@@ -193,8 +213,11 @@ public class MDIAinicio extends javax.swing.JFrame {
     }//GEN-LAST:event_btn_ingresarActionPerformed
 
     private void optmenu_inscribeteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_optmenu_inscribeteActionPerformed
-        
-        
+
+        panel_login.dispose();
+        Form_Principal prin = new Form_Principal();
+        fondo.add(prin);
+        prin.show();
        // TODO add your handling code here:
     }//GEN-LAST:event_optmenu_inscribeteActionPerformed
 
@@ -237,7 +260,9 @@ public class MDIAinicio extends javax.swing.JFrame {
     private javax.swing.JButton btn_ingresar;
     private javax.swing.JDesktopPane desktopPane;
     private javax.swing.JMenuItem exitMenuItem;
+    private javax.swing.JPanel fondo;
     private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

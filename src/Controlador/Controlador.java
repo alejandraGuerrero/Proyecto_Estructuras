@@ -294,19 +294,23 @@ public class Controlador {
 
     }
 
-    public void RegistrarUsuario() {
-        System.out.println("past " + password);
-        System.out.println("past " + password2);
+    public boolean RegistrarUsuario(String nombre,String telefono, String direccion,String password,String password2) {
         if (password.equals(password2)) {
             usuario.setPassword(password);
+            usuario.setUsu_nombre(nombre);
+            usuario.setTelefono(telefono);
+            usuario.setUsu_direccion(direccion);
+            usuario.setUsu_fechaRegistro(new  Date());
             listausuarios.add(usuario);
-            System.out.println("El usuario ha sido ingresado con exito");
-            for (Usuario usuario1 : listausuarios) {
-                System.out.println("nombres " + usuario1.getUsu_nombre());
+            return true;
             }
+        else{
+        
             limpiarUsuario();
-        }
+            return false;
+        } 
     }
+        
 
    public boolean validarUsuario(String login, String passwd)
     {
