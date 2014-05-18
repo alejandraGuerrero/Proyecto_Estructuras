@@ -314,6 +314,8 @@ public class Controlador {
 
    public boolean validarUsuario(String login, String passwd)
     {
+        Controlador cont = new Controlador();
+        cont.CargarUsuarios();
         for(Usuario usu:listausuarios)
         {
             if(usu.getTelefono().equals(login) && usu.getPassword().equals(passwd))

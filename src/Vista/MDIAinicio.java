@@ -62,18 +62,13 @@ public class MDIAinicio extends javax.swing.JFrame {
         txt_contraseña = new javax.swing.JPasswordField();
         btn_ingresar = new javax.swing.JButton();
         jLabel4 = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
-        jLabel7 = new javax.swing.JLabel();
-        jLabel8 = new javax.swing.JLabel();
-        jLabel9 = new javax.swing.JLabel();
-        jLabel10 = new javax.swing.JLabel();
-        jLabel11 = new javax.swing.JLabel();
-        jLabel12 = new javax.swing.JLabel();
+        titulo1 = new javax.swing.JLabel();
         jLabel13 = new javax.swing.JLabel();
         menuBar = new javax.swing.JMenuBar();
         optmenu_salir = new javax.swing.JMenu();
         exitMenuItem = new javax.swing.JMenuItem();
         optmenu_inscribete = new javax.swing.JMenuItem();
+        optmenu_ingresousuregistrado = new javax.swing.JMenuItem();
         optmenu_incidente = new javax.swing.JMenu();
         optmenu_ingresar_incidente = new javax.swing.JMenuItem();
         optmenu_actualizar_incidente = new javax.swing.JMenuItem();
@@ -176,26 +171,12 @@ public class MDIAinicio extends javax.swing.JFrame {
                     .addComponent(txt_contraseña, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addComponent(btn_ingresar)
-                .addContainerGap(52, Short.MAX_VALUE))
+                .addContainerGap(128, Short.MAX_VALUE))
         );
 
-        jLabel6.setFont(new java.awt.Font("Comic Sans MS", 0, 18)); // NOI18N
-        jLabel6.setForeground(new java.awt.Color(153, 0, 153));
-        jLabel6.setText("SISTEMA DE REGISTRO DE INCIDENTES");
-
-        jLabel7.setFont(new java.awt.Font("Comic Sans MS", 0, 12)); // NOI18N
-        jLabel7.setForeground(new java.awt.Color(153, 0, 153));
-        jLabel7.setText("Objetivo:");
-
-        jLabel8.setText("El sistema de información  para el fomento de la ");
-
-        jLabel9.setText("cultura ciudadana, corresponde a un sistema de información");
-
-        jLabel10.setText("a través del cual han de ínter actuar los ciudadanos");
-
-        jLabel11.setText("con la secretaría de Gobierno,  en este sistema se registran");
-
-        jLabel12.setText("situaciones consideradas sucesos.");
+        titulo1.setFont(new java.awt.Font("Comic Sans MS", 0, 18)); // NOI18N
+        titulo1.setForeground(new java.awt.Color(153, 0, 153));
+        titulo1.setText("SISTEMA DE REGISTRO DE INCIDENTES");
 
         jLabel13.setIcon(new javax.swing.ImageIcon("C:\\Users\\Waldo\\Desktop\\logo.png")); // NOI18N
 
@@ -206,55 +187,31 @@ public class MDIAinicio extends javax.swing.JFrame {
             .addGroup(fondoLayout.createSequentialGroup()
                 .addGroup(fondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(fondoLayout.createSequentialGroup()
-                        .addGap(143, 143, 143)
-                        .addComponent(jLabel6))
+                        .addGap(126, 126, 126)
+                        .addComponent(panel_login, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(fondoLayout.createSequentialGroup()
-                        .addGap(24, 24, 24)
-                        .addComponent(panel_login, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addGroup(fondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel8)
-                            .addComponent(jLabel9)
-                            .addComponent(jLabel10)
-                            .addComponent(jLabel11)
-                            .addComponent(jLabel12)
-                            .addGroup(fondoLayout.createSequentialGroup()
-                                .addGap(82, 82, 82)
-                                .addComponent(jLabel7))
-                            .addGroup(fondoLayout.createSequentialGroup()
-                                .addGap(31, 31, 31)
-                                .addComponent(jLabel13)))))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(20, 20, 20)
+                        .addComponent(titulo1)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 45, Short.MAX_VALUE)
+                .addComponent(jLabel13)
+                .addGap(23, 23, 23))
         );
         fondoLayout.setVerticalGroup(
             fondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(fondoLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel6)
-                .addGroup(fondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(fondoLayout.createSequentialGroup()
-                        .addGap(33, 33, 33)
-                        .addComponent(jLabel7)
-                        .addGap(18, 18, 18)
-                        .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel9)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel10)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel11)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel12)
-                        .addGap(27, 27, 27)
-                        .addComponent(jLabel13))
-                    .addGroup(fondoLayout.createSequentialGroup()
-                        .addGap(48, 48, 48)
-                        .addComponent(panel_login, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(119, Short.MAX_VALUE))
+                .addGap(55, 55, 55)
+                .addComponent(panel_login, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 29, Short.MAX_VALUE)
+                .addComponent(titulo1, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(40, 40, 40))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, fondoLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel13)
+                .addContainerGap())
         );
 
         desktopPane.add(fondo);
-        fondo.setBounds(0, 0, 630, 460);
+        fondo.setBounds(0, 0, 660, 460);
 
         optmenu_salir.setMnemonic('f');
         optmenu_salir.setText("Inicio");
@@ -276,6 +233,15 @@ public class MDIAinicio extends javax.swing.JFrame {
             }
         });
         optmenu_salir.add(optmenu_inscribete);
+
+        optmenu_ingresousuregistrado.setText("Ingreso Usuario Registrado");
+        optmenu_ingresousuregistrado.setEnabled(false);
+        optmenu_ingresousuregistrado.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                optmenu_ingresousuregistradoActionPerformed(evt);
+            }
+        });
+        optmenu_salir.add(optmenu_ingresousuregistrado);
 
         optmenu_incidente.setMnemonic('f');
         optmenu_incidente.setText("Gestionar Incidentes");
@@ -317,11 +283,11 @@ public class MDIAinicio extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(desktopPane, javax.swing.GroupLayout.DEFAULT_SIZE, 624, Short.MAX_VALUE)
+            .addComponent(desktopPane, javax.swing.GroupLayout.DEFAULT_SIZE, 658, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(desktopPane, javax.swing.GroupLayout.DEFAULT_SIZE, 456, Short.MAX_VALUE)
+            .addComponent(desktopPane, javax.swing.GroupLayout.DEFAULT_SIZE, 482, Short.MAX_VALUE)
         );
 
         pack();
@@ -358,6 +324,7 @@ public class MDIAinicio extends javax.swing.JFrame {
     private void optmenu_inscribeteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_optmenu_inscribeteActionPerformed
 
         panel_login.dispose();
+        optmenu_ingresousuregistrado.setEnabled(true);
         Form_Inscribirse prin = new Form_Inscribirse();
         fondo.add(prin);
         prin.show();
@@ -382,6 +349,14 @@ public class MDIAinicio extends javax.swing.JFrame {
     private void txt_contraseñaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_contraseñaActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txt_contraseñaActionPerformed
+
+    private void optmenu_ingresousuregistradoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_optmenu_ingresousuregistradoActionPerformed
+        // TODO add your handling code here:
+        panel_login.dispose();
+        Form_Ingresar fin = new Form_Ingresar();
+        fondo.add(fin);
+        fin.show();
+    }//GEN-LAST:event_optmenu_ingresousuregistradoActionPerformed
 
     /**
      * @param args the command line arguments
@@ -426,18 +401,11 @@ public class MDIAinicio extends javax.swing.JFrame {
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel10;
-    private javax.swing.JLabel jLabel11;
-    private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel jLabel9;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenuBar jMenuBar1;
@@ -448,10 +416,12 @@ public class MDIAinicio extends javax.swing.JFrame {
     private javax.swing.JMenuItem optmenu_actualizar_incidente;
     private javax.swing.JMenu optmenu_incidente;
     private javax.swing.JMenuItem optmenu_ingresar_incidente;
+    private javax.swing.JMenuItem optmenu_ingresousuregistrado;
     private javax.swing.JMenuItem optmenu_inscribete;
     private javax.swing.JMenuItem optmenu_reportes;
     private javax.swing.JMenu optmenu_salir;
     private javax.swing.JInternalFrame panel_login;
+    private javax.swing.JLabel titulo1;
     private javax.swing.JPasswordField txt_contraseña;
     private javax.swing.JTextField txt_usuario;
     // End of variables declaration//GEN-END:variables
