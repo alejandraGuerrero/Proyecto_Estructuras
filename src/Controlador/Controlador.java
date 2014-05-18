@@ -2384,15 +2384,51 @@ public class Controlador {
         return listabarrios;
     }
     
-    public int buscarComuna(String strcomuna) {
+    public  int buscarComuna(String strcomuna){
 
-        for (Comuna tmpcomuna : listacomunas) {
-            if (tmpcomuna.getCom_nombre().equals(strcomuna)) {
-                return tmpcomuna.getCom_codigo();
+        for (Comuna comuna : listacomunas) {
+            if (comuna.getCom_nombre().equals(strcomuna)) {
+                System.out.println("nombre comuna = " + comuna.getCom_nombre());
+                System.out.println("codigo comuna = " + comuna.getCom_codigo());
+             return comuna.getCom_codigo();
             }
         }
-        return 1;
+        return  1;
     }
+    public  int buscarBarrio(String strbarrio){
+
+        for (Barrio barrio : listabarrios) {
+            if (barrio.getBar_nombre().equals(strbarrio)) {
+                System.out.println("nombre barrio = " + barrio.getBar_nombre());
+                System.out.println("codigo barrio = " + barrio.getBar_codigo());
+             return barrio.getBar_codigo();
+            }
+        }
+        return  1;
+    }
+    public  int buscarTipoIncidente(String strtipoincidente){
+
+        for (TipoInscidente tipoinci : listaTipoInscidentes) {
+            if (tipoinci.getTipinc_descripcion().equals(strtipoincidente)) {
+                System.out.println("nombre Tipo Inscidente = " + tipoinci.getTipinc_descripcion());
+                System.out.println("codigo Tipo Inscidente = " + tipoinci.getTipinc_codigo());
+             return tipoinci.getTipinc_codigo();
+            }
+        }
+        return  1;
+    }
+    public  int buscarTipoIngresoIncidente(String strtipoingresoincidente){
+
+        for (TipoIngresoInsidente tipoingreinci : listatipoingresoincidente) {
+            if (tipoingreinci.getTii_descripcion().equals(strtipoingresoincidente)) {
+                System.out.println("nombre Tipo Inscidente = " + tipoingreinci.getTii_descripcion());
+                System.out.println("codigo Tipo Inscidente = " + tipoingreinci.getTii_codigo());
+             return tipoingreinci.getTii_codigo();
+            }
+        }
+        return  1;
+    }
+    
 
     public String CargarComunas() {
         comuna.setCom_codigo(1);
@@ -2455,5 +2491,6 @@ public class Controlador {
 
         return null;
     }
+      
 
 }
