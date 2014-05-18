@@ -74,7 +74,6 @@
                       <EmptySpace min="-2" pref="63" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
                           <Component id="combo_tipo_incidente" alignment="0" max="32767" attributes="0"/>
-                          <Component id="txt_fecha_incidente" alignment="0" max="32767" attributes="0"/>
                           <Component id="combo_tipoingreso_incidente" alignment="0" max="32767" attributes="0"/>
                           <Component id="jScrollPane1" alignment="0" pref="289" max="32767" attributes="0"/>
                           <Component id="combo_barrio" alignment="0" max="32767" attributes="0"/>
@@ -83,6 +82,7 @@
                               <EmptySpace min="-2" pref="29" max="-2" attributes="0"/>
                               <Component id="jbCargarBarrio" min="-2" max="-2" attributes="0"/>
                           </Group>
+                          <Component id="txt_fechaincidente" alignment="0" max="32767" attributes="0"/>
                       </Group>
                   </Group>
               </Group>
@@ -110,8 +110,8 @@
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
                       <Component id="jScrollPane1" min="-2" pref="59" max="-2" attributes="0"/>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                      <Component id="txt_fecha_incidente" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <Component id="txt_fechaincidente" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
                       <Component id="combo_tipo_incidente" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
@@ -141,7 +141,7 @@
                   <Component id="btn_guardar_incidente" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="btn_cancelar" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace pref="25" max="32767" attributes="0"/>
+              <EmptySpace pref="29" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -171,11 +171,6 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="Barrio:"/>
       </Properties>
-    </Component>
-    <Component class="javax.swing.JPasswordField" name="txt_fecha_incidente">
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txt_fecha_incidenteActionPerformed"/>
-      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="btn_guardar_incidente">
       <Properties>
@@ -288,6 +283,8 @@
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jbCargarBarrioActionPerformed"/>
       </Events>
+    </Component>
+    <Component class="javax.swing.JTextField" name="txt_fechaincidente">
     </Component>
   </SubComponents>
 </Form>

@@ -6,6 +6,10 @@
 package Vista;
 
 import Controlador.Controlador;
+import Modelo.Barrio;
+import Modelo.Comuna;
+import Modelo.TipoIngresoInsidente;
+import Modelo.TipoInscidente;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
@@ -66,7 +70,6 @@ public class Form_Ingresar_Incidente extends javax.swing.JInternalFrame {
         labeldireccion = new javax.swing.JLabel();
         labelcontraseña = new javax.swing.JLabel();
         labelcontraseña1 = new javax.swing.JLabel();
-        txt_fecha_incidente = new javax.swing.JPasswordField();
         btn_guardar_incidente = new javax.swing.JButton();
         btn_cancelar = new javax.swing.JButton();
         combo_tipo_incidente = new javax.swing.JComboBox();
@@ -78,6 +81,7 @@ public class Form_Ingresar_Incidente extends javax.swing.JInternalFrame {
         combo_comuna = new javax.swing.JComboBox();
         combo_barrio = new javax.swing.JComboBox();
         jbCargarBarrio = new javax.swing.JButton();
+        txt_fechaincidente = new javax.swing.JTextField();
 
         jLabel1.setText("jLabel1");
 
@@ -91,15 +95,15 @@ public class Form_Ingresar_Incidente extends javax.swing.JInternalFrame {
         addInternalFrameListener(new javax.swing.event.InternalFrameListener() {
             public void internalFrameActivated(javax.swing.event.InternalFrameEvent evt) {
             }
-            public void internalFrameClosed(javax.swing.event.InternalFrameEvent evt) {
-            }
-            public void internalFrameClosing(javax.swing.event.InternalFrameEvent evt) {
-            }
             public void internalFrameDeactivated(javax.swing.event.InternalFrameEvent evt) {
             }
             public void internalFrameDeiconified(javax.swing.event.InternalFrameEvent evt) {
             }
             public void internalFrameIconified(javax.swing.event.InternalFrameEvent evt) {
+            }
+            public void internalFrameClosed(javax.swing.event.InternalFrameEvent evt) {
+            }
+            public void internalFrameClosing(javax.swing.event.InternalFrameEvent evt) {
             }
             public void internalFrameOpened(javax.swing.event.InternalFrameEvent evt) {
                 formInternalFrameOpened(evt);
@@ -115,12 +119,6 @@ public class Form_Ingresar_Incidente extends javax.swing.JInternalFrame {
         labelcontraseña.setText("Comuna:");
 
         labelcontraseña1.setText("Barrio:");
-
-        txt_fecha_incidente.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txt_fecha_incidenteActionPerformed(evt);
-            }
-        });
 
         btn_guardar_incidente.setText("Guardar");
         btn_guardar_incidente.addActionListener(new java.awt.event.ActionListener() {
@@ -203,14 +201,14 @@ public class Form_Ingresar_Incidente extends javax.swing.JInternalFrame {
                         .addGap(63, 63, 63)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(combo_tipo_incidente, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(txt_fecha_incidente)
                             .addComponent(combo_tipoingreso_incidente, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 289, Short.MAX_VALUE)
                             .addComponent(combo_barrio, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(combo_comuna, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(29, 29, 29)
-                                .addComponent(jbCargarBarrio)))))
+                                .addComponent(jbCargarBarrio))
+                            .addComponent(txt_fechaincidente))))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -230,7 +228,7 @@ public class Form_Ingresar_Incidente extends javax.swing.JInternalFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(txt_fecha_incidente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(txt_fechaincidente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(combo_tipo_incidente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
@@ -254,7 +252,7 @@ public class Form_Ingresar_Incidente extends javax.swing.JInternalFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btn_guardar_incidente)
                     .addComponent(btn_cancelar))
-                .addContainerGap(25, Short.MAX_VALUE))
+                .addContainerGap(29, Short.MAX_VALUE))
         );
 
         getAccessibleContext().setAccessibleName("Iniciar_Resgis");
@@ -263,12 +261,16 @@ public class Form_Ingresar_Incidente extends javax.swing.JInternalFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void txt_fecha_incidenteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_fecha_incidenteActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txt_fecha_incidenteActionPerformed
-
     private void btn_guardar_incidenteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_guardar_incidenteActionPerformed
-
+       
+        TipoIngresoInsidente codigotipoingreso = controlador.buscarTipoIngresoIncidente(combo_tipoingreso_incidente.getSelectedItem().toString());
+        String descripcionincidente= txt_descripcion_incidente.getText();
+        String fechaincidente = txt_fechaincidente.getText();
+        TipoInscidente codigotipoincidente = controlador.buscarTipoIncidente(combo_tipo_incidente.getSelectedItem().toString());
+        Comuna codigocomuna= controlador.buscarComuna(combo_comuna.getSelectedItem().toString());
+        Barrio codigobarrio= controlador.buscarBarrio(combo_barrio.getSelectedItem().toString());
+        
+        controlador.guardarIncidente(codigotipoingreso, descripcionincidente, fechaincidente, codigotipoincidente, codigocomuna, codigobarrio);
 // TODO add your handling code here:
     }//GEN-LAST:event_btn_guardar_incidenteActionPerformed
 
@@ -312,7 +314,6 @@ public class Form_Ingresar_Incidente extends javax.swing.JInternalFrame {
     private void jbCargarBarrioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbCargarBarrioActionPerformed
         // TODO add your handling code here:
         String comuna = combo_comuna.getSelectedItem().toString();
-        System.out.println("comuna = " + comuna);
         getControlador().cargarBarrio(getControlador().buscarComuna(comuna));
         combo_barrio.removeAllItems();
         for (int i = 0; i < getControlador().getLstbarrio().size(); i++) {
@@ -341,6 +342,6 @@ public class Form_Ingresar_Incidente extends javax.swing.JInternalFrame {
     private javax.swing.JLabel labelnombre;
     private javax.swing.JLabel labeltelefono;
     private javax.swing.JTextArea txt_descripcion_incidente;
-    private javax.swing.JPasswordField txt_fecha_incidente;
+    private javax.swing.JTextField txt_fechaincidente;
     // End of variables declaration//GEN-END:variables
 }
