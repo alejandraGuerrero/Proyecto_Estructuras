@@ -20,12 +20,26 @@ public class Form_Ingresar_Incidente extends javax.swing.JInternalFrame {
      */
     public Form_Ingresar_Incidente() {
         initComponents();
+        cargarSelect();
     }
     private Controlador controlador = new Controlador();
 
     public Controlador getControlador() {
         return controlador;
     }
+
+    public void cargarSelect() {
+        combo_tipoingreso_incidente.removeAllItems();
+        combo_tipo_incidente.removeAllItems();
+        for (int i = 0; i < getControlador().getListatipoingresoincidente().size(); i++) {
+            combo_tipoingreso_incidente.addItem(getControlador().getListatipoingresoincidente().get(i).getTii_descripcion());
+        }
+        for (int i = 0; i < getControlador().getListaTipoInscidentes().size(); i++) {
+            combo_tipo_incidente.addItem(getControlador().getListaTipoInscidentes().get(i).getTipinc_descripcion());
+        }
+
+    }
+
 
     public void setControlador(Controlador controlador) {
         this.controlador = controlador;
@@ -233,7 +247,6 @@ public class Form_Ingresar_Incidente extends javax.swing.JInternalFrame {
 
     private void btn_guardar_incidenteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_guardar_incidenteActionPerformed
 
-        
 // TODO add your handling code here:
     }//GEN-LAST:event_btn_guardar_incidenteActionPerformed
 
@@ -244,34 +257,32 @@ public class Form_Ingresar_Incidente extends javax.swing.JInternalFrame {
 
     private void combo_tipoingreso_incidenteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_combo_tipoingreso_incidenteActionPerformed
 
-        
         // TODO add your handling code here:
     }//GEN-LAST:event_combo_tipoingreso_incidenteActionPerformed
 
     private void formInternalFrameOpened(javax.swing.event.InternalFrameEvent evt) {//GEN-FIRST:event_formInternalFrameOpened
         // TODO add your handling code here:
-        
-        combo_tipoingreso_incidente.removeAllItems();
-        combo_tipoingreso_incidente.removeAllItems();  
-        
-         
-        for(int i=0; i<getControlador().getListatipoingresoincidente().size(); i++){
-            combo_tipoingreso_incidente.addItem(getControlador().getListatipoingresoincidente().get(i).getTii_descripcion());
-            System.out.println("getControlador().getListabarrios().get(i).getInc_descripcionIncidente() = " + getControlador().getListabarrios().get(i).getBar_nombre());
-        }
-         combo_tipo_incidente.removeAllItems();
-         for(int i=0; i<getControlador().getListaTipoInscidentes().size(); i++){
-            combo_tipoingreso_incidente.addItem(getControlador().getListaTipoInscidentes().get(i).getTipinc_descripcion());
-            System.out.println("getControlador().getListabarrios().get(i).getInc_descripcionIncidente() = " + getControlador().getListabarrios().get(i).getBar_nombre());
-        }
-       
+
+//        combo_tipoingreso_incidente.removeAllItems();
+//        combo_tipoingreso_incidente.removeAllItems();  
+//        
+//         
+//        for(int i=0; i<getControlador().getListatipoingresoincidente().size(); i++){
+//            combo_tipoingreso_incidente.addItem(getControlador().getListatipoingresoincidente().get(i).getTii_descripcion());
+//            System.out.println("getControlador().getListabarrios().get(i).getInc_descripcionIncidente() = " + getControlador().getListabarrios().get(i).getBar_nombre());
+//        }
+//         combo_tipo_incidente.removeAllItems();
+//         for(int i=0; i<getControlador().getListaTipoInscidentes().size(); i++){
+//            combo_tipoingreso_incidente.addItem(getControlador().getListaTipoInscidentes().get(i).getTipinc_descripcion());
+//            System.out.println("getControlador().getListabarrios().get(i).getInc_descripcionIncidente() = " + getControlador().getListabarrios().get(i).getBar_nombre());
+//        }
+
     }//GEN-LAST:event_formInternalFrameOpened
 
     private void combo_tipo_incidenteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_combo_tipo_incidenteActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_combo_tipo_incidenteActionPerformed
-    
-                              
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btn_cancelar;
