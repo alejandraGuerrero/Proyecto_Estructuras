@@ -72,15 +72,15 @@ public class Form_Ingresar_Incidente extends javax.swing.JInternalFrame {
         addInternalFrameListener(new javax.swing.event.InternalFrameListener() {
             public void internalFrameActivated(javax.swing.event.InternalFrameEvent evt) {
             }
-            public void internalFrameClosed(javax.swing.event.InternalFrameEvent evt) {
-            }
-            public void internalFrameClosing(javax.swing.event.InternalFrameEvent evt) {
-            }
             public void internalFrameDeactivated(javax.swing.event.InternalFrameEvent evt) {
             }
             public void internalFrameDeiconified(javax.swing.event.InternalFrameEvent evt) {
             }
             public void internalFrameIconified(javax.swing.event.InternalFrameEvent evt) {
+            }
+            public void internalFrameClosed(javax.swing.event.InternalFrameEvent evt) {
+            }
+            public void internalFrameClosing(javax.swing.event.InternalFrameEvent evt) {
             }
             public void internalFrameOpened(javax.swing.event.InternalFrameEvent evt) {
                 formInternalFrameOpened(evt);
@@ -118,6 +118,11 @@ public class Form_Ingresar_Incidente extends javax.swing.JInternalFrame {
         });
 
         combo_tipo_incidente.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        combo_tipo_incidente.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                combo_tipo_incidenteActionPerformed(evt);
+            }
+        });
 
         txt_descripcion_incidente.setColumns(20);
         txt_descripcion_incidente.setRows(5);
@@ -245,17 +250,27 @@ public class Form_Ingresar_Incidente extends javax.swing.JInternalFrame {
 
     private void formInternalFrameOpened(javax.swing.event.InternalFrameEvent evt) {//GEN-FIRST:event_formInternalFrameOpened
         // TODO add your handling code here:
-        System.out.println("ingresa aqui");
-        combo_tipoingreso_incidente.removeAllItems();
-        combo_tipoingreso_incidente.removeAllItems();        
-        System.out.println("getControlador().getListabarrios().size() = " + getControlador().getListabarrios().size()); 
         
-        for(int i=0; i<getControlador().getListabarrios().size(); i++){
-            combo_tipoingreso_incidente.addItem(getControlador().getListabarrios().get(i).getBar_nombre());
+        combo_tipoingreso_incidente.removeAllItems();
+        combo_tipoingreso_incidente.removeAllItems();  
+        
+         
+        for(int i=0; i<getControlador().getListatipoingresoincidente().size(); i++){
+            combo_tipoingreso_incidente.addItem(getControlador().getListatipoingresoincidente().get(i).getTii_descripcion());
             System.out.println("getControlador().getListabarrios().get(i).getInc_descripcionIncidente() = " + getControlador().getListabarrios().get(i).getBar_nombre());
         }
+         combo_tipo_incidente.removeAllItems();
+         for(int i=0; i<getControlador().getListaTipoInscidentes().size(); i++){
+            combo_tipoingreso_incidente.addItem(getControlador().getListaTipoInscidentes().get(i).getTipinc_descripcion());
+            System.out.println("getControlador().getListabarrios().get(i).getInc_descripcionIncidente() = " + getControlador().getListabarrios().get(i).getBar_nombre());
+        }
+       
     }//GEN-LAST:event_formInternalFrameOpened
 
+    private void combo_tipo_incidenteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_combo_tipo_incidenteActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_combo_tipo_incidenteActionPerformed
+    
                               
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
