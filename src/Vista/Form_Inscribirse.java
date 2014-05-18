@@ -62,6 +62,7 @@ public class Form_Inscribirse extends javax.swing.JInternalFrame {
 
         jPasswordField1.setText("jPasswordField1");
 
+        setForeground(new java.awt.Color(240, 240, 240));
         setIconifiable(true);
         setResizable(true);
         setTitle("Menu");
