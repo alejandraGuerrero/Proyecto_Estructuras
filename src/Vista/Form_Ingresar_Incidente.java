@@ -31,11 +31,15 @@ public class Form_Ingresar_Incidente extends javax.swing.JInternalFrame {
     public void cargarSelect() {
         combo_tipoingreso_incidente.removeAllItems();
         combo_tipo_incidente.removeAllItems();
+        combo_comuna.removeAllItems();
         for (int i = 0; i < getControlador().getListatipoingresoincidente().size(); i++) {
             combo_tipoingreso_incidente.addItem(getControlador().getListatipoingresoincidente().get(i).getTii_descripcion());
         }
         for (int i = 0; i < getControlador().getListaTipoInscidentes().size(); i++) {
             combo_tipo_incidente.addItem(getControlador().getListaTipoInscidentes().get(i).getTipinc_descripcion());
+        }
+        for (int i = 0; i < getControlador().getListacomunas().size(); i++) {
+            combo_tipo_incidente.addItem(getControlador().getListacomunas().get(i).getCom_nombre());
         }
 
     }
@@ -156,6 +160,11 @@ public class Form_Ingresar_Incidente extends javax.swing.JInternalFrame {
         });
 
         combo_comuna.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        combo_comuna.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                combo_comunaActionPerformed(evt);
+            }
+        });
 
         combo_barrio.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
@@ -282,6 +291,10 @@ public class Form_Ingresar_Incidente extends javax.swing.JInternalFrame {
     private void combo_tipo_incidenteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_combo_tipo_incidenteActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_combo_tipo_incidenteActionPerformed
+
+    private void combo_comunaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_combo_comunaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_combo_comunaActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

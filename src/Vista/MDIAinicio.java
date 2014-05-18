@@ -346,6 +346,10 @@ public class MDIAinicio extends javax.swing.JFrame {
 
     private void optmenu_reportesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_optmenu_reportesActionPerformed
         // TODO add your handling code here:
+         panel_login.dispose();
+        Form_Reportes fr = new Form_Reportes();
+        fondo.add(fr);
+        fr.show();
     }//GEN-LAST:event_optmenu_reportesActionPerformed
 
     private void optmenu_ingresar_incidenteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_optmenu_ingresar_incidenteActionPerformed
