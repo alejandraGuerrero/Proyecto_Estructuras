@@ -3,7 +3,6 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package Vista;
 
 import Controlador.Controlador;
@@ -21,9 +20,11 @@ public class Form_Actualizar_Incidente extends javax.swing.JInternalFrame {
      */
     public Form_Actualizar_Incidente() {
         initComponents();
+       
+        cargarTabla();
     }
 
-    private  Controlador controlador = new Controlador();
+    private Controlador controlador = new Controlador();
 
     public Controlador getControlador() {
         return controlador;
@@ -33,9 +34,6 @@ public class Form_Actualizar_Incidente extends javax.swing.JInternalFrame {
         this.controlador = controlador;
     }
 
-    
-    
-    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -48,7 +46,6 @@ public class Form_Actualizar_Incidente extends javax.swing.JInternalFrame {
         jPanel1 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         tableListaIncidente = new javax.swing.JTable();
-        jBListarIncidentes = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
 
         setClosable(true);
@@ -83,13 +80,6 @@ public class Form_Actualizar_Incidente extends javax.swing.JInternalFrame {
             tableListaIncidente.getColumnModel().getColumn(5).setResizable(false);
         }
 
-        jBListarIncidentes.setText("Cargar Incidentes");
-        jBListarIncidentes.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jBListarIncidentesActionPerformed(evt);
-            }
-        });
-
         jLabel1.setFont(new java.awt.Font("Comic Sans MS", 0, 18)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(153, 0, 153));
         jLabel1.setText("LISTA COMPLETA DE INCIDENTES");
@@ -99,13 +89,8 @@ public class Form_Actualizar_Incidente extends javax.swing.JInternalFrame {
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(352, 352, 352)
-                        .addComponent(jBListarIncidentes))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(256, 256, 256)
-                        .addComponent(jLabel1)))
+                .addGap(256, 256, 256)
+                .addComponent(jLabel1)
                 .addContainerGap(329, Short.MAX_VALUE))
             .addComponent(jScrollPane1)
         );
@@ -114,11 +99,9 @@ public class Form_Actualizar_Incidente extends javax.swing.JInternalFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addGap(26, 26, 26)
                 .addComponent(jLabel1)
-                .addGap(32, 32, 32)
-                .addComponent(jBListarIncidentes)
-                .addGap(18, 18, 18)
+                .addGap(73, 73, 73)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 231, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(132, Short.MAX_VALUE))
+                .addContainerGap(136, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -137,29 +120,21 @@ public class Form_Actualizar_Incidente extends javax.swing.JInternalFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jBListarIncidentesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBListarIncidentesActionPerformed
-        // TODO add your handling code here:
-         if (!getControlador().getListaIncidentes().isEmpty()) {
-            JOptionPane.showMessageDialog(null, "Se tienen " + getControlador().getListaIncidentes().size() + " Incidentes Registrados");
-            tableListaIncidente.removeAll();
+    public void cargarTabla() {
+        tableListaIncidente.removeAll();
 
-            DefaultTableModel lstIncidente = (DefaultTableModel) tableListaIncidente.getModel();
+        DefaultTableModel lstIncidente = (DefaultTableModel) tableListaIncidente.getModel();
 
-            int rowCount = lstIncidente.getRowCount();
-            for (int i = 0; i < rowCount; i++) {
-                lstIncidente.removeRow(i);
-            }
-            for (int i = 0; i < getControlador().getListaIncidentes().size(); i++) {
-                lstIncidente.addRow(new Object[]{getControlador().getListaIncidentes().get(i).getInc_codigoIncidente(), getControlador().getListaIncidentes().get(i).getInc_descripcionIncidente(), getControlador().getListaIncidentes().get(i).getInc_fechaIncidente(), getControlador().getListaIncidentes().get(i).getUsuario().getTelefono(), getControlador().getListaIncidentes().get(i).getTipo_incidente().getTipinc_descripcion(), getControlador().getListaIncidentes().get(i).getBarrio().getBar_nombre()});
-            }
-        } else {
-            JOptionPane.showMessageDialog(null, "No tiene Se Tienen Incidentes");
+        int rowCount = lstIncidente.getRowCount();
+        for (int i = 0; i < rowCount; i++) {
+            lstIncidente.removeRow(i);
         }
-    }//GEN-LAST:event_jBListarIncidentesActionPerformed
-
+        for (int i = 0; i < getControlador().getListaIncidentes().size(); i++) {
+            lstIncidente.addRow(new Object[]{getControlador().getListaIncidentes().get(i).getInc_codigoIncidente(), getControlador().getListaIncidentes().get(i).getInc_descripcionIncidente(), getControlador().getListaIncidentes().get(i).getInc_fechaIncidente(), getControlador().getListaIncidentes().get(i).getUsuario().getTelefono(), getControlador().getListaIncidentes().get(i).getTipo_incidente().getTipinc_descripcion(), getControlador().getListaIncidentes().get(i).getBarrio().getBar_nombre()});
+        }
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jBListarIncidentes;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
