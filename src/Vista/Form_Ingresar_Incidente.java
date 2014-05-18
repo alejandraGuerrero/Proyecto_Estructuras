@@ -113,6 +113,11 @@ public class Form_Ingresar_Incidente extends javax.swing.JInternalFrame {
         jLabel4.setText("Tipo ingreso de Incidente:");
 
         combo_tipoingreso_incidente.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        combo_tipoingreso_incidente.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                combo_tipoingreso_incidenteActionPerformed(evt);
+            }
+        });
 
         combo_comuna.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
@@ -214,6 +219,12 @@ public class Form_Ingresar_Incidente extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
         this.dispose();
     }//GEN-LAST:event_btn_cancelarActionPerformed
+
+    private void combo_tipoingreso_incidenteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_combo_tipoingreso_incidenteActionPerformed
+
+        
+        // TODO add your handling code here:
+    }//GEN-LAST:event_combo_tipoingreso_incidenteActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
