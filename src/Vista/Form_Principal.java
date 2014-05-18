@@ -54,6 +54,7 @@ public class Form_Principal extends javax.swing.JInternalFrame {
         txt_contraseña1 = new javax.swing.JPasswordField();
         txt_contraseña2 = new javax.swing.JPasswordField();
         btn_inscribirme = new javax.swing.JButton();
+        btn_cancelar = new javax.swing.JButton();
 
         jLabel1.setText("jLabel1");
 
@@ -94,6 +95,13 @@ public class Form_Principal extends javax.swing.JInternalFrame {
             }
         });
 
+        btn_cancelar.setText("Cancelar");
+        btn_cancelar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_cancelarActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -116,8 +124,10 @@ public class Form_Principal extends javax.swing.JInternalFrame {
                             .addComponent(txt_contraseña1)
                             .addComponent(txt_contraseña2)))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(149, 149, 149)
-                        .addComponent(btn_inscribirme)))
+                        .addGap(100, 100, 100)
+                        .addComponent(btn_inscribirme)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(btn_cancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(54, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -144,9 +154,11 @@ public class Form_Principal extends javax.swing.JInternalFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(labelcontraseña1)
                     .addComponent(txt_contraseña2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 33, Short.MAX_VALUE)
-                .addComponent(btn_inscribirme)
-                .addGap(30, 30, 30))
+                .addGap(32, 32, 32)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btn_inscribirme)
+                    .addComponent(btn_cancelar))
+                .addContainerGap(31, Short.MAX_VALUE))
         );
 
         getAccessibleContext().setAccessibleName("Iniciar_Resgis");
@@ -182,8 +194,14 @@ public class Form_Principal extends javax.swing.JInternalFrame {
 // TODO add your handling code here:
     }//GEN-LAST:event_btn_inscribirmeActionPerformed
 
+    private void btn_cancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_cancelarActionPerformed
+        // TODO add your handling code here:
+        this.dispose();
+    }//GEN-LAST:event_btn_cancelarActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btn_cancelar;
     private javax.swing.JButton btn_inscribirme;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;

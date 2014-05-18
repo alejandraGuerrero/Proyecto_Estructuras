@@ -7,6 +7,7 @@
 package Vista;
 
 import Controlador.Controlador;
+import javax.swing.JInternalFrame;
 import javax.swing.JOptionPane;
 
 /**
