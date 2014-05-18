@@ -18,22 +18,25 @@ public class Incidente {
     private Date inc_fechaIncidente;
     private TipoInscidente tipo_incidente;
     private TipoIngresoInsidente tipo_ingreso_incidente;
+    private Usuario usuario;
     private Comuna comuna;
     private Barrio barrio; 
 
     public Incidente() {
     }
 
-    public Incidente(int inc_codigoIncidente, String inc_descripcionIncidente, Date inc_fechaIncidente, TipoInscidente tipo_incidente, TipoIngresoInsidente tipo_ingreso_incidente, Comuna comuna, Barrio barrio) {
+    public Incidente(int inc_codigoIncidente, String inc_descripcionIncidente, Date inc_fechaIncidente, TipoInscidente tipo_incidente, TipoIngresoInsidente tipo_ingreso_incidente, Usuario usuario, Comuna comuna, Barrio barrio) {
         this.inc_codigoIncidente = inc_codigoIncidente;
         this.inc_descripcionIncidente = inc_descripcionIncidente;
         this.inc_fechaIncidente = inc_fechaIncidente;
         this.tipo_incidente = tipo_incidente;
         this.tipo_ingreso_incidente = tipo_ingreso_incidente;
+        this.usuario = usuario;
         this.comuna = comuna;
         this.barrio = barrio;
     }
-    
+
+      
     public int getInc_codigoIncidente() {
         return inc_codigoIncidente;
     }
@@ -89,5 +92,14 @@ public class Incidente {
     public void setBarrio(Barrio barrio) {
         this.barrio = barrio;
     }
+
+    public Usuario getUsuario() {
+        return usuario;
+    }
+
+    public void setUsuario(Usuario usuario) {
+        this.usuario = usuario;
+    }
+    
  
 }

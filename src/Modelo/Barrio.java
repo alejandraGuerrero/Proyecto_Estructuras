@@ -18,6 +18,9 @@ public class Barrio {
 
     public Barrio() {
     }
+    public Barrio(int bar_codigo) {
+        this.bar_codigo = bar_codigo;
+    }
 
     public Barrio(int bar_codigo, String bar_nombre, String estrato, int comuna) {
         this.bar_codigo = bar_codigo;

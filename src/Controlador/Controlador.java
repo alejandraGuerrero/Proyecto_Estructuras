@@ -44,6 +44,7 @@ public class Controlador {
         CargarComunas();
         cargarTipoIncidente();
         cargarTipoIngresoIncidente();
+        tmpAdicionarIncidente();
         usuario = new Usuario();
     }
 
@@ -222,6 +223,19 @@ public class Controlador {
         return listaTipoInscidentes;
     }
 
+    public void tmpAdicionarIncidente() {
+        incidente = new Incidente();
+        for (int i = 0; i < 10; i++) {
+            incidente = new Incidente();
+            incidente.setBarrio(new Barrio(i));
+            incidente.setInc_codigoIncidente(i);
+            incidente.setInc_descripcionIncidente("Descripcion Usabilidad" + i);
+            incidente.setInc_fechaIncidente(new Date());
+            incidente.setTipo_incidente(new TipoInscidente(1, "prueba"));
+            incidente.setUsuario(new Usuario());
+            getListaIncidentes().add(incidente);
+        }
+    }
     public List<TipoIngresoInsidente> cargarTipoIngresoIncidente() {
 
         tipoIngresoInsidente.setTii_codigo(1);

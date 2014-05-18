@@ -171,7 +171,7 @@ public class MDIAinicio extends javax.swing.JFrame {
                     .addComponent(txt_contraseña, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addComponent(btn_ingresar)
-                .addContainerGap(128, Short.MAX_VALUE))
+                .addContainerGap(51, Short.MAX_VALUE))
         );
 
         titulo1.setFont(new java.awt.Font("Comic Sans MS", 0, 18)); // NOI18N
@@ -185,23 +185,22 @@ public class MDIAinicio extends javax.swing.JFrame {
         fondoLayout.setHorizontalGroup(
             fondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(fondoLayout.createSequentialGroup()
-                .addGroup(fondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(fondoLayout.createSequentialGroup()
-                        .addGap(126, 126, 126)
-                        .addComponent(panel_login, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(fondoLayout.createSequentialGroup()
-                        .addGap(20, 20, 20)
-                        .addComponent(titulo1)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 45, Short.MAX_VALUE)
+                .addGap(20, 20, 20)
+                .addComponent(titulo1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 300, Short.MAX_VALUE)
                 .addComponent(jLabel13)
                 .addGap(23, 23, 23))
+            .addGroup(fondoLayout.createSequentialGroup()
+                .addGap(126, 126, 126)
+                .addComponent(panel_login, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         fondoLayout.setVerticalGroup(
             fondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(fondoLayout.createSequentialGroup()
                 .addGap(55, 55, 55)
                 .addComponent(panel_login, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 29, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 126, Short.MAX_VALUE)
                 .addComponent(titulo1, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(40, 40, 40))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, fondoLayout.createSequentialGroup()
@@ -211,7 +210,7 @@ public class MDIAinicio extends javax.swing.JFrame {
         );
 
         desktopPane.add(fondo);
-        fondo.setBounds(0, 0, 660, 460);
+        fondo.setBounds(-20, 0, 900, 480);
 
         optmenu_salir.setMnemonic('f');
         optmenu_salir.setText("Inicio");
@@ -283,7 +282,7 @@ public class MDIAinicio extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(desktopPane, javax.swing.GroupLayout.DEFAULT_SIZE, 658, Short.MAX_VALUE)
+            .addComponent(desktopPane, javax.swing.GroupLayout.DEFAULT_SIZE, 881, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -333,6 +332,16 @@ public class MDIAinicio extends javax.swing.JFrame {
 
     private void optmenu_actualizar_incidenteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_optmenu_actualizar_incidenteActionPerformed
         // TODO add your handling code here:
+
+        if (!getControlador().getListaIncidentes().isEmpty()) {
+
+        } else {
+            JOptionPane.showMessageDialog(null, "No tiene Se Tienen Incidentes");
+        }
+        Form_Actualizar_Incidente actualizarIncidente = new Form_Actualizar_Incidente();
+        fondo.add(actualizarIncidente);
+        actualizarIncidente.toFront();
+        actualizarIncidente.show();
     }//GEN-LAST:event_optmenu_actualizar_incidenteActionPerformed
 
     private void optmenu_reportesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_optmenu_reportesActionPerformed
