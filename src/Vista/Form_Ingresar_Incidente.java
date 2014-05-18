@@ -69,6 +69,23 @@ public class Form_Ingresar_Incidente extends javax.swing.JInternalFrame {
         setIconifiable(true);
         setResizable(true);
         setTitle("Menu");
+        addInternalFrameListener(new javax.swing.event.InternalFrameListener() {
+            public void internalFrameActivated(javax.swing.event.InternalFrameEvent evt) {
+            }
+            public void internalFrameClosed(javax.swing.event.InternalFrameEvent evt) {
+            }
+            public void internalFrameClosing(javax.swing.event.InternalFrameEvent evt) {
+            }
+            public void internalFrameDeactivated(javax.swing.event.InternalFrameEvent evt) {
+            }
+            public void internalFrameDeiconified(javax.swing.event.InternalFrameEvent evt) {
+            }
+            public void internalFrameIconified(javax.swing.event.InternalFrameEvent evt) {
+            }
+            public void internalFrameOpened(javax.swing.event.InternalFrameEvent evt) {
+                formInternalFrameOpened(evt);
+            }
+        });
 
         labelnombre.setText("Descripcion Incidente:");
 
@@ -226,6 +243,20 @@ public class Form_Ingresar_Incidente extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_combo_tipoingreso_incidenteActionPerformed
 
+    private void formInternalFrameOpened(javax.swing.event.InternalFrameEvent evt) {//GEN-FIRST:event_formInternalFrameOpened
+        // TODO add your handling code here:
+        System.out.println("ingresa aqui");
+        combo_tipoingreso_incidente.removeAllItems();
+        combo_tipoingreso_incidente.removeAllItems();        
+        System.out.println("getControlador().getListabarrios().size() = " + getControlador().getListabarrios().size()); 
+        
+        for(int i=0; i<getControlador().getListabarrios().size(); i++){
+            combo_tipoingreso_incidente.addItem(getControlador().getListabarrios().get(i).getBar_nombre());
+            System.out.println("getControlador().getListabarrios().get(i).getInc_descripcionIncidente() = " + getControlador().getListabarrios().get(i).getBar_nombre());
+        }
+    }//GEN-LAST:event_formInternalFrameOpened
+
+                              
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btn_cancelar;
