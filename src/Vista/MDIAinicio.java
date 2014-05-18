@@ -181,6 +181,11 @@ public class MDIAinicio extends javax.swing.JFrame {
 
         optmenu_ingresar_incidente.setMnemonic('o');
         optmenu_ingresar_incidente.setText("Ingresar Incidente");
+        optmenu_ingresar_incidente.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                optmenu_ingresar_incidenteActionPerformed(evt);
+            }
+        });
         optmenu_incidente.add(optmenu_ingresar_incidente);
 
         optmenu_actualizar_incidente.setMnemonic('o');
@@ -263,6 +268,13 @@ public class MDIAinicio extends javax.swing.JFrame {
     private void optmenu_reportesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_optmenu_reportesActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_optmenu_reportesActionPerformed
+
+    private void optmenu_ingresar_incidenteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_optmenu_ingresar_incidenteActionPerformed
+        panel_login.dispose();
+        Form_Ingresar_Incidente fii = new Form_Ingresar_Incidente();
+        fondo.add(fii);
+        fii.show();
+    }//GEN-LAST:event_optmenu_ingresar_incidenteActionPerformed
 
     /**
      * @param args the command line arguments
