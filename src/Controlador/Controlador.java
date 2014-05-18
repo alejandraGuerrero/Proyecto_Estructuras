@@ -195,16 +195,16 @@ public class Controlador {
         listaIncidentes.remove(incidente);
     }
 
-    public void cargarBarrio() {
-        listabarrios = new ArrayList<Barrio>();
+    
+     public void cargarBarrio(int intcomuna) {
+         listabarrios = new ArrayList<Barrio>();
         lstbarrio = new ArrayList<Barrio>();
         listabarrios = CargarBarrios();
         for (Barrio ls : listabarrios) {
-            if (ls.getComuna() == getComuna().getCom_codigo()) {
+            if (ls.getComuna() == intcomuna) {
                 lstbarrio.add(ls);
             }
         }
-
     }
 
     public List<TipoInscidente> cargarTipoIncidente() {
@@ -2382,6 +2382,16 @@ public class Controlador {
         }
 
         return listabarrios;
+    }
+    
+    public int buscarComuna(String strcomuna) {
+
+        for (Comuna tmpcomuna : listacomunas) {
+            if (tmpcomuna.getCom_nombre().equals(strcomuna)) {
+                return tmpcomuna.getCom_codigo();
+            }
+        }
+        return 1;
     }
 
     public String CargarComunas() {
