@@ -15,7 +15,7 @@ import java.util.Date;
 public class Incidente {
     private int inc_codigoIncidente;
     private String inc_descripcionIncidente;
-    private String inc_fechaIncidente;
+    private Date inc_fechaIncidente;
     private TipoInscidente tipo_incidente;
     private TipoIngresoInsidente tipo_ingreso_incidente;
     private Usuario usuario;
@@ -25,7 +25,7 @@ public class Incidente {
     public Incidente() {
     }
 
-    public Incidente(int inc_codigoIncidente, String inc_descripcionIncidente, String inc_fechaIncidente, TipoInscidente tipo_incidente, TipoIngresoInsidente tipo_ingreso_incidente, Usuario usuario, Comuna comuna, Barrio barrio) {
+    public Incidente(int inc_codigoIncidente, String inc_descripcionIncidente, Date inc_fechaIncidente, TipoInscidente tipo_incidente, TipoIngresoInsidente tipo_ingreso_incidente, Usuario usuario, Comuna comuna, Barrio barrio) {
         this.inc_codigoIncidente = inc_codigoIncidente;
         this.inc_descripcionIncidente = inc_descripcionIncidente;
         this.inc_fechaIncidente = inc_fechaIncidente;
@@ -36,6 +36,9 @@ public class Incidente {
         this.barrio = barrio;
     }
 
+
+
+  
    
       
     public int getInc_codigoIncidente() {
@@ -54,15 +57,13 @@ public class Incidente {
         this.inc_descripcionIncidente = inc_descripcionIncidente;
     }
 
-    public String getInc_fechaIncidente() {
+    public Date getInc_fechaIncidente() {
         return inc_fechaIncidente;
     }
 
-    public void setInc_fechaIncidente(String inc_fechaIncidente) {
+    public void setInc_fechaIncidente(Date inc_fechaIncidente) {
         this.inc_fechaIncidente = inc_fechaIncidente;
     }
-
-    
 
     public TipoInscidente getTipo_incidente() {
         return tipo_incidente;

@@ -8,8 +8,11 @@ package Vista;
 import Controlador.Controlador;
 import Modelo.Barrio;
 import Modelo.Comuna;
+import Modelo.Incidente;
 import Modelo.TipoIngresoInsidente;
 import Modelo.TipoInscidente;
+import Modelo.Usuario;
+import java.util.Date;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
@@ -36,6 +39,7 @@ public class Form_Ingresar_Incidente extends javax.swing.JInternalFrame {
         combo_tipoingreso_incidente.removeAllItems();
         combo_tipo_incidente.removeAllItems();
         combo_comuna.removeAllItems();
+        combo_comuna.addItem("Seleccione");
         for (int i = 0; i < getControlador().getListatipoingresoincidente().size(); i++) {
             combo_tipoingreso_incidente.addItem(getControlador().getListatipoingresoincidente().get(i).getTii_descripcion());
         }
@@ -47,7 +51,6 @@ public class Form_Ingresar_Incidente extends javax.swing.JInternalFrame {
         }
 
     }
-
 
     public void setControlador(Controlador controlador) {
         this.controlador = controlador;
@@ -66,7 +69,6 @@ public class Form_Ingresar_Incidente extends javax.swing.JInternalFrame {
         jLabel2 = new javax.swing.JLabel();
         jPasswordField1 = new javax.swing.JPasswordField();
         labelnombre = new javax.swing.JLabel();
-        labeltelefono = new javax.swing.JLabel();
         labeldireccion = new javax.swing.JLabel();
         labelcontraseña = new javax.swing.JLabel();
         labelcontraseña1 = new javax.swing.JLabel();
@@ -80,8 +82,6 @@ public class Form_Ingresar_Incidente extends javax.swing.JInternalFrame {
         combo_tipoingreso_incidente = new javax.swing.JComboBox();
         combo_comuna = new javax.swing.JComboBox();
         combo_barrio = new javax.swing.JComboBox();
-        jbCargarBarrio = new javax.swing.JButton();
-        txt_fechaincidente = new javax.swing.JTextField();
 
         jLabel1.setText("jLabel1");
 
@@ -95,15 +95,15 @@ public class Form_Ingresar_Incidente extends javax.swing.JInternalFrame {
         addInternalFrameListener(new javax.swing.event.InternalFrameListener() {
             public void internalFrameActivated(javax.swing.event.InternalFrameEvent evt) {
             }
+            public void internalFrameClosed(javax.swing.event.InternalFrameEvent evt) {
+            }
+            public void internalFrameClosing(javax.swing.event.InternalFrameEvent evt) {
+            }
             public void internalFrameDeactivated(javax.swing.event.InternalFrameEvent evt) {
             }
             public void internalFrameDeiconified(javax.swing.event.InternalFrameEvent evt) {
             }
             public void internalFrameIconified(javax.swing.event.InternalFrameEvent evt) {
-            }
-            public void internalFrameClosed(javax.swing.event.InternalFrameEvent evt) {
-            }
-            public void internalFrameClosing(javax.swing.event.InternalFrameEvent evt) {
             }
             public void internalFrameOpened(javax.swing.event.InternalFrameEvent evt) {
                 formInternalFrameOpened(evt);
@@ -111,8 +111,6 @@ public class Form_Ingresar_Incidente extends javax.swing.JInternalFrame {
         });
 
         labelnombre.setText("Descripcion Incidente:");
-
-        labeltelefono.setText("Fecha Incidente:");
 
         labeldireccion.setText("Tipo Incidente:");
 
@@ -166,11 +164,9 @@ public class Form_Ingresar_Incidente extends javax.swing.JInternalFrame {
         });
 
         combo_barrio.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-
-        jbCargarBarrio.setText("Cargar Barrios");
-        jbCargarBarrio.addActionListener(new java.awt.event.ActionListener() {
+        combo_barrio.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jbCargarBarrioActionPerformed(evt);
+                combo_barrioActionPerformed(evt);
             }
         });
 
@@ -193,7 +189,6 @@ public class Form_Ingresar_Incidente extends javax.swing.JInternalFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(labelnombre)
-                            .addComponent(labeltelefono)
                             .addComponent(jLabel4)
                             .addComponent(labelcontraseña1)
                             .addComponent(labelcontraseña)
@@ -204,11 +199,7 @@ public class Form_Ingresar_Incidente extends javax.swing.JInternalFrame {
                             .addComponent(combo_tipoingreso_incidente, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 289, Short.MAX_VALUE)
                             .addComponent(combo_barrio, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(combo_comuna, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(29, 29, 29)
-                                .addComponent(jbCargarBarrio))
-                            .addComponent(txt_fechaincidente))))
+                            .addComponent(combo_comuna, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -227,24 +218,18 @@ public class Form_Ingresar_Incidente extends javax.swing.JInternalFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(txt_fechaincidente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
+                        .addGap(57, 57, 57)
                         .addComponent(combo_tipo_incidente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(17, 17, 17)
                         .addComponent(labelnombre)
-                        .addGap(54, 54, 54)
-                        .addComponent(labeltelefono)
-                        .addGap(18, 18, 18)
+                        .addGap(89, 89, 89)
                         .addComponent(labeldireccion)))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(labelcontraseña)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(combo_comuna, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jbCargarBarrio)))
-                .addGap(16, 16, 16)
+                    .addComponent(combo_comuna, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(labelcontraseña1)
                     .addComponent(combo_barrio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -252,7 +237,7 @@ public class Form_Ingresar_Incidente extends javax.swing.JInternalFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btn_guardar_incidente)
                     .addComponent(btn_cancelar))
-                .addContainerGap(29, Short.MAX_VALUE))
+                .addContainerGap(37, Short.MAX_VALUE))
         );
 
         getAccessibleContext().setAccessibleName("Iniciar_Resgis");
@@ -262,15 +247,27 @@ public class Form_Ingresar_Incidente extends javax.swing.JInternalFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btn_guardar_incidenteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_guardar_incidenteActionPerformed
-       
+
         TipoIngresoInsidente codigotipoingreso = controlador.buscarTipoIngresoIncidente(combo_tipoingreso_incidente.getSelectedItem().toString());
-        String descripcionincidente= txt_descripcion_incidente.getText();
-        String fechaincidente = txt_fechaincidente.getText();
+        String descripcionincidente = txt_descripcion_incidente.getText();
+
         TipoInscidente codigotipoincidente = controlador.buscarTipoIncidente(combo_tipo_incidente.getSelectedItem().toString());
-        Comuna codigocomuna= controlador.buscarComuna(combo_comuna.getSelectedItem().toString());
-        Barrio codigobarrio= controlador.buscarBarrio(combo_barrio.getSelectedItem().toString());
-        
-        controlador.guardarIncidente(codigotipoingreso, descripcionincidente, fechaincidente, codigotipoincidente, codigocomuna, codigobarrio);
+        if (!txt_descripcion_incidente.getText().equals("")) {
+            if (!combo_comuna.getSelectedItem().toString().equals("Seleccione") && !combo_barrio.getSelectedItem().toString().equals("Seleccione")) {
+                Comuna codigocomuna = controlador.buscarComuna(combo_comuna.getSelectedItem().toString());
+                Barrio codigobarrio = controlador.buscarBarrio(combo_barrio.getSelectedItem().toString());
+
+                Incidente incidente = new Incidente(controlador.getListaIncidentes().size()+1,descripcionincidente,new Date(),codigotipoincidente,codigotipoingreso,new Usuario("3002302551"),codigocomuna,codigobarrio);
+                controlador.guardarIncidente(incidente);
+                JOptionPane.showMessageDialog(null, "Se ha registrado exitosamente el Incidente");
+            } else {
+                JOptionPane.showMessageDialog(null, "Debe seleccionar una Comuna o el barrio");
+
+            }
+
+        } else {
+            JOptionPane.showMessageDialog(null, "Debe Llenar el campo de descripcion");
+        }
 // TODO add your handling code here:
     }//GEN-LAST:event_btn_guardar_incidenteActionPerformed
 
@@ -309,17 +306,18 @@ public class Form_Ingresar_Incidente extends javax.swing.JInternalFrame {
 
     private void combo_comunaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_combo_comunaActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_combo_comunaActionPerformed
 
-    private void jbCargarBarrioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbCargarBarrioActionPerformed
-        // TODO add your handling code here:
-        String comuna = combo_comuna.getSelectedItem().toString();
-        getControlador().cargarBarrio(getControlador().buscarComuna(comuna));
+        int comuna = combo_comuna.getSelectedIndex();
+        getControlador().cargarBarrio(comuna);
         combo_barrio.removeAllItems();
         for (int i = 0; i < getControlador().getLstbarrio().size(); i++) {
             combo_barrio.addItem(getControlador().getLstbarrio().get(i).getBar_nombre());
         }
-    }//GEN-LAST:event_jbCargarBarrioActionPerformed
+    }//GEN-LAST:event_combo_comunaActionPerformed
+
+    private void combo_barrioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_combo_barrioActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_combo_barrioActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -335,13 +333,10 @@ public class Form_Ingresar_Incidente extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel4;
     private javax.swing.JPasswordField jPasswordField1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JButton jbCargarBarrio;
     private javax.swing.JLabel labelcontraseña;
     private javax.swing.JLabel labelcontraseña1;
     private javax.swing.JLabel labeldireccion;
     private javax.swing.JLabel labelnombre;
-    private javax.swing.JLabel labeltelefono;
     private javax.swing.JTextArea txt_descripcion_incidente;
-    private javax.swing.JTextField txt_fechaincidente;
     // End of variables declaration//GEN-END:variables
 }

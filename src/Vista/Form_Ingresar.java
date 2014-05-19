@@ -170,6 +170,6 @@ public class Form_Ingresar extends javax.swing.JInternalFrame {
     private javax.swing.JLabel labelnombre;
     private javax.swing.JLabel labeltelefono;
     private javax.swing.JPasswordField txt_contra_ingre;
-    private javax.swing.JTextField txt_telefono_ingre;
+    public static javax.swing.JTextField txt_telefono_ingre;
     // End of variables declaration//GEN-END:variables
 }

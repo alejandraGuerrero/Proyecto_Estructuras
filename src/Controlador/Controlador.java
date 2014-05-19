@@ -44,7 +44,7 @@ public class Controlador {
         CargarComunas();
         cargarTipoIncidente();
         cargarTipoIngresoIncidente();
-//        tmpAdicionarIncidente();
+        tmpAdicionarIncidente();
         usuario = new Usuario();
     }
 
@@ -195,13 +195,12 @@ public class Controlador {
         listaIncidentes.remove(incidente);
     }
 
-    
-     public void cargarBarrio(Comuna intcomuna) {
-         listabarrios = new ArrayList<Barrio>();
+    public void cargarBarrio(int intcomuna) {
+        listabarrios = new ArrayList<Barrio>();
         lstbarrio = new ArrayList<Barrio>();
         listabarrios = CargarBarrios();
         for (Barrio ls : listabarrios) {
-            if (ls.getComuna() == intcomuna.getCom_codigo()) {
+            if (ls.getComuna() == intcomuna) {
                 lstbarrio.add(ls);
             }
         }
@@ -225,17 +224,18 @@ public class Controlador {
 
     public void tmpAdicionarIncidente() {
         incidente = new Incidente();
-        for (int i = 0; i < 10; i++) {
+        for (int i = 0; i < 2; i++) {
             incidente = new Incidente();
             incidente.setBarrio(new Barrio(i));
             incidente.setInc_codigoIncidente(i);
             incidente.setInc_descripcionIncidente("Descripcion Usabilidad" + i);
-            incidente.setInc_fechaIncidente("fdfdf");
+            incidente.setInc_fechaIncidente(new Date());
             incidente.setTipo_incidente(new TipoInscidente(1, "prueba"));
             incidente.setUsuario(new Usuario());
             getListaIncidentes().add(incidente);
         }
     }
+
     public List<TipoIngresoInsidente> cargarTipoIngresoIncidente() {
 
         tipoIngresoInsidente.setTii_codigo(1);
@@ -259,33 +259,10 @@ public class Controlador {
         return listatipoingresoincidente;
     }
 
-    public void guardarIncidente(TipoIngresoInsidente tipoingreso,String descripcion,String fecha,TipoInscidente tipoincidente, Comuna comuna,Barrio barrio) {
+    public void guardarIncidente(Incidente incidente1) {
 
-        incidente.setInc_codigoIncidente(1);
-        incidente.setTipo_ingreso_incidente(tipoIngresoInsidente);
-        incidente.setComuna(comuna);
-        incidente.setBarrio(barrio);
-        incidente.setInc_fechaIncidente(fecha);
-        incidente.setTipo_incidente(tipoInscidente);
- 
-        incidente.setInc_descripcionIncidente(descripcion);
-        incidente.setUsuario(this.usuario);
-        getListaIncidentes().add(incidente);
+        getListaIncidentes().add(incidente1);
         incidente = new Incidente();
-        
-
-        for (Incidente inci : listaIncidentes) {
-
-            System.out.println("Codigo " + inci.getInc_codigoIncidente());
-            System.out.println("desc " + inci.getInc_descripcionIncidente());
-            System.out.println("tipoinci " + inci.getTipo_incidente().getTipinc_descripcion());
-            System.out.println("tipoingreinci " + inci.getTipo_ingreso_incidente().getTii_descripcion());
-            System.out.println("comuna " + inci.getComuna().getCom_nombre());
-            System.out.println("barrio " + inci.getBarrio().getBar_nombre());
-            System.out.println("fecha " + inci.getInc_fechaIncidente());
-            System.out.println("usuario " + inci.getUsuario().getUsu_nombre());
-
-        }
 
     }
 
@@ -310,43 +287,38 @@ public class Controlador {
             return "";
 
         } else {
-           System.out.println("El usuario ingresado no Existe.");
+            System.out.println("El usuario ingresado no Existe.");
             return "";
         }
 
     }
 
-    public boolean RegistrarUsuario(String nombre,String telefono, String direccion,String password,String password2) {
+    public boolean RegistrarUsuario(String nombre, String telefono, String direccion, String password, String password2) {
         if (password.equals(password2)) {
             usuario.setPassword(password);
             usuario.setUsu_nombre(nombre);
             usuario.setTelefono(telefono);
             usuario.setUsu_direccion(direccion);
-            usuario.setUsu_fechaRegistro(new  Date());
+            usuario.setUsu_fechaRegistro(new Date());
             listausuarios.add(usuario);
             return true;
-            }
-        else{
-        
+        } else {
+
             limpiarUsuario();
             return false;
-        } 
+        }
     }
-        
 
-   public boolean validarUsuario(String login, String passwd)
-    {
+    public boolean validarUsuario(String login, String passwd) {
         Controlador cont = new Controlador();
         cont.CargarUsuarios();
-        for(Usuario usu:listausuarios)
-        {
-            if(usu.getTelefono().equals(login) && usu.getPassword().equals(passwd))
-            {
+        for (Usuario usu : listausuarios) {
+            if (usu.getTelefono().equals(login) && usu.getPassword().equals(passwd)) {
                 return true;
-            }    
-        }    
+            }
+        }
         return false;
-    }    
+    }
 
     public void limpiarUsuario() {
         usuario.setTelefono("");
@@ -2391,44 +2363,46 @@ public class Controlador {
 
         return listabarrios;
     }
-    
-    public  Comuna buscarComuna(String strcomuna){
+
+    public Comuna buscarComuna(String strcomuna) {
 
         for (Comuna comuna : listacomunas) {
             if (comuna.getCom_nombre().equals(strcomuna)) {
-             return comuna;
+                return comuna;
             }
         }
-        return  null;
+        return null;
     }
-    public  Barrio buscarBarrio(String strbarrio){
+
+    public Barrio buscarBarrio(String strbarrio) {
 
         for (Barrio barrio : listabarrios) {
-            if (barrio.getBar_nombre().equals(strbarrio)) {       
-             return barrio;
+            if (barrio.getBar_nombre().equals(strbarrio)) {
+                return barrio;
             }
         }
-        return  null;
+        return null;
     }
-    public  TipoInscidente buscarTipoIncidente(String strtipoincidente){
+
+    public TipoInscidente buscarTipoIncidente(String strtipoincidente) {
 
         for (TipoInscidente tipoinci : listaTipoInscidentes) {
             if (tipoinci.getTipinc_descripcion().equals(strtipoincidente)) {
-             return tipoinci;
+                return tipoinci;
             }
         }
-        return  null;
+        return null;
     }
-    public  TipoIngresoInsidente buscarTipoIngresoIncidente(String strtipoingresoincidente){
+
+    public TipoIngresoInsidente buscarTipoIngresoIncidente(String strtipoingresoincidente) {
 
         for (TipoIngresoInsidente tipoingreinci : listatipoingresoincidente) {
             if (tipoingreinci.getTii_descripcion().equals(strtipoingresoincidente)) {
-             return tipoingreinci;
+                return tipoingreinci;
             }
         }
-        return  null;
+        return null;
     }
-    
 
     public String CargarComunas() {
         comuna.setCom_codigo(1);
@@ -2491,6 +2465,5 @@ public class Controlador {
 
         return null;
     }
-      
 
 }

@@ -24,6 +24,11 @@ public class Usuario {
     public Usuario() {
     }
 
+    public Usuario(String telefono) {
+        this.telefono = telefono;
+    }
+    
+
     public Usuario(int usu_codigo, String usu_nombre, String telefono, String password, Date usu_fechaRegistro, String usu_direccion) {
         this.usu_codigo = usu_codigo;
         this.usu_nombre = usu_nombre;

@@ -172,14 +172,12 @@ public class MDIAinicio extends javax.swing.JFrame {
                     .addComponent(txt_contraseña, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addComponent(btn_ingresar)
-                .addContainerGap(67, Short.MAX_VALUE))
+                .addContainerGap(79, Short.MAX_VALUE))
         );
 
         titulo1.setFont(new java.awt.Font("Comic Sans MS", 0, 18)); // NOI18N
         titulo1.setForeground(new java.awt.Color(153, 0, 153));
         titulo1.setText("SISTEMA DE REGISTRO DE INCIDENTES");
-
-        jLabel13.setIcon(new javax.swing.ImageIcon("C:\\Users\\Waldo\\Desktop\\logo.png")); // NOI18N
 
         javax.swing.GroupLayout fondoLayout = new javax.swing.GroupLayout(fondo);
         fondo.setLayout(fondoLayout);
@@ -194,14 +192,14 @@ public class MDIAinicio extends javax.swing.JFrame {
             .addGroup(fondoLayout.createSequentialGroup()
                 .addGap(126, 126, 126)
                 .addComponent(panel_login, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(475, Short.MAX_VALUE))
         );
         fondoLayout.setVerticalGroup(
             fondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(fondoLayout.createSequentialGroup()
                 .addGap(55, 55, 55)
                 .addComponent(panel_login, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 110, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 76, Short.MAX_VALUE)
                 .addComponent(titulo1, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(40, 40, 40))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, fondoLayout.createSequentialGroup()
@@ -331,6 +329,7 @@ public class MDIAinicio extends javax.swing.JFrame {
 
     private void optmenu_inscribeteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_optmenu_inscribeteActionPerformed
 
+        
         panel_login.dispose();
         optmenu_ingresousuregistrado.setEnabled(true);
         Form_Inscribirse prin = new Form_Inscribirse();
@@ -386,6 +385,9 @@ public class MDIAinicio extends javax.swing.JFrame {
         panel_login.dispose();
         optmenu_ingresousuregistrado.setEnabled(false);
         optmenu_inscribete.setEnabled(false);
+        optmenu_actualizar_incidente.setEnabled(false);
+        optmenu_reportes.setEnabled(false);
+        optmenu_ciudadano.setEnabled(false);
 // TODO add your handling code here:
     }//GEN-LAST:event_optmenu_ciudadanoActionPerformed
 
