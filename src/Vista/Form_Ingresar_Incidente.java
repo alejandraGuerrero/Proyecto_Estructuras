@@ -262,6 +262,7 @@ public class Form_Ingresar_Incidente extends javax.swing.JInternalFrame {
                 Incidente incidente = new Incidente(controlador.getListaIncidentes().size()+1,descripcionincidente,new Date(),codigotipoincidente,codigotipoingreso,new Usuario("3002302551"),codigocomuna,codigobarrio);
                 controlador.guardarIncidente(incidente);
                 JOptionPane.showMessageDialog(null, "Se ha registrado exitosamente el Incidente");
+                this.dispose();
             } else {
                 JOptionPane.showMessageDialog(null, "Debe seleccionar una Comuna o el barrio");
 
