@@ -45,6 +45,7 @@ public class Controlador {
         cargarTipoIncidente();
         cargarTipoIngresoIncidente();
         tmpAdicionarIncidente();
+      
         usuario = new Usuario();
     }
 
@@ -190,10 +191,10 @@ public class Controlador {
         boolEditar = false;
     }
 
-    public void eliminarIncidente(Incidente incidente) {
-        System.out.println("Elimino incidente");
-        listaIncidentes.remove(incidente);
-    }
+//    public void eliminarIncidente(Incidente incidente) {
+//        System.out.println("Elimino incidente");
+//        listaIncidentes.remove(incidente);
+//    }
 
     public void cargarBarrio(int intcomuna) {
         listabarrios = new ArrayList<Barrio>();
@@ -215,9 +216,9 @@ public class Controlador {
         tipoInscidente.setTipinc_codigo(2);
         tipoInscidente.setTipinc_descripcion("No Violento");
         getListaTipoInscidentes().add(tipoInscidente);
-        System.out.println("tipo2" + tipoInscidente.getTipinc_codigo());
+//        System.out.println("tipo2" + tipoInscidente.getTipinc_codigo());
         for (TipoInscidente tipoInscidente : listaTipoInscidentes) {
-            System.out.println("incidente" + tipoInscidente.getTipinc_descripcion());
+//            System.out.println("incidente" + tipoInscidente.getTipinc_descripcion());
         }
         return listaTipoInscidentes;
     }
@@ -252,46 +253,44 @@ public class Controlador {
 
         for (TipoIngresoInsidente tii : listatipoingresoincidente) {
 
-            System.out.println("tipo ingreso incidente " + tii.getTii_descripcion());
+//            System.out.println("tipo ingreso incidente " + tii.getTii_descripcion());
 
         }
 
         return listatipoingresoincidente;
     }
 
-    public void guardarIncidente(Incidente incidente1) {
+    public void guardarIncidente(Incidente incidente) {
 
-        getListaIncidentes().add(incidente1);
+
+        getListaIncidentes().add(incidente);
         incidente = new Incidente();
 
     }
 
-    public String ValidarUsuario() {
-
-        if (!((usuario.getTelefono().equals("")) && (usuario.getPassword().equals("")))) {
-            for (int w = 0; w < listausuarios.size(); w++) {
-                System.out.println("www " + w);
-                System.out.println("usuario = " + usuario.getTelefono());
-                if (listausuarios.get(w).getTelefono().equals(usuario.getTelefono())
-                        && listausuarios.get(w).getPassword().equals(usuario.getPassword())) {
-                    System.out.println("El usuario ingresado no Existe.");
-                    return "operaciones";
-                } else {
-
-                    System.out.println("aqui 1");
-                    return "";
-                }
-            }
-            System.out.println("aqui 3");
-            System.out.println("El usuario ingresado no Existe.");
-            return "";
-
-        } else {
-            System.out.println("El usuario ingresado no Existe.");
-            return "";
-        }
-
-    }
+//    public String ValidarUsuario() {
+//
+//        if (!((usuario.getTelefono().equals("")) && (usuario.getPassword().equals("")))) {
+//            for (int w = 0; w < listausuarios.size(); w++) {
+//                System.out.println("www " + w);
+//                System.out.println("usuario = " + usuario.getTelefono());
+//                if (listausuarios.get(w).getTelefono().equals(usuario.getTelefono())
+//                        && listausuarios.get(w).getPassword().equals(usuario.getPassword())) {
+//                    
+//                   return "operaciones";
+//                } else {
+//
+//                    System.out.println("aqui 1");
+//                    return "";
+//                }
+//            }
+//            return "";
+//
+//        } else { 
+//            return "";
+//        }
+//
+//    }
 
     public boolean RegistrarUsuario(String nombre, String telefono, String direccion, String password, String password2) {
         if (password.equals(password2)) {
@@ -370,7 +369,7 @@ public class Controlador {
         getListausuarios().add(usuario);
 
         for (Usuario usuario1 : getListausuarios()) {
-            System.out.println("usurio: " + usuario1.getUsu_nombre() + "," + usuario1.getTelefono() + "," + usuario1.getPassword());
+//            System.out.println("usurio: " + usuario1.getUsu_nombre() + "," + usuario1.getTelefono() + "," + usuario1.getPassword());
         }
         return listausuarios;
     }
