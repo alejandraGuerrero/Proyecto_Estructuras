@@ -131,7 +131,7 @@ public class MDIAinicio extends javax.swing.JFrame {
         });
 
         jLabel4.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jLabel4.setForeground(new java.awt.Color(153, 0, 153));
+        jLabel4.setForeground(new java.awt.Color(51, 255, 0));
         jLabel4.setText("SRI INGRESAR");
 
         javax.swing.GroupLayout panel_loginLayout = new javax.swing.GroupLayout(panel_login.getContentPane());
@@ -172,7 +172,7 @@ public class MDIAinicio extends javax.swing.JFrame {
                     .addComponent(txt_contraseña, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addComponent(btn_ingresar)
-                .addContainerGap(79, Short.MAX_VALUE))
+                .addContainerGap(87, Short.MAX_VALUE))
         );
 
         titulo1.setFont(new java.awt.Font("Comic Sans MS", 0, 18)); // NOI18N
@@ -199,7 +199,7 @@ public class MDIAinicio extends javax.swing.JFrame {
             .addGroup(fondoLayout.createSequentialGroup()
                 .addGap(55, 55, 55)
                 .addComponent(panel_login, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 76, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 90, Short.MAX_VALUE)
                 .addComponent(titulo1, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(40, 40, 40))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, fondoLayout.createSequentialGroup()
