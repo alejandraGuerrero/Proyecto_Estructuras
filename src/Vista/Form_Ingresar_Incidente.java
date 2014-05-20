@@ -25,11 +25,13 @@ public class Form_Ingresar_Incidente extends javax.swing.JInternalFrame {
     /**
      * Creates new form JIPrincipal
      */
-    public Form_Ingresar_Incidente() {
+    public Form_Ingresar_Incidente(Controlador cont) {
         initComponents();
+        this.controlador=cont;
         cargarSelect();
+        
     }
-    private Controlador controlador = new Controlador();
+    private Controlador controlador;
 
     public Controlador getControlador() {
         return controlador;

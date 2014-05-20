@@ -352,8 +352,9 @@ public class MDIAinicio extends javax.swing.JFrame {
         } else {
             JOptionPane.showMessageDialog(null, "No tiene Se Tienen Incidentes");
         }
-        Form_Actualizar_Incidente actualizarIncidente = new Form_Actualizar_Incidente();
+        Form_Actualizar_Incidente actualizarIncidente = new Form_Actualizar_Incidente(controlador);
         fondo.add(actualizarIncidente);
+       // actualizarIncidente.setControlador(controlador);
         actualizarIncidente.toFront();
         actualizarIncidente.show();
     }//GEN-LAST:event_optmenu_actualizar_incidenteActionPerformed
@@ -368,7 +369,8 @@ public class MDIAinicio extends javax.swing.JFrame {
 
     private void optmenu_ingresar_incidenteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_optmenu_ingresar_incidenteActionPerformed
         panel_login.dispose();
-        Form_Ingresar_Incidente fii = new Form_Ingresar_Incidente();
+        Form_Ingresar_Incidente fii = new Form_Ingresar_Incidente(controlador);
+        //fii.setControlador(controlador);
         fondo.add(fii);
         fii.show();
     }//GEN-LAST:event_optmenu_ingresar_incidenteActionPerformed

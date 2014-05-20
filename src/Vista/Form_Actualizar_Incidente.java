@@ -19,13 +19,13 @@ public class Form_Actualizar_Incidente extends javax.swing.JInternalFrame {
     /**
      * Creates new form JIGestionIncidente
      */
-    public Form_Actualizar_Incidente() {
+    public Form_Actualizar_Incidente(Controlador cont) {
         initComponents();
-       
+       this.controlador=cont;
         cargarTabla();
     }
 
-    private Controlador controlador = new Controlador();
+    private Controlador controlador;
 
     public Controlador getControlador() {
         return controlador;

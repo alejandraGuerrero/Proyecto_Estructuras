@@ -44,7 +44,7 @@ public class Controlador {
         CargarComunas();
         cargarTipoIncidente();
         cargarTipoIngresoIncidente();
-        tmpAdicionarIncidente();
+//        tmpAdicionarIncidente();
       
         usuario = new Usuario();
     }
