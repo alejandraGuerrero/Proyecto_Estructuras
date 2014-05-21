@@ -79,7 +79,7 @@ public class MDIAinicio extends javax.swing.JFrame {
         optmenu_ingresar_incidente1 = new javax.swing.JMenuItem();
         optmenu_actualizar_incidente1 = new javax.swing.JMenuItem();
         optmenu_reporte_tipo_incidente_y_comuna_barrio = new javax.swing.JMenuItem();
-        optmenu_actualizar_incidente3 = new javax.swing.JMenuItem();
+        optmenu_reporte_doble = new javax.swing.JMenuItem();
         optmenu_actualizar_incidente4 = new javax.swing.JMenuItem();
 
         jLabel1.setText("jLabel1");
@@ -183,7 +183,7 @@ public class MDIAinicio extends javax.swing.JFrame {
                     .addComponent(txt_contraseña, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addComponent(btn_ingresar)
-                .addContainerGap(140, Short.MAX_VALUE))
+                .addContainerGap(147, Short.MAX_VALUE))
         );
 
         titulo1.setFont(new java.awt.Font("Comic Sans MS", 0, 18)); // NOI18N
@@ -319,14 +319,14 @@ public class MDIAinicio extends javax.swing.JFrame {
         });
         optmenu_Reportes.add(optmenu_reporte_tipo_incidente_y_comuna_barrio);
 
-        optmenu_actualizar_incidente3.setMnemonic('o');
-        optmenu_actualizar_incidente3.setText("Incidentes por Tipo y Comuna");
-        optmenu_actualizar_incidente3.addActionListener(new java.awt.event.ActionListener() {
+        optmenu_reporte_doble.setMnemonic('o');
+        optmenu_reporte_doble.setText("Incidentes por Tipo y Comuna");
+        optmenu_reporte_doble.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                optmenu_actualizar_incidente3ActionPerformed(evt);
+                optmenu_reporte_dobleActionPerformed(evt);
             }
         });
-        optmenu_Reportes.add(optmenu_actualizar_incidente3);
+        optmenu_Reportes.add(optmenu_reporte_doble);
 
         optmenu_actualizar_incidente4.setMnemonic('o');
         optmenu_actualizar_incidente4.setText("Incidentes por Tipo, Comuna y Barrio");
@@ -468,9 +468,12 @@ public class MDIAinicio extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_optmenu_reporte_tipo_incidente_y_comuna_barrioActionPerformed
 
-    private void optmenu_actualizar_incidente3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_optmenu_actualizar_incidente3ActionPerformed
+    private void optmenu_reporte_dobleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_optmenu_reporte_dobleActionPerformed
+        Form_reporte_comuna_y_tipo fr = new Form_reporte_comuna_y_tipo(controlador);
+        fondo.add(fr);
+        fr.show();
         // TODO add your handling code here:
-    }//GEN-LAST:event_optmenu_actualizar_incidente3ActionPerformed
+    }//GEN-LAST:event_optmenu_reporte_dobleActionPerformed
 
     private void optmenu_actualizar_incidente4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_optmenu_actualizar_incidente4ActionPerformed
         // TODO add your handling code here:
@@ -537,7 +540,6 @@ public class MDIAinicio extends javax.swing.JFrame {
     private javax.swing.JMenu optmenu_Reportes_Comuna;
     private javax.swing.JMenuItem optmenu_actualizar_incidente;
     private javax.swing.JMenuItem optmenu_actualizar_incidente1;
-    private javax.swing.JMenuItem optmenu_actualizar_incidente3;
     private javax.swing.JMenuItem optmenu_actualizar_incidente4;
     private javax.swing.JMenuItem optmenu_ciudadano;
     private javax.swing.JMenu optmenu_incidente;
@@ -545,6 +547,7 @@ public class MDIAinicio extends javax.swing.JFrame {
     private javax.swing.JMenuItem optmenu_ingresar_incidente1;
     private javax.swing.JMenuItem optmenu_ingresousuregistrado;
     private javax.swing.JMenuItem optmenu_inscribete;
+    private javax.swing.JMenuItem optmenu_reporte_doble;
     private javax.swing.JMenuItem optmenu_reporte_tipo_incidente_y_comuna_barrio;
     private javax.swing.JInternalFrame panel_login;
     private javax.swing.JLabel titulo1;

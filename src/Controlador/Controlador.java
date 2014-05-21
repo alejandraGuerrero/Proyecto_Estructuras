@@ -39,6 +39,7 @@ public class Controlador {
     private List<Incidente> listaInci = new ArrayList<Incidente>();
     private List<Incidente> listaInciTipo = new ArrayList<Incidente>();
     private List<Incidente> listaIncicomuna = new ArrayList<Incidente>();
+    private List<Incidente> listaIncicomunaytipo = new ArrayList<Incidente>();
     private boolean boolEditar = false;
 
     public Controlador() {
@@ -200,7 +201,15 @@ public class Controlador {
     public void setListaIncicomuna(List<Incidente> listaIncicomuna) {
         this.listaIncicomuna = listaIncicomuna;
     }
-    
+
+    public List<Incidente> getListaIncicomunaytipo() {
+        return listaIncicomunaytipo;
+    }
+
+    public void setListaIncicomunaytipo(List<Incidente> listaIncicomunaytipo) {
+        this.listaIncicomunaytipo = listaIncicomunaytipo;
+    }
+
 
     public void actualizarIncidente() {
         System.out.println("guardo la modificación");
@@ -248,6 +257,15 @@ public class Controlador {
         for (Incidente ls : listaIncidentes) {
             if (ls.getComuna().getCom_codigo()== intcomuna) {
                 listaIncicomuna.add(ls);
+            }
+        }
+    }
+    
+    public void cargarIncidentesPorComunaYTipo(int intcomuna,int inttipoinci) {
+        listaIncicomunaytipo = new ArrayList<Incidente>();
+        for (Incidente ls : listaIncidentes) {
+            if (ls.getComuna().getCom_codigo()== intcomuna && ls.getTipo_incidente().getTipinc_codigo()==inttipoinci) {
+                listaIncicomunaytipo.add(ls);
             }
         }
     }

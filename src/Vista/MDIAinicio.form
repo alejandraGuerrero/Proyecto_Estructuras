@@ -189,13 +189,13 @@
                     <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="optmenu_reporte_tipo_incidente_y_comuna_barrioActionPerformed"/>
                   </Events>
                 </MenuItem>
-                <MenuItem class="javax.swing.JMenuItem" name="optmenu_actualizar_incidente3">
+                <MenuItem class="javax.swing.JMenuItem" name="optmenu_reporte_doble">
                   <Properties>
                     <Property name="mnemonic" type="int" value="111"/>
                     <Property name="text" type="java.lang.String" value="Incidentes por Tipo y Comuna"/>
                   </Properties>
                   <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="optmenu_actualizar_incidente3ActionPerformed"/>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="optmenu_reporte_dobleActionPerformed"/>
                   </Events>
                 </MenuItem>
                 <MenuItem class="javax.swing.JMenuItem" name="optmenu_actualizar_incidente4">
@@ -353,7 +353,7 @@
                           </Group>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
                           <Component id="btn_ingresar" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace pref="144" max="32767" attributes="0"/>
+                          <EmptySpace pref="147" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
