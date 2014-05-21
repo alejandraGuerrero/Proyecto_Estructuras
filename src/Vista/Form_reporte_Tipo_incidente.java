@@ -27,9 +27,9 @@ public class Form_reporte_Tipo_incidente extends javax.swing.JInternalFrame {
      */
     public Form_reporte_Tipo_incidente(Controlador cont) {
         initComponents();
-        this.controlador=cont;
+        this.controlador = cont;
         cargarSelect();
-        
+
     }
     private Controlador controlador;
 
@@ -78,20 +78,20 @@ public class Form_reporte_Tipo_incidente extends javax.swing.JInternalFrame {
         setResizable(true);
         setTitle("Menu");
         addInternalFrameListener(new javax.swing.event.InternalFrameListener() {
+            public void internalFrameActivated(javax.swing.event.InternalFrameEvent evt) {
+            }
             public void internalFrameClosed(javax.swing.event.InternalFrameEvent evt) {
             }
             public void internalFrameClosing(javax.swing.event.InternalFrameEvent evt) {
-            }
-            public void internalFrameOpened(javax.swing.event.InternalFrameEvent evt) {
-                formInternalFrameOpened(evt);
-            }
-            public void internalFrameActivated(javax.swing.event.InternalFrameEvent evt) {
             }
             public void internalFrameDeactivated(javax.swing.event.InternalFrameEvent evt) {
             }
             public void internalFrameDeiconified(javax.swing.event.InternalFrameEvent evt) {
             }
             public void internalFrameIconified(javax.swing.event.InternalFrameEvent evt) {
+            }
+            public void internalFrameOpened(javax.swing.event.InternalFrameEvent evt) {
+                formInternalFrameOpened(evt);
             }
         });
 
@@ -113,11 +113,11 @@ public class Form_reporte_Tipo_incidente extends javax.swing.JInternalFrame {
 
             },
             new String [] {
-                "Codigo", "Descripcion", "Fecha", "Usuario", "Tipo Incidente", "Barrio"
+                "Tipo Incidente", "Codigo", "Descripcion", "Fecha", "Usuario", "Barrio"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, true, true
+                false, false, false, false, false, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
@@ -212,20 +212,30 @@ public class Form_reporte_Tipo_incidente extends javax.swing.JInternalFrame {
 
     private void jBListarIncidentesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBListarIncidentesActionPerformed
         // TODO add your handling code here:
-        if (!getControlador().getListaIncidentes().isEmpty()) {
-            JOptionPane.showMessageDialog(null, "Se tienen " + getControlador().getListaIncidentes().size() + " Incidentes Registrados");
-            tableListaIncidente.removeAll();
-            DefaultTableModel lstIncidente = (DefaultTableModel) tableListaIncidente.getModel();
+        int tipo = combo_tipo_reporte.getSelectedIndex();
 
-            int rowCount = lstIncidente.getRowCount();
-            for (int i = 0; i < rowCount; i++) {
-                lstIncidente.removeRow(i);
-            }
-            for (int i = 0; i < getControlador().getListaIncidentes().size(); i++) {
-                lstIncidente.addRow(new Object[]{getControlador().getListaIncidentes().get(i).getInc_codigoIncidente(), getControlador().getListaIncidentes().get(i).getInc_descripcionIncidente(), getControlador().getListaIncidentes().get(i).getInc_fechaIncidente(), getControlador().getListaIncidentes().get(i).getUsuario().getTelefono(), getControlador().getListaIncidentes().get(i).getTipo_incidente().getTipinc_descripcion(), getControlador().getListaIncidentes().get(i).getBarrio().getBar_nombre()});
+        if (tipo != 0) {
+
+            TipoInscidente codigotipo = controlador.buscarTipoIncidente(combo_tipo_reporte.getSelectedItem().toString());
+            getControlador().cargarIncidentesPorTipo(codigotipo.getTipinc_codigo());
+
+            if (!getControlador().getListaInciTipo().isEmpty()) {
+                JOptionPane.showMessageDialog(null, "Se tienen " + getControlador().getListaInciTipo().size() + " Incidentes Registrados de Tipo " + codigotipo.getTipinc_descripcion());
+                tableListaIncidente.removeAll();
+                DefaultTableModel lstIncidente = (DefaultTableModel) tableListaIncidente.getModel();
+
+                int rowCount = lstIncidente.getRowCount();
+                for (int i = 0; i < rowCount; i++) {
+                    lstIncidente.removeRow(i);
+                }
+                for (int i = 0; i < getControlador().getListaInciTipo().size(); i++) {
+                    lstIncidente.addRow(new Object[]{getControlador().getListaInciTipo().get(i).getTipo_incidente().getTipinc_descripcion(), getControlador().getListaInciTipo().get(i).getInc_codigoIncidente(), getControlador().getListaInciTipo().get(i).getInc_descripcionIncidente(), getControlador().getListaInciTipo().get(i).getInc_fechaIncidente(), getControlador().getListaInciTipo().get(i).getUsuario().getTelefono(), getControlador().getListaInciTipo().get(i).getBarrio().getBar_nombre()});
+                }
+            } else {
+                JOptionPane.showMessageDialog(null, "No tiene Se Tienen Incidentes de Tipo " + codigotipo.getTipinc_descripcion());
             }
         } else {
-            JOptionPane.showMessageDialog(null, "No tiene Se Tienen Incidentes");
+            JOptionPane.showMessageDialog(null, "Debe Seleccionar Un Tipo De Incidente");
         }
     }//GEN-LAST:event_jBListarIncidentesActionPerformed
 

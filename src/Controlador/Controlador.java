@@ -37,6 +37,7 @@ public class Controlador {
     private Incidente incidente = new Incidente();
     private List<Incidente> listaIncidentes = new ArrayList<Incidente>();
     private List<Incidente> listaInci = new ArrayList<Incidente>();
+    private List<Incidente> listaInciTipo = new ArrayList<Incidente>();
     private boolean boolEditar = false;
 
     public Controlador() {
@@ -183,6 +184,15 @@ public class Controlador {
         boolEditar = true;
     }
 
+    public List<Incidente> getListaInciTipo() {
+        return listaInciTipo;
+    }
+
+    public void setListaInciTipo(List<Incidente> listaInciTipo) {
+        this.listaInciTipo = listaInciTipo;
+    }
+    
+
     public void actualizarIncidente() {
         System.out.println("guardo la modificación");
     }
@@ -218,9 +228,18 @@ public class Controlador {
     public void cargarIncidentesPorBarrio(int intbarrio) {
         listaInci = new ArrayList<Incidente>();
         for (Incidente ls : listaIncidentes) {
-            System.out.println("nombre incidente " + ls.getBarrio().getBar_codigo());
             if (ls.getBarrio().getBar_codigo()== intbarrio) {
                 listaInci.add(ls);
+            }
+        }
+        System.out.println("lista por barrio " + getListaInci().size());
+    }
+    
+    public void cargarIncidentesPorTipo(int inttipo) {
+        listaInciTipo = new ArrayList<Incidente>();
+        for (Incidente ls : listaIncidentes) {
+            if (ls.getTipo_incidente().getTipinc_codigo()== inttipo) {
+                listaInciTipo.add(ls);
             }
         }
         System.out.println("lista por barrio " + getListaInci().size());
