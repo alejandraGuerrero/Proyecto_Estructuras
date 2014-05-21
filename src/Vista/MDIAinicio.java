@@ -390,7 +390,6 @@ public class MDIAinicio extends javax.swing.JFrame {
 
     private void optmenu_inscribeteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_optmenu_inscribeteActionPerformed
 
-        
         panel_login.dispose();
         optmenu_ingresousuregistrado.setEnabled(true);
         Form_Inscribirse prin = new Form_Inscribirse();
@@ -409,7 +408,7 @@ public class MDIAinicio extends javax.swing.JFrame {
         }
         Form_Actualizar_Incidente actualizarIncidente = new Form_Actualizar_Incidente(controlador);
         fondo.add(actualizarIncidente);
-       // actualizarIncidente.setControlador(controlador);
+        // actualizarIncidente.setControlador(controlador);
         actualizarIncidente.toFront();
         actualizarIncidente.show();
     }//GEN-LAST:event_optmenu_actualizar_incidenteActionPerformed
@@ -476,7 +475,11 @@ public class MDIAinicio extends javax.swing.JFrame {
     }//GEN-LAST:event_optmenu_reporte_dobleActionPerformed
 
     private void optmenu_actualizar_incidente4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_optmenu_actualizar_incidente4ActionPerformed
-        // TODO add your handling code here:
+        Form_reporte_comuna_tipo_y_barrio fr = new Form_reporte_comuna_tipo_y_barrio(controlador);
+        fondo.add(fr);
+        fr.show();
+
+// TODO add your handling code here:
     }//GEN-LAST:event_optmenu_actualizar_incidente4ActionPerformed
 
     /**

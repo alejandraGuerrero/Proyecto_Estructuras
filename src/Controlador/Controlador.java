@@ -40,6 +40,7 @@ public class Controlador {
     private List<Incidente> listaInciTipo = new ArrayList<Incidente>();
     private List<Incidente> listaIncicomuna = new ArrayList<Incidente>();
     private List<Incidente> listaIncicomunaytipo = new ArrayList<Incidente>();
+    private List<Incidente> listaIncicomunatipoybarrio = new ArrayList<Incidente>();
     private boolean boolEditar = false;
 
     public Controlador() {
@@ -173,6 +174,15 @@ public class Controlador {
         this.listaIncidentes = listaIncidentes;
     }
 
+    public List<Incidente> getListaIncicomunatipoybarrio() {
+        return listaIncicomunatipoybarrio;
+    }
+
+    public void setListaIncicomunatipoybarrio(List<Incidente> listaIncicomunatipoybarrio) {
+        this.listaIncicomunatipoybarrio = listaIncicomunatipoybarrio;
+    }
+    
+
     public boolean isBoolEditar() {
         return boolEditar;
     }
@@ -266,6 +276,17 @@ public class Controlador {
         for (Incidente ls : listaIncidentes) {
             if (ls.getComuna().getCom_codigo()== intcomuna && ls.getTipo_incidente().getTipinc_codigo()==inttipoinci) {
                 listaIncicomunaytipo.add(ls);
+            }
+        }
+    }
+    
+    public void cargarIncidentesPorComunaTipoYBarrio(int intcomuna,int inttipoinci,int intbarrio) {
+        listaIncicomunatipoybarrio = new ArrayList<Incidente>();
+        for (Incidente ls : listaIncidentes) {
+            if (ls.getComuna().getCom_codigo()== intcomuna 
+                    && ls.getTipo_incidente().getTipinc_codigo()==inttipoinci
+                    && ls.getBarrio().getBar_codigo()== intbarrio) {
+                listaIncicomunatipoybarrio.add(ls);
             }
         }
     }

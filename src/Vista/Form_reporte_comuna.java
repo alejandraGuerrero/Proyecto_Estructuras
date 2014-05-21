@@ -196,7 +196,7 @@ public class Form_reporte_comuna extends javax.swing.JInternalFrame {
 
         int incidente = combo_comuna_reporte.getSelectedIndex();
         getControlador().cargarIncidentesPorBarrio(incidente);
-        System.out.println("deded " + getControlador().getListaInci().size());
+       
 //        for (int i = 0; i < getControlador().getLstbarrio().size(); i++) {
 //            combo_barrio_reporte.addItem(getControlador().getLstbarrio().get(i).getBar_nombre());
 //        }
@@ -230,11 +230,10 @@ public class Form_reporte_comuna extends javax.swing.JInternalFrame {
 
             Comuna codigocomuna = controlador.buscarComuna(combo_comuna_reporte.getSelectedItem().toString());
             getControlador().cargarIncidentesPorComuna(codigocomuna.getCom_codigo());
-
+            DefaultTableModel lstIncidente = (DefaultTableModel) tableListaIncidente.getModel();
             if (!getControlador().getListaIncicomuna().isEmpty()) {
-                JOptionPane.showMessageDialog(null, "Se tienen " + getControlador().getListaIncicomuna().size() + " Incidentes Registrados en la comuna " + codigocomuna.getCom_nombre());
+                JOptionPane.showMessageDialog(null, "Se tienen " + getControlador().getListaIncicomuna().size() + " Incidentes Registrados en la comuna: " + codigocomuna.getCom_nombre());
                 tableListaIncidente.removeAll();
-                DefaultTableModel lstIncidente = (DefaultTableModel) tableListaIncidente.getModel();
 
                 int rowCount = lstIncidente.getRowCount();
                 for (int i = 0; i < rowCount; i++) {
@@ -244,7 +243,14 @@ public class Form_reporte_comuna extends javax.swing.JInternalFrame {
                     lstIncidente.addRow(new Object[]{getControlador().getListaIncicomuna().get(i).getInc_codigoIncidente(), getControlador().getListaIncidentes().get(i).getInc_descripcionIncidente(), getControlador().getListaIncidentes().get(i).getInc_fechaIncidente(), getControlador().getListaIncidentes().get(i).getUsuario().getTelefono(), getControlador().getListaIncidentes().get(i).getTipo_incidente().getTipinc_descripcion(), getControlador().getListaIncidentes().get(i).getBarrio().getBar_nombre()});
                 }
             } else {
-                JOptionPane.showMessageDialog(null, "No tiene Se Tienen Incidentes en la comuna " + codigocomuna.getCom_nombre());
+                JOptionPane.showMessageDialog(null, "No tiene Se Tienen Incidentes en la comuna: " + codigocomuna.getCom_nombre());
+                int rowCount = lstIncidente.getRowCount();
+                for (int i = 0; i < rowCount; i++) {
+                    lstIncidente.removeRow(i);
+                }
+                if (lstIncidente.getRowCount() > 0) {
+                    lstIncidente.removeRow(tableListaIncidente.getSelectedRow());
+                }
             }
         } else {
             JOptionPane.showMessageDialog(null, "Debe Seleccionar Una Comuna");

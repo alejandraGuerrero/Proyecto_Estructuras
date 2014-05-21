@@ -20,12 +20,12 @@ import javax.swing.table.DefaultTableModel;
  *
  * @author Lenovo
  */
-public class Form_reporte_comuna_y_tipo extends javax.swing.JInternalFrame {
+public class Form_reporte_comuna_tipo_y_barrio extends javax.swing.JInternalFrame {
 
     /**
      * Creates new form JIPrincipal
      */
-    public Form_reporte_comuna_y_tipo(Controlador cont) {
+    public Form_reporte_comuna_tipo_y_barrio(Controlador cont) {
         initComponents();
         this.controlador = cont;
         cargarSelect();
@@ -38,15 +38,15 @@ public class Form_reporte_comuna_y_tipo extends javax.swing.JInternalFrame {
     }
 
     public void cargarSelect() {
-        combo_comuna_reportedoble.removeAllItems();
-        combo_comuna_reportedoble.addItem("Seleccione");
+        combo_comuna_reportetriple.removeAllItems();
+        combo_comuna_reportetriple.addItem("Seleccione");
         for (int i = 0; i < getControlador().getListacomunas().size(); i++) {
-            combo_comuna_reportedoble.addItem(getControlador().getListacomunas().get(i).getCom_nombre());
+            combo_comuna_reportetriple.addItem(getControlador().getListacomunas().get(i).getCom_nombre());
         }
-        combo_tipo_reportedoble.removeAllItems();
-        combo_tipo_reportedoble.addItem("Seleccione");
+        combo_tipo_reportetriple.removeAllItems();
+        combo_tipo_reportetriple.addItem("Seleccione");
         for (int i = 0; i < getControlador().getListaTipoInscidentes().size(); i++) {
-            combo_tipo_reportedoble.addItem(getControlador().getListaTipoInscidentes().get(i).getTipinc_descripcion());
+            combo_tipo_reportetriple.addItem(getControlador().getListaTipoInscidentes().get(i).getTipinc_descripcion());
         }
     }
 
@@ -68,13 +68,15 @@ public class Form_reporte_comuna_y_tipo extends javax.swing.JInternalFrame {
         jPasswordField1 = new javax.swing.JPasswordField();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
-        combo_tipo_reportedoble = new javax.swing.JComboBox();
+        combo_tipo_reportetriple = new javax.swing.JComboBox();
         jScrollPane1 = new javax.swing.JScrollPane();
         tableListaIncidente = new javax.swing.JTable();
         jBListarIncidentes = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         jLabel5 = new javax.swing.JLabel();
-        combo_comuna_reportedoble = new javax.swing.JComboBox();
+        combo_comuna_reportetriple = new javax.swing.JComboBox();
+        jLabel6 = new javax.swing.JLabel();
+        combo_barrio_reportetriple = new javax.swing.JComboBox();
 
         jLabel1.setText("jLabel1");
 
@@ -105,14 +107,14 @@ public class Form_reporte_comuna_y_tipo extends javax.swing.JInternalFrame {
 
         jLabel3.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(255, 0, 204));
-        jLabel3.setText("Reporte Por Comuna,Barrio Y Tipo de Incidente");
+        jLabel3.setText("Reporte Por Comuna y Tipo de Incidente");
 
         jLabel4.setText("Seleccione La Comuna");
 
-        combo_tipo_reportedoble.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        combo_tipo_reportedoble.addActionListener(new java.awt.event.ActionListener() {
+        combo_tipo_reportetriple.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        combo_tipo_reportetriple.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                combo_tipo_reportedobleActionPerformed(evt);
+                combo_tipo_reportetripleActionPerformed(evt);
             }
         });
 
@@ -150,10 +152,19 @@ public class Form_reporte_comuna_y_tipo extends javax.swing.JInternalFrame {
 
         jLabel5.setText("Seleccione el Tipo de Incidente");
 
-        combo_comuna_reportedoble.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        combo_comuna_reportedoble.addActionListener(new java.awt.event.ActionListener() {
+        combo_comuna_reportetriple.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        combo_comuna_reportetriple.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                combo_comuna_reportedobleActionPerformed(evt);
+                combo_comuna_reportetripleActionPerformed(evt);
+            }
+        });
+
+        jLabel6.setText("Seleccione El Barrio");
+
+        combo_barrio_reportetriple.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        combo_barrio_reportetriple.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                combo_barrio_reportetripleActionPerformed(evt);
             }
         });
 
@@ -163,32 +174,34 @@ public class Form_reporte_comuna_y_tipo extends javax.swing.JInternalFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane1)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(262, 262, 262)
-                        .addComponent(jLabel3))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(186, 186, 186)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel5)
-                            .addComponent(jLabel4))
-                        .addGap(43, 43, 43)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(combo_comuna_reportedoble, javax.swing.GroupLayout.PREFERRED_SIZE, 289, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(combo_tipo_reportedoble, javax.swing.GroupLayout.PREFERRED_SIZE, 289, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(166, Short.MAX_VALUE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(262, 262, 262)
+                                .addComponent(jLabel3))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(195, 195, 195)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel5)
+                                    .addComponent(jLabel4)
+                                    .addComponent(jLabel6))
+                                .addGap(34, 34, 34)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(combo_comuna_reportetriple, javax.swing.GroupLayout.PREFERRED_SIZE, 289, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(combo_tipo_reportetriple, javax.swing.GroupLayout.PREFERRED_SIZE, 289, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(combo_barrio_reportetriple, javax.swing.GroupLayout.PREFERRED_SIZE, 289, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addGap(0, 154, Short.MAX_VALUE)))
+                .addContainerGap())
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(353, 353, 353)
                         .addComponent(jButton2))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(354, 354, 354)
+                        .addGap(357, 357, 357)
                         .addComponent(jBListarIncidentes)))
                 .addGap(0, 0, Short.MAX_VALUE))
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jScrollPane1)
-                .addGap(20, 20, 20))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -198,16 +211,20 @@ public class Form_reporte_comuna_y_tipo extends javax.swing.JInternalFrame {
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
-                    .addComponent(combo_comuna_reportedoble, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(combo_comuna_reportetriple, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel6)
+                    .addComponent(combo_barrio_reportetriple, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel5)
-                    .addComponent(combo_tipo_reportedoble, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(combo_tipo_reportetriple, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jBListarIncidentes)
                 .addGap(18, 18, 18)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 178, Short.MAX_VALUE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(43, 43, 43)
                 .addComponent(jButton2)
                 .addContainerGap())
         );
@@ -218,16 +235,16 @@ public class Form_reporte_comuna_y_tipo extends javax.swing.JInternalFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void combo_tipo_reportedobleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_combo_tipo_reportedobleActionPerformed
+    private void combo_tipo_reportetripleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_combo_tipo_reportetripleActionPerformed
 
-        int incidente = combo_tipo_reportedoble.getSelectedIndex();
+        int incidente = combo_tipo_reportetriple.getSelectedIndex();
         getControlador().cargarIncidentesPorBarrio(incidente);
         System.out.println("deded " + getControlador().getListaInci().size());
 //        for (int i = 0; i < getControlador().getLstbarrio().size(); i++) {
 //            combo_barrio_reporte.addItem(getControlador().getLstbarrio().get(i).getBar_nombre());
 //        }
         // TODO add your handling code here:
-    }//GEN-LAST:event_combo_tipo_reportedobleActionPerformed
+    }//GEN-LAST:event_combo_tipo_reportetripleActionPerformed
 
     private void formInternalFrameOpened(javax.swing.event.InternalFrameEvent evt) {//GEN-FIRST:event_formInternalFrameOpened
         // TODO add your handling code here:
@@ -250,32 +267,43 @@ public class Form_reporte_comuna_y_tipo extends javax.swing.JInternalFrame {
 
     private void jBListarIncidentesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBListarIncidentesActionPerformed
         // TODO add your handling code here:
-        int comuna = combo_comuna_reportedoble.getSelectedIndex();
-        int tipo = combo_tipo_reportedoble.getSelectedIndex();
+        int comuna = combo_comuna_reportetriple.getSelectedIndex();
+        int tipo = combo_tipo_reportetriple.getSelectedIndex();
+        int barrio = combo_barrio_reportetriple.getSelectedIndex();
 
-        if (comuna!=0 && tipo != 0) {
+        if (comuna != 0 && tipo != 0 && barrio != 0) {
 
-            Comuna codigocomuna = controlador.buscarComuna(combo_comuna_reportedoble.getSelectedItem().toString());
-            TipoInscidente codigotipo = controlador.buscarTipoIncidente(combo_tipo_reportedoble.getSelectedItem().toString());
-            getControlador().cargarIncidentesPorComunaYTipo(codigocomuna.getCom_codigo(),codigotipo.getTipinc_codigo());
+            Comuna codigocomuna = controlador.buscarComuna(combo_comuna_reportetriple.getSelectedItem().toString());
+            TipoInscidente codigotipo = controlador.buscarTipoIncidente(combo_tipo_reportetriple.getSelectedItem().toString());
+            Barrio codigobarrio = controlador.buscarBarrio(combo_barrio_reportetriple.getSelectedItem().toString());
+            getControlador().cargarIncidentesPorComunaTipoYBarrio(codigocomuna.getCom_codigo(), codigotipo.getTipinc_codigo(), codigobarrio.getBar_codigo());
             DefaultTableModel lstIncidente = (DefaultTableModel) tableListaIncidente.getModel();
-            
-            if (!getControlador().getListaIncicomunaytipo().isEmpty()) {
-                JOptionPane.showMessageDialog(null, "Se tienen " + getControlador().getListaIncicomunaytipo().size() + " Incidentes Registrados en la comuna " + codigocomuna.getCom_nombre()+" Y con el tipo de incidente " + codigotipo.getTipinc_descripcion());
+
+            if (!getControlador().getListaIncicomunatipoybarrio().isEmpty()) {
+                JOptionPane.showMessageDialog(null, "Se tienen " + getControlador().getListaIncicomunatipoybarrio().size()
+                        + " Incidentes Registrados en el barrio " + codigobarrio.getBar_nombre() + " de la Comuna " + codigocomuna.getCom_nombre() + " Y con el tipo de incidente "
+                        + codigotipo.getTipinc_descripcion());
                 tableListaIncidente.removeAll();
-                
+
                 int rowCount = lstIncidente.getRowCount();
                 for (int i = 0; i < rowCount; i++) {
                     lstIncidente.removeRow(i);
                 }
-                for (int i = 0; i < getControlador().getListaIncicomunaytipo().size(); i++) {
-                    lstIncidente.addRow(new Object[]{getControlador().getListaIncicomunaytipo().get(i).getInc_codigoIncidente(), getControlador().getListaIncicomunaytipo().get(i).getInc_descripcionIncidente(), getControlador().getListaIncicomunaytipo().get(i).getInc_fechaIncidente(), getControlador().getListaIncicomunaytipo().get(i).getUsuario().getTelefono(), getControlador().getListaIncicomunaytipo().get(i).getTipo_incidente().getTipinc_descripcion(), getControlador().getListaIncicomunaytipo().get(i).getBarrio().getBar_nombre()});
+                for (int i = 0; i < getControlador().getListaIncicomunatipoybarrio().size(); i++) {
+                    lstIncidente.addRow(new Object[]{getControlador().getListaIncicomunatipoybarrio().get(i).getInc_codigoIncidente(), getControlador().getListaIncicomunatipoybarrio().get(i).getInc_descripcionIncidente(), getControlador().getListaIncicomunatipoybarrio().get(i).getInc_fechaIncidente(), getControlador().getListaIncicomunatipoybarrio().get(i).getUsuario().getTelefono(), getControlador().getListaIncicomunatipoybarrio().get(i).getTipo_incidente().getTipinc_descripcion(), getControlador().getListaIncicomunatipoybarrio().get(i).getBarrio().getBar_nombre()});
                 }
             } else {
-                JOptionPane.showMessageDialog(null, "No tiene Se Tienen Incidentes en la comuna " + codigocomuna.getCom_nombre()+" Y con el tipo de incidente " + codigotipo.getTipinc_descripcion());
+                JOptionPane.showMessageDialog(null, "No tiene Se Tienen Incidentes en el barrio " + codigobarrio.getBar_nombre() + " de la Comuna " + codigocomuna.getCom_nombre() + " Y con el tipo de incidente "
+                        + codigotipo.getTipinc_descripcion());
+                int rowCount = lstIncidente.getRowCount();
+                for (int i = 0; i < rowCount; i++) {
+                    lstIncidente.removeRow(i);
+                }
+                lstIncidente.removeRow(tableListaIncidente.getSelectedRow());
+
             }
         } else {
-            JOptionPane.showMessageDialog(null, "Debe Seleccionar Una Comuna y un Tipo de Incidente");
+            JOptionPane.showMessageDialog(null, "Debe Seleccionar Una Comuna, un Barrio y un Tipo de Incidente");
         }
     }//GEN-LAST:event_jBListarIncidentesActionPerformed
 
@@ -284,14 +312,26 @@ public class Form_reporte_comuna_y_tipo extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton2ActionPerformed
 
-    private void combo_comuna_reportedobleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_combo_comuna_reportedobleActionPerformed
+    private void combo_comuna_reportetripleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_combo_comuna_reportetripleActionPerformed
+        int comuna = combo_comuna_reportetriple.getSelectedIndex();
+        getControlador().cargarBarrio(comuna);
+        combo_barrio_reportetriple.removeAllItems();
+        combo_barrio_reportetriple.addItem("Seleccione");
+        for (int i = 0; i < getControlador().getLstbarrio().size(); i++) {
+            combo_barrio_reportetriple.addItem(getControlador().getLstbarrio().get(i).getBar_nombre());
+        }
         // TODO add your handling code here:
-    }//GEN-LAST:event_combo_comuna_reportedobleActionPerformed
+    }//GEN-LAST:event_combo_comuna_reportetripleActionPerformed
+
+    private void combo_barrio_reportetripleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_combo_barrio_reportetripleActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_combo_barrio_reportetripleActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JComboBox combo_comuna_reportedoble;
-    private javax.swing.JComboBox combo_tipo_reportedoble;
+    private javax.swing.JComboBox combo_barrio_reportetriple;
+    private javax.swing.JComboBox combo_comuna_reportetriple;
+    private javax.swing.JComboBox combo_tipo_reportetriple;
     private javax.swing.JButton jBListarIncidentes;
     private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
@@ -299,6 +339,7 @@ public class Form_reporte_comuna_y_tipo extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
     private javax.swing.JPasswordField jPasswordField1;
     private javax.swing.JScrollPane jScrollPane1;
     public static javax.swing.JTable tableListaIncidente;

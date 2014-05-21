@@ -227,11 +227,10 @@ public class Form_reporte_barrio extends javax.swing.JInternalFrame {
 
             Barrio codigobarrio = controlador.buscarBarrio(combo_barrio_reporte.getSelectedItem().toString());
             getControlador().cargarIncidentesPorBarrio(codigobarrio.getBar_codigo());
-
+            DefaultTableModel lstIncidente = (DefaultTableModel) tableListaIncidente.getModel();
             if (!getControlador().getListaInci().isEmpty()) {
-                JOptionPane.showMessageDialog(null, "Se tienen " + getControlador().getListaInci().size() + " Incidentes Registrados");
+                JOptionPane.showMessageDialog(null, "Se tienen " + getControlador().getListaInci().size() + " Incidentes Registrados en el Barrio:  " + codigobarrio.getBar_nombre());
                 tableListaIncidente.removeAll();
-                DefaultTableModel lstIncidente = (DefaultTableModel) tableListaIncidente.getModel();
 
                 int rowCount = lstIncidente.getRowCount();
                 for (int i = 0; i < rowCount; i++) {
@@ -241,8 +240,15 @@ public class Form_reporte_barrio extends javax.swing.JInternalFrame {
                     lstIncidente.addRow(new Object[]{getControlador().getListaInci().get(i).getBarrio().getBar_nombre(), getControlador().getListaInci().get(i).getInc_codigoIncidente(), getControlador().getListaInci().get(i).getInc_descripcionIncidente(), getControlador().getListaInci().get(i).getInc_fechaIncidente(), getControlador().getListaInci().get(i).getUsuario().getTelefono(), getControlador().getListaInci().get(i).getTipo_incidente().getTipinc_descripcion()});
                 }
             } else {
-                tableListaIncidente.remove(this);
+
                 JOptionPane.showMessageDialog(null, "No tiene Se Tienen Incidentes en el Barrio:  " + codigobarrio.getBar_nombre());
+                int rowCount = lstIncidente.getRowCount();
+                for (int i = 0; i < rowCount; i++) {
+                    lstIncidente.removeRow(i);
+                }
+                if (lstIncidente.getRowCount() > 0) {
+                    lstIncidente.removeRow(tableListaIncidente.getSelectedRow());
+                }
             }
         } else {
             JOptionPane.showMessageDialog(null, "Debe Seleccionar Un Barrio");
