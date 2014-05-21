@@ -114,11 +114,11 @@ public class Form_reporte_barrio extends javax.swing.JInternalFrame {
 
             },
             new String [] {
-                "Barrio", "Codigo", "Descripcion", "Fecha", "Usuario", "Tipo Incidente"
+                "Barrio", "Codigo", "Descripcion", "Fecha", "Usuario", "Tipo Incidente", "Tipo Ingreso"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, false, false
+                false, false, false, false, false, false, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
@@ -237,7 +237,7 @@ public class Form_reporte_barrio extends javax.swing.JInternalFrame {
                     lstIncidente.removeRow(i);
                 }
                 for (int i = 0; i < getControlador().getListaInci().size(); i++) {
-                    lstIncidente.addRow(new Object[]{getControlador().getListaInci().get(i).getBarrio().getBar_nombre(), getControlador().getListaInci().get(i).getInc_codigoIncidente(), getControlador().getListaInci().get(i).getInc_descripcionIncidente(), getControlador().getListaInci().get(i).getInc_fechaIncidente(), getControlador().getListaInci().get(i).getUsuario().getTelefono(), getControlador().getListaInci().get(i).getTipo_incidente().getTipinc_descripcion()});
+                    lstIncidente.addRow(new Object[]{getControlador().getListaInci().get(i).getBarrio().getBar_nombre(), getControlador().getListaInci().get(i).getInc_codigoIncidente(), getControlador().getListaInci().get(i).getInc_descripcionIncidente(), getControlador().getListaInci().get(i).getInc_fechaIncidente(), getControlador().getListaInci().get(i).getUsuario().getTelefono(), getControlador().getListaInci().get(i).getTipo_incidente().getTipinc_descripcion(),getControlador().getListaInci().get(i).getTipo_ingreso_incidente().getTii_descripcion()});
                 }
             } else {
 

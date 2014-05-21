@@ -299,7 +299,9 @@ public class Form_reporte_comuna_tipo_y_barrio extends javax.swing.JInternalFram
                 for (int i = 0; i < rowCount; i++) {
                     lstIncidente.removeRow(i);
                 }
-                lstIncidente.removeRow(tableListaIncidente.getSelectedRow());
+                if (lstIncidente.getRowCount() > 0) {
+                    lstIncidente.removeRow(tableListaIncidente.getSelectedRow());
+                }
 
             }
         } else {
