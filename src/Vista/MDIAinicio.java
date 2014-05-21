@@ -449,16 +449,22 @@ public class MDIAinicio extends javax.swing.JFrame {
     private void optmenu_ingresar_incidente1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_optmenu_ingresar_incidente1ActionPerformed
         // TODO add your handling code here:
         panel_login.dispose();
-        Form_Reporte_Por_Barrio fr = new Form_Reporte_Por_Barrio(controlador);
+        Form_reporte_barrio fr = new Form_reporte_barrio(controlador);
         fondo.add(fr);
         fr.show();
     }//GEN-LAST:event_optmenu_ingresar_incidente1ActionPerformed
 
     private void optmenu_actualizar_incidente1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_optmenu_actualizar_incidente1ActionPerformed
+        Form_reporte_comuna fr = new Form_reporte_comuna(controlador);
+        fondo.add(fr);
+        fr.show();
         // TODO add your handling code here:
     }//GEN-LAST:event_optmenu_actualizar_incidente1ActionPerformed
 
     private void optmenu_reporte_tipo_incidente_y_comuna_barrioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_optmenu_reporte_tipo_incidente_y_comuna_barrioActionPerformed
+        Form_reporte_Tipo_incidente fr = new Form_reporte_Tipo_incidente(controlador);
+        fondo.add(fr);
+        fr.show();
         // TODO add your handling code here:
     }//GEN-LAST:event_optmenu_reporte_tipo_incidente_y_comuna_barrioActionPerformed
 
