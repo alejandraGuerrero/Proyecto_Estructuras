@@ -78,20 +78,20 @@ public class Form_reporte_barrio extends javax.swing.JInternalFrame {
         setResizable(true);
         setTitle("Menu");
         addInternalFrameListener(new javax.swing.event.InternalFrameListener() {
+            public void internalFrameActivated(javax.swing.event.InternalFrameEvent evt) {
+            }
             public void internalFrameClosed(javax.swing.event.InternalFrameEvent evt) {
             }
             public void internalFrameClosing(javax.swing.event.InternalFrameEvent evt) {
-            }
-            public void internalFrameOpened(javax.swing.event.InternalFrameEvent evt) {
-                formInternalFrameOpened(evt);
-            }
-            public void internalFrameActivated(javax.swing.event.InternalFrameEvent evt) {
             }
             public void internalFrameDeactivated(javax.swing.event.InternalFrameEvent evt) {
             }
             public void internalFrameDeiconified(javax.swing.event.InternalFrameEvent evt) {
             }
             public void internalFrameIconified(javax.swing.event.InternalFrameEvent evt) {
+            }
+            public void internalFrameOpened(javax.swing.event.InternalFrameEvent evt) {
+                formInternalFrameOpened(evt);
             }
         });
 
@@ -113,11 +113,11 @@ public class Form_reporte_barrio extends javax.swing.JInternalFrame {
 
             },
             new String [] {
-                "Codigo", "Descripcion", "Fecha", "Usuario", "Tipo Incidente", "Barrio"
+                "Barrio", "Codigo", "Descripcion", "Fecha", "Usuario", "Tipo Incidente"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, true, true
+                false, false, false, false, false, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
@@ -182,10 +182,7 @@ public class Form_reporte_barrio extends javax.swing.JInternalFrame {
 
     private void combo_barrio_reporteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_combo_barrio_reporteActionPerformed
 
-        int barrio = combo_barrio_reporte.getSelectedIndex();
-        System.out.println(" barrio " + barrio);
-        getControlador().cargarIncidentesPorBarrio(barrio);
-        System.out.println("incidentes " + getControlador().getListaInci().size());
+        
 //        for (int i = 0; i < getControlador().getLstbarrio().size(); i++) {
 //            combo_barrio_reporte.addItem(getControlador().getLstbarrio().get(i).getBar_nombre());
 //        }
@@ -213,6 +210,10 @@ public class Form_reporte_barrio extends javax.swing.JInternalFrame {
 
     private void jBListarIncidentesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBListarIncidentesActionPerformed
         // TODO add your handling code here:
+   
+        Barrio codigobarrio = controlador.buscarBarrio(combo_barrio_reporte.getSelectedItem().toString());
+        getControlador().cargarIncidentesPorBarrio(codigobarrio.getBar_codigo());
+        
         if (!getControlador().getListaInci().isEmpty()) {
             JOptionPane.showMessageDialog(null, "Se tienen " + getControlador().getListaInci().size() + " Incidentes Registrados");
             tableListaIncidente.removeAll();
@@ -223,10 +224,10 @@ public class Form_reporte_barrio extends javax.swing.JInternalFrame {
                 lstIncidente.removeRow(i);
             }
             for (int i = 0; i < getControlador().getListaInci().size(); i++) {
-                lstIncidente.addRow(new Object[]{getControlador().getListaInci().get(i).getInc_codigoIncidente(), getControlador().getListaInci().get(i).getInc_descripcionIncidente(), getControlador().getListaInci().get(i).getInc_fechaIncidente(), getControlador().getListaInci().get(i).getUsuario().getTelefono(), getControlador().getListaInci().get(i).getTipo_incidente().getTipinc_descripcion(), getControlador().getListaInci().get(i).getBarrio().getBar_nombre()});
+                lstIncidente.addRow(new Object[]{getControlador().getListaInci().get(i).getBarrio().getBar_nombre(),getControlador().getListaInci().get(i).getInc_codigoIncidente(), getControlador().getListaInci().get(i).getInc_descripcionIncidente(), getControlador().getListaInci().get(i).getInc_fechaIncidente(), getControlador().getListaInci().get(i).getUsuario().getTelefono(), getControlador().getListaInci().get(i).getTipo_incidente().getTipinc_descripcion()});
             }
         } else {
-            JOptionPane.showMessageDialog(null, "No tiene Se Tienen Incidentes");
+            JOptionPane.showMessageDialog(null, "No tiene Se Tienen Incidentes en el Barrio" + codigobarrio.getBar_nombre());
         }
     }//GEN-LAST:event_jBListarIncidentesActionPerformed
 

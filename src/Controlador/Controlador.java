@@ -46,7 +46,7 @@ public class Controlador {
         cargarTipoIncidente();
         cargarTipoIngresoIncidente();
 //        tmpAdicionarIncidente();
-      
+
         usuario = new Usuario();
     }
 
@@ -196,7 +196,6 @@ public class Controlador {
 //        System.out.println("Elimino incidente");
 //        listaIncidentes.remove(incidente);
 //    }
-
     public void cargarBarrio(int intcomuna) {
         listabarrios = new ArrayList<Barrio>();
         lstbarrio = new ArrayList<Barrio>();
@@ -215,17 +214,19 @@ public class Controlador {
     public void setListaInci(List<Incidente> listaInci) {
         this.listaInci = listaInci;
     }
-    
-    
-    
+
     public void cargarIncidentesPorBarrio(int intbarrio) {
+        System.out.println("lista barrios " + getListaIncidentes().size());
+        System.out.println("Codigo Barrio  " + intbarrio);
         listaInci = new ArrayList<Incidente>();
         for (Incidente ls : listaIncidentes) {
-            if (ls.getBarrio().getBar_codigo() == intbarrio) {
+            System.out.println("nombre incidente " + ls.getBarrio().getBar_codigo());
+            if (ls.getBarrio().getBar_codigo()== intbarrio) {
                 listaInci.add(ls);
                 System.out.println("incidente " + ls.getInc_descripcionIncidente());
             }
         }
+        System.out.println("lista por barrio " + getListaInci().size());
     }
 
     public List<TipoInscidente> cargarTipoIncidente() {
@@ -275,14 +276,12 @@ public class Controlador {
         for (TipoIngresoInsidente tii : listatipoingresoincidente) {
 
 //            System.out.println("tipo ingreso incidente " + tii.getTii_descripcion());
-
         }
 
         return listatipoingresoincidente;
     }
 
     public void guardarIncidente(Incidente incidente) {
-
 
         getListaIncidentes().add(incidente);
         incidente = new Incidente();
@@ -312,7 +311,6 @@ public class Controlador {
 //        }
 //
 //    }
-
     public boolean RegistrarUsuario(String nombre, String telefono, String direccion, String password, String password2) {
         if (password.equals(password2)) {
             usuario.setPassword(password);
