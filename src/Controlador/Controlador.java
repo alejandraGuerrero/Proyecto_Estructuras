@@ -356,6 +356,14 @@ public class Controlador {
         incidente = new Incidente();
 
     }
+    
+     public boolean ModificarIncidente(String descripcion,int codigo) {
+        Incidente inci = new Incidente();
+        listaIncidentes.remove(codigo);
+            inci.setInc_descripcionIncidente(descripcion);
+            listaIncidentes.add(inci);
+            return true;
+    }
 
 //    public String ValidarUsuario() {
 //
