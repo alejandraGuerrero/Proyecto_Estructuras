@@ -216,14 +216,11 @@ public class Controlador {
     }
 
     public void cargarIncidentesPorBarrio(int intbarrio) {
-        System.out.println("lista barrios " + getListaIncidentes().size());
-        System.out.println("Codigo Barrio  " + intbarrio);
         listaInci = new ArrayList<Incidente>();
         for (Incidente ls : listaIncidentes) {
             System.out.println("nombre incidente " + ls.getBarrio().getBar_codigo());
             if (ls.getBarrio().getBar_codigo()== intbarrio) {
                 listaInci.add(ls);
-                System.out.println("incidente " + ls.getInc_descripcionIncidente());
             }
         }
         System.out.println("lista por barrio " + getListaInci().size());

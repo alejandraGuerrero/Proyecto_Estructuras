@@ -27,9 +27,9 @@ public class Form_reporte_barrio extends javax.swing.JInternalFrame {
      */
     public Form_reporte_barrio(Controlador cont) {
         initComponents();
-        this.controlador=cont;
+        this.controlador = cont;
         cargarSelect();
-        
+
     }
     private Controlador controlador;
 
@@ -182,7 +182,6 @@ public class Form_reporte_barrio extends javax.swing.JInternalFrame {
 
     private void combo_barrio_reporteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_combo_barrio_reporteActionPerformed
 
-        
 //        for (int i = 0; i < getControlador().getLstbarrio().size(); i++) {
 //            combo_barrio_reporte.addItem(getControlador().getLstbarrio().get(i).getBar_nombre());
 //        }
@@ -210,25 +209,33 @@ public class Form_reporte_barrio extends javax.swing.JInternalFrame {
 
     private void jBListarIncidentesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBListarIncidentesActionPerformed
         // TODO add your handling code here:
-   
-        Barrio codigobarrio = controlador.buscarBarrio(combo_barrio_reporte.getSelectedItem().toString());
-        getControlador().cargarIncidentesPorBarrio(codigobarrio.getBar_codigo());
-        
-        if (!getControlador().getListaInci().isEmpty()) {
-            JOptionPane.showMessageDialog(null, "Se tienen " + getControlador().getListaInci().size() + " Incidentes Registrados");
-            tableListaIncidente.removeAll();
-            DefaultTableModel lstIncidente = (DefaultTableModel) tableListaIncidente.getModel();
 
-            int rowCount = lstIncidente.getRowCount();
-            for (int i = 0; i < rowCount; i++) {
-                lstIncidente.removeRow(i);
+        int barrio = combo_barrio_reporte.getSelectedIndex();
+
+        if (barrio != 0) {
+
+            Barrio codigobarrio = controlador.buscarBarrio(combo_barrio_reporte.getSelectedItem().toString());
+            getControlador().cargarIncidentesPorBarrio(codigobarrio.getBar_codigo());
+
+            if (!getControlador().getListaInci().isEmpty()) {
+                JOptionPane.showMessageDialog(null, "Se tienen " + getControlador().getListaInci().size() + " Incidentes Registrados");
+                tableListaIncidente.removeAll();
+                DefaultTableModel lstIncidente = (DefaultTableModel) tableListaIncidente.getModel();
+
+                int rowCount = lstIncidente.getRowCount();
+                for (int i = 0; i < rowCount; i++) {
+                    lstIncidente.removeRow(i);
+                }
+                for (int i = 0; i < getControlador().getListaInci().size(); i++) {
+                    lstIncidente.addRow(new Object[]{getControlador().getListaInci().get(i).getBarrio().getBar_nombre(), getControlador().getListaInci().get(i).getInc_codigoIncidente(), getControlador().getListaInci().get(i).getInc_descripcionIncidente(), getControlador().getListaInci().get(i).getInc_fechaIncidente(), getControlador().getListaInci().get(i).getUsuario().getTelefono(), getControlador().getListaInci().get(i).getTipo_incidente().getTipinc_descripcion()});
+                }
+            } else {
+                JOptionPane.showMessageDialog(null, "No tiene Se Tienen Incidentes en el Barrio:  " + codigobarrio.getBar_nombre());
             }
-            for (int i = 0; i < getControlador().getListaInci().size(); i++) {
-                lstIncidente.addRow(new Object[]{getControlador().getListaInci().get(i).getBarrio().getBar_nombre(),getControlador().getListaInci().get(i).getInc_codigoIncidente(), getControlador().getListaInci().get(i).getInc_descripcionIncidente(), getControlador().getListaInci().get(i).getInc_fechaIncidente(), getControlador().getListaInci().get(i).getUsuario().getTelefono(), getControlador().getListaInci().get(i).getTipo_incidente().getTipinc_descripcion()});
-            }
-        } else {
-            JOptionPane.showMessageDialog(null, "No tiene Se Tienen Incidentes en el Barrio" + codigobarrio.getBar_nombre());
+        } else{
+        JOptionPane.showMessageDialog(null, "Debe Seleccionar Un Barrio");
         }
+
     }//GEN-LAST:event_jBListarIncidentesActionPerformed
 
 
