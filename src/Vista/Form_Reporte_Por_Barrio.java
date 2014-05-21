@@ -33,19 +33,21 @@ public class Form_Reporte_Por_Barrio extends javax.swing.JInternalFrame {
         return controlador;
     }
 
+    public void cargarSelect() {
+        System.out.println("numero " + getControlador().getListabarrios().size());
+
+       combo_barrios_reporte.removeAllItems();
+       combo_barrios_reporte.addItem("Seleccione");
+        for (int i = 0; i < getControlador().getListacomunas().size(); i++) {
+            combo_barrios_reporte.addItem(getControlador().getListacomunas().get(i).getCom_nombre());
+        }
+
+    }
     public void setControlador(Controlador controlador) {
         this.controlador = controlador;
     }
 
-    public void cargarSelect() {
-        System.out.println("numero " + getControlador().getListabarrios().size());
-//        comboreportes_barrio.addItem("Seleccione");
-        for (int i = 0; i < getControlador().getListabarrios().size(); i++) {
-            comboreportes_barrio.addItem(getControlador().getListabarrios().get(i).getBar_nombre());
-        }
-        
-
-    }
+    
     
     
     
@@ -64,7 +66,7 @@ public class Form_Reporte_Por_Barrio extends javax.swing.JInternalFrame {
         jBListarIncidentes = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         label1 = new java.awt.Label();
-        comboreportes_barrio = new javax.swing.JComboBox();
+        combo_barrios_reporte = new javax.swing.JComboBox();
 
         setClosable(true);
         setIconifiable(true);
@@ -111,9 +113,10 @@ public class Form_Reporte_Por_Barrio extends javax.swing.JInternalFrame {
 
         label1.setText("Seleccione el reporte que desea consultar");
 
-        comboreportes_barrio.addActionListener(new java.awt.event.ActionListener() {
+        combo_barrios_reporte.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        combo_barrios_reporte.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                comboreportes_barrioActionPerformed(evt);
+                combo_barrios_reporteActionPerformed(evt);
             }
         });
 
@@ -132,9 +135,9 @@ public class Form_Reporte_Por_Barrio extends javax.swing.JInternalFrame {
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(151, 151, 151)
                         .addComponent(label1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(64, 64, 64)
-                        .addComponent(comboreportes_barrio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(293, Short.MAX_VALUE))
+                        .addGap(71, 71, 71)
+                        .addComponent(combo_barrios_reporte, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(258, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -142,15 +145,14 @@ public class Form_Reporte_Por_Barrio extends javax.swing.JInternalFrame {
                 .addGap(27, 27, 27)
                 .addComponent(jLabel1)
                 .addGap(13, 13, 13)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(label1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jBListarIncidentes)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 231, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(comboreportes_barrio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(136, Short.MAX_VALUE))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(label1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(combo_barrios_reporte, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jBListarIncidentes)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 231, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(140, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -174,7 +176,7 @@ public class Form_Reporte_Por_Barrio extends javax.swing.JInternalFrame {
          if (!getControlador().getListaIncidentes().isEmpty()) {
             JOptionPane.showMessageDialog(null, "Se tienen " + getControlador().getListaIncidentes().size() + " Incidentes Registrados");
             tableListaIncidente.removeAll();
-            System.out.println("selecciono " + comboreportes_barrio.toString());
+            System.out.println("selecciono " + combo_barrios_reporte.toString());
             DefaultTableModel lstIncidente = (DefaultTableModel) tableListaIncidente.getModel();
 
             int rowCount = lstIncidente.getRowCount();
@@ -189,17 +191,13 @@ public class Form_Reporte_Por_Barrio extends javax.swing.JInternalFrame {
         }
     }//GEN-LAST:event_jBListarIncidentesActionPerformed
 
-    private void comboreportes_barrioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboreportes_barrioActionPerformed
-
+    private void combo_barrios_reporteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_combo_barrios_reporteActionPerformed
         // TODO add your handling code here:
-        
-        
-        
-    }//GEN-LAST:event_comboreportes_barrioActionPerformed
+    }//GEN-LAST:event_combo_barrios_reporteActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JComboBox comboreportes_barrio;
+    private javax.swing.JComboBox combo_barrios_reporte;
     private javax.swing.JButton jBListarIncidentes;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
