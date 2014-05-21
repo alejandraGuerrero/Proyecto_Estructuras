@@ -67,6 +67,7 @@ public class Form_reporte_barrio extends javax.swing.JInternalFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         tableListaIncidente = new javax.swing.JTable();
         jBListarIncidentes = new javax.swing.JButton();
+        jButton1 = new javax.swing.JButton();
 
         jLabel1.setText("jLabel1");
 
@@ -133,6 +134,13 @@ public class Form_reporte_barrio extends javax.swing.JInternalFrame {
             }
         });
 
+        jButton1.setText("Cerrar Reporte");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -150,28 +158,31 @@ public class Form_reporte_barrio extends javax.swing.JInternalFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(294, 294, 294)
+                        .addGap(355, 355, 355)
+                        .addComponent(jBListarIncidentes))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(336, 336, 336)
                         .addComponent(jLabel3))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(352, 352, 352)
-                        .addComponent(jBListarIncidentes)))
+                        .addGap(375, 375, 375)
+                        .addComponent(jButton1)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
+                .addComponent(jLabel3)
+                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jLabel4)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel3)
-                        .addGap(18, 18, 18)
-                        .addComponent(combo_barrio_reporte, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 17, Short.MAX_VALUE)
-                .addComponent(jBListarIncidentes)
+                    .addComponent(combo_barrio_reporte, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
+                .addComponent(jBListarIncidentes)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 24, Short.MAX_VALUE)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 231, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(23, 23, 23))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         getAccessibleContext().setAccessibleName("Iniciar_Resgis");
@@ -230,18 +241,26 @@ public class Form_reporte_barrio extends javax.swing.JInternalFrame {
                     lstIncidente.addRow(new Object[]{getControlador().getListaInci().get(i).getBarrio().getBar_nombre(), getControlador().getListaInci().get(i).getInc_codigoIncidente(), getControlador().getListaInci().get(i).getInc_descripcionIncidente(), getControlador().getListaInci().get(i).getInc_fechaIncidente(), getControlador().getListaInci().get(i).getUsuario().getTelefono(), getControlador().getListaInci().get(i).getTipo_incidente().getTipinc_descripcion()});
                 }
             } else {
+                tableListaIncidente.remove(this);
                 JOptionPane.showMessageDialog(null, "No tiene Se Tienen Incidentes en el Barrio:  " + codigobarrio.getBar_nombre());
             }
-        } else{
-        JOptionPane.showMessageDialog(null, "Debe Seleccionar Un Barrio");
+        } else {
+            JOptionPane.showMessageDialog(null, "Debe Seleccionar Un Barrio");
         }
 
     }//GEN-LAST:event_jBListarIncidentesActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+
+        this.dispose();
+// TODO add your handling code here:
+    }//GEN-LAST:event_jButton1ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JComboBox combo_barrio_reporte;
     private javax.swing.JButton jBListarIncidentes;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

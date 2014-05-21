@@ -67,6 +67,7 @@ public class Form_reporte_Tipo_incidente extends javax.swing.JInternalFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         tableListaIncidente = new javax.swing.JTable();
         jBListarIncidentes = new javax.swing.JButton();
+        jButton1 = new javax.swing.JButton();
 
         jLabel1.setText("jLabel1");
 
@@ -133,6 +134,13 @@ public class Form_reporte_Tipo_incidente extends javax.swing.JInternalFrame {
             }
         });
 
+        jButton1.setText("Cerrar Reporte");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -143,9 +151,8 @@ public class Form_reporte_Tipo_incidente extends javax.swing.JInternalFrame {
                 .addGap(127, 127, 127)
                 .addComponent(combo_tipo_reporte, javax.swing.GroupLayout.PREFERRED_SIZE, 289, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(168, 168, 168))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jScrollPane1)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 920, Short.MAX_VALUE)
                 .addContainerGap())
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -153,8 +160,11 @@ public class Form_reporte_Tipo_incidente extends javax.swing.JInternalFrame {
                         .addGap(294, 294, 294)
                         .addComponent(jLabel3))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(352, 352, 352)
-                        .addComponent(jBListarIncidentes)))
+                        .addGap(351, 351, 351)
+                        .addComponent(jBListarIncidentes))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(373, 373, 373)
+                        .addComponent(jButton1)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -167,11 +177,13 @@ public class Form_reporte_Tipo_incidente extends javax.swing.JInternalFrame {
                         .addComponent(jLabel3)
                         .addGap(18, 18, 18)
                         .addComponent(combo_tipo_reporte, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 17, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 8, Short.MAX_VALUE)
                 .addComponent(jBListarIncidentes)
-                .addGap(18, 18, 18)
+                .addGap(4, 4, 4)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 231, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(23, 23, 23))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jButton1)
+                .addGap(6, 6, 6))
         );
 
         getAccessibleContext().setAccessibleName("Iniciar_Resgis");
@@ -232,17 +244,26 @@ public class Form_reporte_Tipo_incidente extends javax.swing.JInternalFrame {
                     lstIncidente.addRow(new Object[]{getControlador().getListaInciTipo().get(i).getTipo_incidente().getTipinc_descripcion(), getControlador().getListaInciTipo().get(i).getInc_codigoIncidente(), getControlador().getListaInciTipo().get(i).getInc_descripcionIncidente(), getControlador().getListaInciTipo().get(i).getInc_fechaIncidente(), getControlador().getListaInciTipo().get(i).getUsuario().getTelefono(), getControlador().getListaInciTipo().get(i).getBarrio().getBar_nombre()});
                 }
             } else {
+                tableListaIncidente.removeAll();
                 JOptionPane.showMessageDialog(null, "No tiene Se Tienen Incidentes de Tipo " + codigotipo.getTipinc_descripcion());
+                
             }
         } else {
             JOptionPane.showMessageDialog(null, "Debe Seleccionar Un Tipo De Incidente");
         }
     }//GEN-LAST:event_jBListarIncidentesActionPerformed
 
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+
+        this.dispose();
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton1ActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JComboBox combo_tipo_reporte;
     private javax.swing.JButton jBListarIncidentes;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
