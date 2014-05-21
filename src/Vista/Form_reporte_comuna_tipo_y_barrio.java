@@ -123,11 +123,11 @@ public class Form_reporte_comuna_tipo_y_barrio extends javax.swing.JInternalFram
 
             },
             new String [] {
-                "Codigo", "Descripcion", "Fecha", "Usuario", "Tipo Incidente", "Barrio"
+                "Comuna", "Barrio", "Tipo Incidente", "Codigo", "Descripcion", "Fecha", "Usuario"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, true, true
+                false, true, true, false, false, false, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
@@ -290,7 +290,15 @@ public class Form_reporte_comuna_tipo_y_barrio extends javax.swing.JInternalFram
                     lstIncidente.removeRow(i);
                 }
                 for (int i = 0; i < getControlador().getListaIncicomunatipoybarrio().size(); i++) {
-                    lstIncidente.addRow(new Object[]{getControlador().getListaIncicomunatipoybarrio().get(i).getInc_codigoIncidente(), getControlador().getListaIncicomunatipoybarrio().get(i).getInc_descripcionIncidente(), getControlador().getListaIncicomunatipoybarrio().get(i).getInc_fechaIncidente(), getControlador().getListaIncicomunatipoybarrio().get(i).getUsuario().getTelefono(), getControlador().getListaIncicomunatipoybarrio().get(i).getTipo_incidente().getTipinc_descripcion(), getControlador().getListaIncicomunatipoybarrio().get(i).getBarrio().getBar_nombre()});
+                    lstIncidente.addRow(new Object[]{getControlador().getListaIncicomunatipoybarrio().get(i).getComuna().getCom_nombre(),
+                        getControlador().getListaIncicomunatipoybarrio().get(i).getBarrio().getBar_nombre(),
+                        getControlador().getListaIncicomunatipoybarrio().get(i).getTipo_incidente().getTipinc_descripcion(),
+                        getControlador().getListaIncicomunatipoybarrio().get(i).getInc_codigoIncidente(),
+                        getControlador().getListaIncicomunatipoybarrio().get(i).getInc_descripcionIncidente(),
+                        getControlador().getListaIncicomunatipoybarrio().get(i).getInc_fechaIncidente(),
+                        getControlador().getListaIncicomunatipoybarrio().get(i).getUsuario().getTelefono()
+
+                    });
                 }
             } else {
                 JOptionPane.showMessageDialog(null, "No tiene Se Tienen Incidentes en el barrio " + codigobarrio.getBar_nombre() + " de la Comuna " + codigocomuna.getCom_nombre() + " Y con el tipo de incidente "

@@ -121,11 +121,11 @@ public class Form_reporte_comuna_y_tipo extends javax.swing.JInternalFrame {
 
             },
             new String [] {
-                "Codigo", "Descripcion", "Fecha", "Usuario", "Tipo Incidente", "Barrio"
+                "Comuna", "Barrio", "Tipo Incidente", "Codigo", "Descripcion", "Fecha", "Usuario"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, true, true
+                false, false, false, false, false, false, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
@@ -269,7 +269,15 @@ public class Form_reporte_comuna_y_tipo extends javax.swing.JInternalFrame {
                     lstIncidente.removeRow(i);
                 }
                 for (int i = 0; i < getControlador().getListaIncicomunaytipo().size(); i++) {
-                    lstIncidente.addRow(new Object[]{getControlador().getListaIncicomunaytipo().get(i).getInc_codigoIncidente(), getControlador().getListaIncicomunaytipo().get(i).getInc_descripcionIncidente(), getControlador().getListaIncicomunaytipo().get(i).getInc_fechaIncidente(), getControlador().getListaIncicomunaytipo().get(i).getUsuario().getTelefono(), getControlador().getListaIncicomunaytipo().get(i).getTipo_incidente().getTipinc_descripcion(), getControlador().getListaIncicomunaytipo().get(i).getBarrio().getBar_nombre()});
+                    lstIncidente.addRow(new Object[]{getControlador().getListaIncicomunaytipo().get(i).getComuna().getCom_nombre(),
+                        getControlador().getListaIncicomunaytipo().get(i).getBarrio().getBar_nombre(),
+                        getControlador().getListaIncicomunaytipo().get(i).getTipo_incidente().getTipinc_descripcion(),
+                        getControlador().getListaIncicomunaytipo().get(i).getInc_codigoIncidente(), 
+                        getControlador().getListaIncicomunaytipo().get(i).getInc_descripcionIncidente(),
+                        getControlador().getListaIncicomunaytipo().get(i).getInc_fechaIncidente(), 
+                        getControlador().getListaIncicomunaytipo().get(i).getUsuario().getTelefono(), 
+                         
+                        });
                 }
             } else {
                 JOptionPane.showMessageDialog(null, "No tiene Se Tienen Incidentes en la comuna " + codigocomuna.getCom_nombre() + " Y con el tipo de incidente " + codigotipo.getTipinc_descripcion());
