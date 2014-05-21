@@ -16,16 +16,18 @@ import javax.swing.table.DefaultTableModel;
  *
  * @author Lenovo
  */
-public class Form_Reportes extends javax.swing.JInternalFrame {
+public class Form_Reporte_Por_Barrio extends javax.swing.JInternalFrame {
 
     /**
      * Creates new form JIGestionIncidente
      */
-    public Form_Reportes() {
+    public Form_Reporte_Por_Barrio(Controlador cont) {
+        this.controlador=cont;
+        cargarSelect();
         initComponents();
     }
 
-    private  Controlador controlador = new Controlador();
+    private  Controlador controlador;
 
     public Controlador getControlador() {
         return controlador;
@@ -35,6 +37,15 @@ public class Form_Reportes extends javax.swing.JInternalFrame {
         this.controlador = controlador;
     }
 
+    public void cargarSelect() {
+        System.out.println("numero " + getControlador().getListabarrios().size());
+//        comboreportes_barrio.addItem("Seleccione");
+        for (int i = 0; i < getControlador().getListabarrios().size(); i++) {
+            comboreportes_barrio.addItem(getControlador().getListabarrios().get(i).getBar_nombre());
+        }
+        
+
+    }
     
     
     
@@ -53,7 +64,7 @@ public class Form_Reportes extends javax.swing.JInternalFrame {
         jBListarIncidentes = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         label1 = new java.awt.Label();
-        comboreportes = new javax.swing.JComboBox();
+        comboreportes_barrio = new javax.swing.JComboBox();
 
         setClosable(true);
         setIconifiable(true);
@@ -100,10 +111,9 @@ public class Form_Reportes extends javax.swing.JInternalFrame {
 
         label1.setText("Seleccione el reporte que desea consultar");
 
-        comboreportes.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        comboreportes.addActionListener(new java.awt.event.ActionListener() {
+        comboreportes_barrio.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                comboreportesActionPerformed(evt);
+                comboreportes_barrioActionPerformed(evt);
             }
         });
 
@@ -123,7 +133,7 @@ public class Form_Reportes extends javax.swing.JInternalFrame {
                         .addGap(151, 151, 151)
                         .addComponent(label1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(64, 64, 64)
-                        .addComponent(comboreportes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(comboreportes_barrio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(293, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -139,7 +149,7 @@ public class Form_Reportes extends javax.swing.JInternalFrame {
                         .addComponent(jBListarIncidentes)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 231, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(comboreportes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(comboreportes_barrio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(136, Short.MAX_VALUE))
         );
 
@@ -148,7 +158,7 @@ public class Form_Reportes extends javax.swing.JInternalFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(0, 95, Short.MAX_VALUE)
+                .addGap(0, 0, Short.MAX_VALUE)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         layout.setVerticalGroup(
@@ -164,7 +174,7 @@ public class Form_Reportes extends javax.swing.JInternalFrame {
          if (!getControlador().getListaIncidentes().isEmpty()) {
             JOptionPane.showMessageDialog(null, "Se tienen " + getControlador().getListaIncidentes().size() + " Incidentes Registrados");
             tableListaIncidente.removeAll();
-
+            System.out.println("selecciono " + comboreportes_barrio.toString());
             DefaultTableModel lstIncidente = (DefaultTableModel) tableListaIncidente.getModel();
 
             int rowCount = lstIncidente.getRowCount();
@@ -179,22 +189,17 @@ public class Form_Reportes extends javax.swing.JInternalFrame {
         }
     }//GEN-LAST:event_jBListarIncidentesActionPerformed
 
-    private void comboreportesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboreportesActionPerformed
+    private void comboreportes_barrioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboreportes_barrioActionPerformed
+
         // TODO add your handling code here:
-        comboreportes=new JComboBox();
-        comboreportes.setBounds(1,2,3,4);
-        add(comboreportes);
-        comboreportes.addItem("Incidentes Por Comuna");
-        comboreportes.addItem("Incidentes Por Barrio");
-        comboreportes.addItem("Incidentes Por Tipo");
-        comboreportes.addItem("Incidentes Por Tipo y comuna");
-        comboreportes.addItem("Incidentes Por Barrio, Tipo y comuna");
-        comboreportes.addItemListener((ItemListener) this);
-    }//GEN-LAST:event_comboreportesActionPerformed
+        
+        
+        
+    }//GEN-LAST:event_comboreportes_barrioActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JComboBox comboreportes;
+    private javax.swing.JComboBox comboreportes_barrio;
     private javax.swing.JButton jBListarIncidentes;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;

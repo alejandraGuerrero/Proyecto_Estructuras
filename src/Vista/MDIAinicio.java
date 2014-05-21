@@ -53,6 +53,8 @@ public class MDIAinicio extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         jTextPane1 = new javax.swing.JTextPane();
         jPanel1 = new javax.swing.JPanel();
+        jMenuItem1 = new javax.swing.JMenuItem();
+        jMenuItem2 = new javax.swing.JMenuItem();
         desktopPane = new javax.swing.JDesktopPane();
         fondo = new javax.swing.JPanel();
         panel_login = new javax.swing.JInternalFrame();
@@ -65,7 +67,7 @@ public class MDIAinicio extends javax.swing.JFrame {
         titulo1 = new javax.swing.JLabel();
         jLabel13 = new javax.swing.JLabel();
         menuBar = new javax.swing.JMenuBar();
-        optmenu_salir = new javax.swing.JMenu();
+        optmenu_Reportes_Comuna = new javax.swing.JMenu();
         exitMenuItem = new javax.swing.JMenuItem();
         optmenu_inscribete = new javax.swing.JMenuItem();
         optmenu_ingresousuregistrado = new javax.swing.JMenuItem();
@@ -73,7 +75,12 @@ public class MDIAinicio extends javax.swing.JFrame {
         optmenu_incidente = new javax.swing.JMenu();
         optmenu_ingresar_incidente = new javax.swing.JMenuItem();
         optmenu_actualizar_incidente = new javax.swing.JMenuItem();
-        optmenu_reportes = new javax.swing.JMenuItem();
+        optmenu_Reportes = new javax.swing.JMenu();
+        optmenu_ingresar_incidente1 = new javax.swing.JMenuItem();
+        optmenu_actualizar_incidente1 = new javax.swing.JMenuItem();
+        optmenu_reporte_tipo_incidente_y_comuna_barrio = new javax.swing.JMenuItem();
+        optmenu_actualizar_incidente3 = new javax.swing.JMenuItem();
+        optmenu_actualizar_incidente4 = new javax.swing.JMenuItem();
 
         jLabel1.setText("jLabel1");
 
@@ -101,6 +108,10 @@ public class MDIAinicio extends javax.swing.JFrame {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 100, Short.MAX_VALUE)
         );
+
+        jMenuItem1.setText("jMenuItem1");
+
+        jMenuItem2.setText("jMenuItem2");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -172,7 +183,7 @@ public class MDIAinicio extends javax.swing.JFrame {
                     .addComponent(txt_contraseña, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addComponent(btn_ingresar)
-                .addContainerGap(73, Short.MAX_VALUE))
+                .addContainerGap(140, Short.MAX_VALUE))
         );
 
         titulo1.setFont(new java.awt.Font("Comic Sans MS", 0, 18)); // NOI18N
@@ -199,7 +210,7 @@ public class MDIAinicio extends javax.swing.JFrame {
             .addGroup(fondoLayout.createSequentialGroup()
                 .addGap(58, 58, 58)
                 .addComponent(panel_login, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 89, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 44, Short.MAX_VALUE)
                 .addGroup(fondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, fondoLayout.createSequentialGroup()
                         .addComponent(titulo1, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -212,11 +223,11 @@ public class MDIAinicio extends javax.swing.JFrame {
         desktopPane.add(fondo);
         fondo.setBounds(0, 10, 910, 490);
 
-        optmenu_salir.setBackground(new java.awt.Color(224, 182, 116));
-        optmenu_salir.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        optmenu_salir.setMnemonic('f');
-        optmenu_salir.setText("Inicio");
-        optmenu_salir.setToolTipText("Inicio");
+        optmenu_Reportes_Comuna.setBackground(new java.awt.Color(224, 182, 116));
+        optmenu_Reportes_Comuna.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        optmenu_Reportes_Comuna.setMnemonic('f');
+        optmenu_Reportes_Comuna.setText("Inicio");
+        optmenu_Reportes_Comuna.setToolTipText("Inicio");
 
         exitMenuItem.setMnemonic('x');
         exitMenuItem.setText("Salir");
@@ -225,7 +236,7 @@ public class MDIAinicio extends javax.swing.JFrame {
                 exitMenuItemActionPerformed(evt);
             }
         });
-        optmenu_salir.add(exitMenuItem);
+        optmenu_Reportes_Comuna.add(exitMenuItem);
 
         optmenu_inscribete.setMnemonic('o');
         optmenu_inscribete.setText("Inscribete");
@@ -234,7 +245,7 @@ public class MDIAinicio extends javax.swing.JFrame {
                 optmenu_inscribeteActionPerformed(evt);
             }
         });
-        optmenu_salir.add(optmenu_inscribete);
+        optmenu_Reportes_Comuna.add(optmenu_inscribete);
 
         optmenu_ingresousuregistrado.setText("Ingreso Usuario Registrado");
         optmenu_ingresousuregistrado.setEnabled(false);
@@ -243,7 +254,7 @@ public class MDIAinicio extends javax.swing.JFrame {
                 optmenu_ingresousuregistradoActionPerformed(evt);
             }
         });
-        optmenu_salir.add(optmenu_ingresousuregistrado);
+        optmenu_Reportes_Comuna.add(optmenu_ingresousuregistrado);
 
         optmenu_ciudadano.setText("Ingreso Ciudadano");
         optmenu_ciudadano.addActionListener(new java.awt.event.ActionListener() {
@@ -251,7 +262,7 @@ public class MDIAinicio extends javax.swing.JFrame {
                 optmenu_ciudadanoActionPerformed(evt);
             }
         });
-        optmenu_salir.add(optmenu_ciudadano);
+        optmenu_Reportes_Comuna.add(optmenu_ciudadano);
 
         optmenu_incidente.setMnemonic('f');
         optmenu_incidente.setText("Gestionar Incidentes");
@@ -275,17 +286,60 @@ public class MDIAinicio extends javax.swing.JFrame {
         });
         optmenu_incidente.add(optmenu_actualizar_incidente);
 
-        optmenu_reportes.setText("Reportes");
-        optmenu_reportes.addActionListener(new java.awt.event.ActionListener() {
+        optmenu_Reportes_Comuna.add(optmenu_incidente);
+
+        optmenu_Reportes.setMnemonic('f');
+        optmenu_Reportes.setText("Reportes");
+        optmenu_Reportes.setEnabled(false);
+
+        optmenu_ingresar_incidente1.setMnemonic('o');
+        optmenu_ingresar_incidente1.setText("Incidentes por Barrio");
+        optmenu_ingresar_incidente1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                optmenu_reportesActionPerformed(evt);
+                optmenu_ingresar_incidente1ActionPerformed(evt);
             }
         });
-        optmenu_incidente.add(optmenu_reportes);
+        optmenu_Reportes.add(optmenu_ingresar_incidente1);
 
-        optmenu_salir.add(optmenu_incidente);
+        optmenu_actualizar_incidente1.setMnemonic('o');
+        optmenu_actualizar_incidente1.setText("Incidentes por Comuna");
+        optmenu_actualizar_incidente1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                optmenu_actualizar_incidente1ActionPerformed(evt);
+            }
+        });
+        optmenu_Reportes.add(optmenu_actualizar_incidente1);
 
-        menuBar.add(optmenu_salir);
+        optmenu_reporte_tipo_incidente_y_comuna_barrio.setMnemonic('o');
+        optmenu_reporte_tipo_incidente_y_comuna_barrio.setText("Incidentes por Tipo Incidente");
+        optmenu_reporte_tipo_incidente_y_comuna_barrio.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                optmenu_reporte_tipo_incidente_y_comuna_barrioActionPerformed(evt);
+            }
+        });
+        optmenu_Reportes.add(optmenu_reporte_tipo_incidente_y_comuna_barrio);
+
+        optmenu_actualizar_incidente3.setMnemonic('o');
+        optmenu_actualizar_incidente3.setText("Incidentes por Tipo y Comuna");
+        optmenu_actualizar_incidente3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                optmenu_actualizar_incidente3ActionPerformed(evt);
+            }
+        });
+        optmenu_Reportes.add(optmenu_actualizar_incidente3);
+
+        optmenu_actualizar_incidente4.setMnemonic('o');
+        optmenu_actualizar_incidente4.setText("Incidentes por Tipo, Comuna y Barrio");
+        optmenu_actualizar_incidente4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                optmenu_actualizar_incidente4ActionPerformed(evt);
+            }
+        });
+        optmenu_Reportes.add(optmenu_actualizar_incidente4);
+
+        optmenu_Reportes_Comuna.add(optmenu_Reportes);
+
+        menuBar.add(optmenu_Reportes_Comuna);
 
         setJMenuBar(menuBar);
 
@@ -321,6 +375,7 @@ public class MDIAinicio extends javax.swing.JFrame {
             optmenu_inscribete.setEnabled(false);
             optmenu_ciudadano.setEnabled(false);
             optmenu_ingresousuregistrado.setEnabled(false);
+            optmenu_Reportes.setEnabled(true);
             JOptionPane.showMessageDialog(this, "Bienvenido");
 
         } else {
@@ -359,14 +414,6 @@ public class MDIAinicio extends javax.swing.JFrame {
         actualizarIncidente.show();
     }//GEN-LAST:event_optmenu_actualizar_incidenteActionPerformed
 
-    private void optmenu_reportesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_optmenu_reportesActionPerformed
-        // TODO add your handling code here:
-         panel_login.dispose();
-        Form_Reportes fr = new Form_Reportes();
-        fondo.add(fr);
-        fr.show();
-    }//GEN-LAST:event_optmenu_reportesActionPerformed
-
     private void optmenu_ingresar_incidenteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_optmenu_ingresar_incidenteActionPerformed
         panel_login.dispose();
         Form_Ingresar_Incidente fii = new Form_Ingresar_Incidente(controlador);
@@ -394,10 +441,34 @@ public class MDIAinicio extends javax.swing.JFrame {
         optmenu_ingresousuregistrado.setEnabled(false);
         optmenu_inscribete.setEnabled(false);
         optmenu_actualizar_incidente.setEnabled(false);
-        optmenu_reportes.setEnabled(false);
+        optmenu_Reportes.setEnabled(true);
         optmenu_ciudadano.setEnabled(false);
 // TODO add your handling code here:
     }//GEN-LAST:event_optmenu_ciudadanoActionPerformed
+
+    private void optmenu_ingresar_incidente1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_optmenu_ingresar_incidente1ActionPerformed
+        // TODO add your handling code here:
+        panel_login.dispose();
+        Form_Reporte_Por_Barrio fr = new Form_Reporte_Por_Barrio(controlador);
+        fondo.add(fr);
+        fr.show();
+    }//GEN-LAST:event_optmenu_ingresar_incidente1ActionPerformed
+
+    private void optmenu_actualizar_incidente1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_optmenu_actualizar_incidente1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_optmenu_actualizar_incidente1ActionPerformed
+
+    private void optmenu_reporte_tipo_incidente_y_comuna_barrioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_optmenu_reporte_tipo_incidente_y_comuna_barrioActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_optmenu_reporte_tipo_incidente_y_comuna_barrioActionPerformed
+
+    private void optmenu_actualizar_incidente3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_optmenu_actualizar_incidente3ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_optmenu_actualizar_incidente3ActionPerformed
+
+    private void optmenu_actualizar_incidente4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_optmenu_actualizar_incidente4ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_optmenu_actualizar_incidente4ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -450,18 +521,25 @@ public class MDIAinicio extends javax.swing.JFrame {
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JMenuItem jMenuItem1;
+    private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextPane jTextPane1;
     private javax.swing.JMenuBar menuBar;
+    private javax.swing.JMenu optmenu_Reportes;
+    private javax.swing.JMenu optmenu_Reportes_Comuna;
     private javax.swing.JMenuItem optmenu_actualizar_incidente;
+    private javax.swing.JMenuItem optmenu_actualizar_incidente1;
+    private javax.swing.JMenuItem optmenu_actualizar_incidente3;
+    private javax.swing.JMenuItem optmenu_actualizar_incidente4;
     private javax.swing.JMenuItem optmenu_ciudadano;
     private javax.swing.JMenu optmenu_incidente;
     private javax.swing.JMenuItem optmenu_ingresar_incidente;
+    private javax.swing.JMenuItem optmenu_ingresar_incidente1;
     private javax.swing.JMenuItem optmenu_ingresousuregistrado;
     private javax.swing.JMenuItem optmenu_inscribete;
-    private javax.swing.JMenuItem optmenu_reportes;
-    private javax.swing.JMenu optmenu_salir;
+    private javax.swing.JMenuItem optmenu_reporte_tipo_incidente_y_comuna_barrio;
     private javax.swing.JInternalFrame panel_login;
     private javax.swing.JLabel titulo1;
     private javax.swing.JPasswordField txt_contraseña;
