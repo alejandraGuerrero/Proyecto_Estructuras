@@ -7,6 +7,8 @@ package Vista;
 
 import Controlador.Controlador;
 import javax.swing.JInternalFrame;
+import javax.swing.JMenu;
+import javax.swing.JMenuItem;
 import javax.swing.JOptionPane;
 
 /**
@@ -34,6 +36,33 @@ public class MDIAinicio extends javax.swing.JFrame {
 
     }
 
+    public JMenuItem getOptmenu_actualizar_incidente() {
+        return optmenu_actualizar_incidente;
+    }
+
+    public void setOptmenu_actualizar_incidente(JMenuItem optmenu_actualizar_incidente) {
+        this.optmenu_actualizar_incidente = optmenu_actualizar_incidente;
+    }
+
+    public JMenu getOptmenu_incidente() {
+        return optmenu_incidente;
+    }
+
+    public void setOptmenu_incidente(JMenu optmenu_incidente) {
+        this.optmenu_incidente = optmenu_incidente;
+    }
+
+    public JMenu getOptmenu_repo() {
+        return optmenu_repo;
+    }
+
+    public void setOptmenu_repo(JMenu optmenu_repo) {
+        this.optmenu_repo = optmenu_repo;
+    }
+
+   
+    
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -72,10 +101,10 @@ public class MDIAinicio extends javax.swing.JFrame {
         optmenu_inscribete = new javax.swing.JMenuItem();
         optmenu_ingresousuregistrado = new javax.swing.JMenuItem();
         optmenu_ciudadano = new javax.swing.JMenuItem();
-        optmenu_incidente = new javax.swing.JMenu();
+        optmenu_repo = new javax.swing.JMenu();
         optmenu_ingresar_incidente = new javax.swing.JMenuItem();
         optmenu_actualizar_incidente = new javax.swing.JMenuItem();
-        optmenu_Reportes = new javax.swing.JMenu();
+        optmenu_incidente = new javax.swing.JMenu();
         optmenu_ingresar_incidente1 = new javax.swing.JMenuItem();
         optmenu_actualizar_incidente1 = new javax.swing.JMenuItem();
         optmenu_reporte_tipo_incidente_y_comuna_barrio = new javax.swing.JMenuItem();
@@ -183,7 +212,7 @@ public class MDIAinicio extends javax.swing.JFrame {
                     .addComponent(txt_contraseña, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addComponent(btn_ingresar)
-                .addContainerGap(147, Short.MAX_VALUE))
+                .addContainerGap(150, Short.MAX_VALUE))
         );
 
         titulo1.setFont(new java.awt.Font("Comic Sans MS", 0, 18)); // NOI18N
@@ -264,9 +293,9 @@ public class MDIAinicio extends javax.swing.JFrame {
         });
         optmenu_Reportes_Comuna.add(optmenu_ciudadano);
 
-        optmenu_incidente.setMnemonic('f');
-        optmenu_incidente.setText("Gestionar Incidentes");
-        optmenu_incidente.setEnabled(false);
+        optmenu_repo.setMnemonic('f');
+        optmenu_repo.setText("Gestionar Incidentes");
+        optmenu_repo.setEnabled(false);
 
         optmenu_ingresar_incidente.setMnemonic('o');
         optmenu_ingresar_incidente.setText("Ingresar Incidente");
@@ -275,7 +304,7 @@ public class MDIAinicio extends javax.swing.JFrame {
                 optmenu_ingresar_incidenteActionPerformed(evt);
             }
         });
-        optmenu_incidente.add(optmenu_ingresar_incidente);
+        optmenu_repo.add(optmenu_ingresar_incidente);
 
         optmenu_actualizar_incidente.setMnemonic('o');
         optmenu_actualizar_incidente.setText("Actualizar Incidente");
@@ -284,13 +313,13 @@ public class MDIAinicio extends javax.swing.JFrame {
                 optmenu_actualizar_incidenteActionPerformed(evt);
             }
         });
-        optmenu_incidente.add(optmenu_actualizar_incidente);
+        optmenu_repo.add(optmenu_actualizar_incidente);
 
-        optmenu_Reportes_Comuna.add(optmenu_incidente);
+        optmenu_Reportes_Comuna.add(optmenu_repo);
 
-        optmenu_Reportes.setMnemonic('f');
-        optmenu_Reportes.setText("Reportes");
-        optmenu_Reportes.setEnabled(false);
+        optmenu_incidente.setMnemonic('f');
+        optmenu_incidente.setText("Reportes");
+        optmenu_incidente.setEnabled(false);
 
         optmenu_ingresar_incidente1.setMnemonic('o');
         optmenu_ingresar_incidente1.setText("Incidentes por Barrio");
@@ -299,7 +328,7 @@ public class MDIAinicio extends javax.swing.JFrame {
                 optmenu_ingresar_incidente1ActionPerformed(evt);
             }
         });
-        optmenu_Reportes.add(optmenu_ingresar_incidente1);
+        optmenu_incidente.add(optmenu_ingresar_incidente1);
 
         optmenu_actualizar_incidente1.setMnemonic('o');
         optmenu_actualizar_incidente1.setText("Incidentes por Comuna");
@@ -308,7 +337,7 @@ public class MDIAinicio extends javax.swing.JFrame {
                 optmenu_actualizar_incidente1ActionPerformed(evt);
             }
         });
-        optmenu_Reportes.add(optmenu_actualizar_incidente1);
+        optmenu_incidente.add(optmenu_actualizar_incidente1);
 
         optmenu_reporte_tipo_incidente_y_comuna_barrio.setMnemonic('o');
         optmenu_reporte_tipo_incidente_y_comuna_barrio.setText("Incidentes por Tipo Incidente");
@@ -317,7 +346,7 @@ public class MDIAinicio extends javax.swing.JFrame {
                 optmenu_reporte_tipo_incidente_y_comuna_barrioActionPerformed(evt);
             }
         });
-        optmenu_Reportes.add(optmenu_reporte_tipo_incidente_y_comuna_barrio);
+        optmenu_incidente.add(optmenu_reporte_tipo_incidente_y_comuna_barrio);
 
         optmenu_reporte_doble.setMnemonic('o');
         optmenu_reporte_doble.setText("Incidentes por Tipo y Comuna");
@@ -326,7 +355,7 @@ public class MDIAinicio extends javax.swing.JFrame {
                 optmenu_reporte_dobleActionPerformed(evt);
             }
         });
-        optmenu_Reportes.add(optmenu_reporte_doble);
+        optmenu_incidente.add(optmenu_reporte_doble);
 
         optmenu_actualizar_incidente4.setMnemonic('o');
         optmenu_actualizar_incidente4.setText("Incidentes por Tipo, Comuna y Barrio");
@@ -335,9 +364,9 @@ public class MDIAinicio extends javax.swing.JFrame {
                 optmenu_actualizar_incidente4ActionPerformed(evt);
             }
         });
-        optmenu_Reportes.add(optmenu_actualizar_incidente4);
+        optmenu_incidente.add(optmenu_actualizar_incidente4);
 
-        optmenu_Reportes_Comuna.add(optmenu_Reportes);
+        optmenu_Reportes_Comuna.add(optmenu_incidente);
 
         menuBar.add(optmenu_Reportes_Comuna);
 
@@ -371,11 +400,11 @@ public class MDIAinicio extends javax.swing.JFrame {
         if (getControlador().validarUsuario(txt_usuario.getText(), txt_contraseña.getText())) {
 
             panel_login.dispose();
-            optmenu_incidente.setEnabled(true);
+            optmenu_repo.setEnabled(true);
             optmenu_inscribete.setEnabled(false);
             optmenu_ciudadano.setEnabled(false);
             optmenu_ingresousuregistrado.setEnabled(false);
-            optmenu_Reportes.setEnabled(true);
+            optmenu_incidente.setEnabled(true);
             JOptionPane.showMessageDialog(this, "Bienvenido");
 
         } else {
@@ -435,12 +464,12 @@ public class MDIAinicio extends javax.swing.JFrame {
 
     private void optmenu_ciudadanoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_optmenu_ciudadanoActionPerformed
 
-        optmenu_incidente.setEnabled(true);
+        optmenu_repo.setEnabled(true);
         panel_login.dispose();
         optmenu_ingresousuregistrado.setEnabled(false);
         optmenu_inscribete.setEnabled(false);
         optmenu_actualizar_incidente.setEnabled(false);
-        optmenu_Reportes.setEnabled(true);
+        optmenu_incidente.setEnabled(true);
         optmenu_ciudadano.setEnabled(false);
 // TODO add your handling code here:
     }//GEN-LAST:event_optmenu_ciudadanoActionPerformed
@@ -539,7 +568,6 @@ public class MDIAinicio extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextPane jTextPane1;
     private javax.swing.JMenuBar menuBar;
-    private javax.swing.JMenu optmenu_Reportes;
     private javax.swing.JMenu optmenu_Reportes_Comuna;
     private javax.swing.JMenuItem optmenu_actualizar_incidente;
     private javax.swing.JMenuItem optmenu_actualizar_incidente1;
@@ -550,6 +578,7 @@ public class MDIAinicio extends javax.swing.JFrame {
     private javax.swing.JMenuItem optmenu_ingresar_incidente1;
     private javax.swing.JMenuItem optmenu_ingresousuregistrado;
     private javax.swing.JMenuItem optmenu_inscribete;
+    private javax.swing.JMenu optmenu_repo;
     private javax.swing.JMenuItem optmenu_reporte_doble;
     private javax.swing.JMenuItem optmenu_reporte_tipo_incidente_y_comuna_barrio;
     private javax.swing.JInternalFrame panel_login;

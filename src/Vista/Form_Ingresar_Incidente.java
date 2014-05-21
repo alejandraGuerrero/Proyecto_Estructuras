@@ -259,7 +259,7 @@ public class Form_Ingresar_Incidente extends javax.swing.JInternalFrame {
                 Comuna codigocomuna = controlador.buscarComuna(combo_comuna.getSelectedItem().toString());
                 Barrio codigobarrio = controlador.buscarBarrio(combo_barrio.getSelectedItem().toString());
 
-                Incidente incidente = new Incidente(controlador.getListaIncidentes().size()+1,descripcionincidente,new Date(),codigotipoincidente,codigotipoingreso,new Usuario("3002302551"),codigocomuna,codigobarrio);
+                Incidente incidente = new Incidente(controlador.getListaIncidentes().size()+1,descripcionincidente,new Date(),codigotipoincidente,codigotipoingreso,new Usuario("Ciudadano"),codigocomuna,codigobarrio);
                 controlador.guardarIncidente(incidente);
                 JOptionPane.showMessageDialog(null, "Se ha registrado exitosamente el Incidente");
                 this.dispose();

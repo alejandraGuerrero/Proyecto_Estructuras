@@ -139,7 +139,10 @@ public class Form_Ingresar extends javax.swing.JInternalFrame {
     private void btn_ingresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_ingresarActionPerformed
 
         if (getControlador().validarUsuario(txt_telefono_ingre.getText(), txt_contra_ingre.getText())) {
-
+            MDIAinicio md=new MDIAinicio();
+            md.getOptmenu_incidente().setEnabled(true);
+            md.getOptmenu_repo().setEnabled(true);
+            md.getOptmenu_actualizar_incidente().setEnabled(false);
             
             JOptionPane.showMessageDialog(this, "Bienvenido");
             this.dispose();

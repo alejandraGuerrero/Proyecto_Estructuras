@@ -181,7 +181,6 @@ public class Controlador {
     public void setListaIncicomunatipoybarrio(List<Incidente> listaIncicomunatipoybarrio) {
         this.listaIncicomunatipoybarrio = listaIncicomunatipoybarrio;
     }
-    
 
     public boolean isBoolEditar() {
         return boolEditar;
@@ -220,7 +219,6 @@ public class Controlador {
         this.listaIncicomunaytipo = listaIncicomunaytipo;
     }
 
-
     public void actualizarIncidente() {
         System.out.println("guardo la modificación");
     }
@@ -256,45 +254,45 @@ public class Controlador {
     public void cargarIncidentesPorBarrio(int intbarrio) {
         listaInci = new ArrayList<Incidente>();
         for (Incidente ls : listaIncidentes) {
-            if (ls.getBarrio().getBar_codigo()== intbarrio) {
+            if (ls.getBarrio().getBar_codigo() == intbarrio) {
                 listaInci.add(ls);
             }
         }
     }
-    
+
     public void cargarIncidentesPorComuna(int intcomuna) {
         listaIncicomuna = new ArrayList<Incidente>();
         for (Incidente ls : listaIncidentes) {
-            if (ls.getComuna().getCom_codigo()== intcomuna) {
+            if (ls.getComuna().getCom_codigo() == intcomuna) {
                 listaIncicomuna.add(ls);
             }
         }
     }
-    
-    public void cargarIncidentesPorComunaYTipo(int intcomuna,int inttipoinci) {
+
+    public void cargarIncidentesPorComunaYTipo(int intcomuna, int inttipoinci) {
         listaIncicomunaytipo = new ArrayList<Incidente>();
         for (Incidente ls : listaIncidentes) {
-            if (ls.getComuna().getCom_codigo()== intcomuna && ls.getTipo_incidente().getTipinc_codigo()==inttipoinci) {
+            if (ls.getComuna().getCom_codigo() == intcomuna && ls.getTipo_incidente().getTipinc_codigo() == inttipoinci) {
                 listaIncicomunaytipo.add(ls);
             }
         }
     }
-    
-    public void cargarIncidentesPorComunaTipoYBarrio(int intcomuna,int inttipoinci,int intbarrio) {
+
+    public void cargarIncidentesPorComunaTipoYBarrio(int intcomuna, int inttipoinci, int intbarrio) {
         listaIncicomunatipoybarrio = new ArrayList<Incidente>();
         for (Incidente ls : listaIncidentes) {
-            if (ls.getComuna().getCom_codigo()== intcomuna 
-                    && ls.getTipo_incidente().getTipinc_codigo()==inttipoinci
-                    && ls.getBarrio().getBar_codigo()== intbarrio) {
+            if (ls.getComuna().getCom_codigo() == intcomuna
+                    && ls.getTipo_incidente().getTipinc_codigo() == inttipoinci
+                    && ls.getBarrio().getBar_codigo() == intbarrio) {
                 listaIncicomunatipoybarrio.add(ls);
             }
         }
     }
-    
+
     public void cargarIncidentesPorTipo(int inttipo) {
         listaInciTipo = new ArrayList<Incidente>();
         for (Incidente ls : listaIncidentes) {
-            if (ls.getTipo_incidente().getTipinc_codigo()== inttipo) {
+            if (ls.getTipo_incidente().getTipinc_codigo() == inttipo) {
                 listaInciTipo.add(ls);
             }
         }
@@ -423,6 +421,7 @@ public class Controlador {
 
     public List<Usuario> CargarUsuarios() {
         //  listausuarios = new ArrayList<Usuario>();
+        usuario = new Usuario();
         usuario.setTelefono("0000000000");
         usuario.setUsu_nombre("cero");
         usuario.setPassword("000000");
@@ -430,7 +429,7 @@ public class Controlador {
         usuario.setUsu_direccion("--------------");
         usuario.setUsu_fechaRegistro(new Date());
         getListausuarios().add(usuario);
-
+        usuario = new Usuario();
         usuario.setTelefono("3002302551");
         usuario.setUsu_nombre("Administrador");
         usuario.setPassword("123456");
