@@ -99,7 +99,7 @@ public class Form_reporte_comuna extends javax.swing.JInternalFrame {
         jLabel3.setForeground(new java.awt.Color(255, 0, 204));
         jLabel3.setText("Reporte Por Comuna");
 
-        jLabel4.setText("Seleccione El barrio");
+        jLabel4.setText("Seleccione La Comuna");
 
         combo_comuna_reporte.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         combo_comuna_reporte.addActionListener(new java.awt.event.ActionListener() {
@@ -138,7 +138,7 @@ public class Form_reporte_comuna extends javax.swing.JInternalFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap(178, Short.MAX_VALUE)
+                .addContainerGap(164, Short.MAX_VALUE)
                 .addComponent(jLabel4)
                 .addGap(127, 127, 127)
                 .addComponent(combo_comuna_reporte, javax.swing.GroupLayout.PREFERRED_SIZE, 289, javax.swing.GroupLayout.PREFERRED_SIZE)
