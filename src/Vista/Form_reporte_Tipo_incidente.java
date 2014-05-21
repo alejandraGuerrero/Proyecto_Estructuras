@@ -230,11 +230,10 @@ public class Form_reporte_Tipo_incidente extends javax.swing.JInternalFrame {
 
             TipoInscidente codigotipo = controlador.buscarTipoIncidente(combo_tipo_reporte.getSelectedItem().toString());
             getControlador().cargarIncidentesPorTipo(codigotipo.getTipinc_codigo());
-
+            DefaultTableModel lstIncidente = (DefaultTableModel) tableListaIncidente.getModel();
             if (!getControlador().getListaInciTipo().isEmpty()) {
-                JOptionPane.showMessageDialog(null, "Se tienen " + getControlador().getListaInciTipo().size() + " Incidentes Registrados de Tipo " + codigotipo.getTipinc_descripcion());
+                JOptionPane.showMessageDialog(null, "Se tienen " + getControlador().getListaInciTipo().size() + " Incidentes Registrados de Tipo: " + codigotipo.getTipinc_descripcion());
                 tableListaIncidente.removeAll();
-                DefaultTableModel lstIncidente = (DefaultTableModel) tableListaIncidente.getModel();
 
                 int rowCount = lstIncidente.getRowCount();
                 for (int i = 0; i < rowCount; i++) {
@@ -244,9 +243,14 @@ public class Form_reporte_Tipo_incidente extends javax.swing.JInternalFrame {
                     lstIncidente.addRow(new Object[]{getControlador().getListaInciTipo().get(i).getTipo_incidente().getTipinc_descripcion(), getControlador().getListaInciTipo().get(i).getInc_codigoIncidente(), getControlador().getListaInciTipo().get(i).getInc_descripcionIncidente(), getControlador().getListaInciTipo().get(i).getInc_fechaIncidente(), getControlador().getListaInciTipo().get(i).getUsuario().getTelefono(), getControlador().getListaInciTipo().get(i).getBarrio().getBar_nombre()});
                 }
             } else {
-                tableListaIncidente.removeAll();
-                JOptionPane.showMessageDialog(null, "No tiene Se Tienen Incidentes de Tipo " + codigotipo.getTipinc_descripcion());
-                
+                JOptionPane.showMessageDialog(null, "No tiene Se Tienen Incidentes de Tipo: " + codigotipo.getTipinc_descripcion());
+                int rowCount = lstIncidente.getRowCount();
+                for (int i = 0; i < rowCount; i++) {
+                    lstIncidente.removeRow(i);
+                }
+                if (lstIncidente.getRowCount() > 0) {
+                    lstIncidente.removeRow(tableListaIncidente.getSelectedRow());
+                }
             }
         } else {
             JOptionPane.showMessageDialog(null, "Debe Seleccionar Un Tipo De Incidente");
