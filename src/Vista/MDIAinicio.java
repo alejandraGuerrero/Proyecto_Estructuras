@@ -392,7 +392,7 @@ public class MDIAinicio extends javax.swing.JFrame {
 
         panel_login.dispose();
         optmenu_ingresousuregistrado.setEnabled(true);
-        Form_Inscribirse prin = new Form_Inscribirse();
+        Form_Inscribirse prin = new Form_Inscribirse(controlador);
         fondo.add(prin);
         prin.show();
         // TODO add your handling code here:
@@ -428,7 +428,7 @@ public class MDIAinicio extends javax.swing.JFrame {
     private void optmenu_ingresousuregistradoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_optmenu_ingresousuregistradoActionPerformed
         // TODO add your handling code here:
         panel_login.dispose();
-        Form_Ingresar fin = new Form_Ingresar();
+        Form_Ingresar fin = new Form_Ingresar(controlador);
         fondo.add(fin);
         fin.show();
     }//GEN-LAST:event_optmenu_ingresousuregistradoActionPerformed

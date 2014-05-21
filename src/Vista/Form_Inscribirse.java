@@ -18,10 +18,11 @@ public class Form_Inscribirse extends javax.swing.JInternalFrame {
     /**
      * Creates new form JIPrincipal
      */
-    public Form_Inscribirse() {
+    public Form_Inscribirse(Controlador cont) {
+        this.controlador=cont;
         initComponents();
     }
-    private Controlador controlador = new Controlador();
+    private Controlador controlador;
 
     public Controlador getControlador() {
         return controlador;
