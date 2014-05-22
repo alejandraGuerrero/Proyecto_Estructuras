@@ -63,10 +63,24 @@ public class Form_Ingresar extends javax.swing.JInternalFrame {
         setResizable(true);
         setTitle("Menu");
 
+        labelnombre.setBackground(new java.awt.Color(255, 204, 255));
+        labelnombre.setFont(new java.awt.Font("Comic Sans MS", 1, 14)); // NOI18N
         labelnombre.setText("Telefono:");
 
+        labeltelefono.setBackground(new java.awt.Color(255, 204, 255));
+        labeltelefono.setFont(new java.awt.Font("Comic Sans MS", 1, 14)); // NOI18N
         labeltelefono.setText("Contraseña:");
 
+        txt_telefono_ingre.setBackground(new java.awt.Color(255, 204, 255));
+        txt_telefono_ingre.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
+        txt_telefono_ingre.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txt_telefono_ingreActionPerformed(evt);
+            }
+        });
+
+        btn_ingresar.setBackground(new java.awt.Color(255, 204, 255));
+        btn_ingresar.setFont(new java.awt.Font("Comic Sans MS", 1, 14)); // NOI18N
         btn_ingresar.setText("Ingresar");
         btn_ingresar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -74,6 +88,8 @@ public class Form_Ingresar extends javax.swing.JInternalFrame {
             }
         });
 
+        btn_cancelar.setBackground(new java.awt.Color(255, 204, 255));
+        btn_cancelar.setFont(new java.awt.Font("Comic Sans MS", 1, 14)); // NOI18N
         btn_cancelar.setText("Cancelar");
         btn_cancelar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -81,7 +97,9 @@ public class Form_Ingresar extends javax.swing.JInternalFrame {
             }
         });
 
-        jLabel3.setFont(new java.awt.Font("Comic Sans MS", 0, 14)); // NOI18N
+        txt_contra_ingre.setBackground(new java.awt.Color(255, 204, 255));
+
+        jLabel3.setFont(new java.awt.Font("Comic Sans MS", 1, 14)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(153, 0, 153));
         jLabel3.setText("INGRESO DE USUARIOS");
 
@@ -108,7 +126,7 @@ public class Form_Ingresar extends javax.swing.JInternalFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addGap(68, 68, 68)
                         .addComponent(jLabel3)))
-                .addContainerGap(32, Short.MAX_VALUE))
+                .addContainerGap(11, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -127,7 +145,7 @@ public class Form_Ingresar extends javax.swing.JInternalFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btn_ingresar)
                     .addComponent(btn_cancelar))
-                .addContainerGap(14, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         getAccessibleContext().setAccessibleName("Iniciar_Resgis");
@@ -162,6 +180,10 @@ public class Form_Ingresar extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
         this.dispose();
     }//GEN-LAST:event_btn_cancelarActionPerformed
+
+    private void txt_telefono_ingreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_telefono_ingreActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txt_telefono_ingreActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

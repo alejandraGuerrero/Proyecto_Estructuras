@@ -187,8 +187,7 @@ public class Form_Inscribirse extends javax.swing.JInternalFrame {
             } else {
                 JOptionPane.showMessageDialog(this, "El usuario ha sido registrado");
                 this.dispose();
-                MDIAinicio mm = new MDIAinicio();
-              
+                          
             }
 
         } else {
